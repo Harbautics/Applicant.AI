@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Assets">
+   </FileRef>
+   <FileRef
       location = "self:Applicant.AI.xcodeproj">
    </FileRef>
 </Workspace>

@@ -1,5 +1,5 @@
 This is the README for Applicant.AI.
 
-The folder structure will be the standard for all Xcode project. An assets folder has been created and should be used for all assets and will be sub divided into different folder based off of type.
+The folder structure will be the standard for all Xcode project. The assets folder in the Xcode should be used for all assets and will be sub divided into different folder based off of type.
 
 To run the project you have to do a git clone of the project and then open it up in Xcode (using the .xcodeproj file) and the click run.
