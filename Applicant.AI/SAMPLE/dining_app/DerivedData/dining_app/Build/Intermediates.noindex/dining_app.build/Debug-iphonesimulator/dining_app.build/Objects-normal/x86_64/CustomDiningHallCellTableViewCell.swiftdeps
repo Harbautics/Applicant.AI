@@ -1,0 +1,497 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "CustomDiningHallCellTableViewCell"
+provides-nominal:
+- "10dining_app029CustomDiningHallCellTableViewF0C"
+provides-member:
+- ["10dining_app029CustomDiningHallCellTableViewF0C", ""]
+provides-dynamic-lookup:
+- "DiningName"
+- "DiningType"
+- "OpenNow"
+- "accessoryButton"
+- "awakeFromNib"
+- "green"
+- "grey"
+- "layoutSubviews"
+- "red"
+- "setSelected"
+- "yellow"
+depends-top-level:
+- "AssignmentPrecedence"
+- "Bool"
+- !private "CastingPrecedence"
+- "CustomDiningHallCellTableViewCell"
+- "UIButton"
+- "UIColor"
+- "UILabel"
+- "UITableViewCell"
+depends-member:
+- !private ["Sa", "first"]
+- !private ["Sa", "flatMap"]
+- !private ["s23BidirectionalCollectionP", "first"]
+- !private ["s23BidirectionalCollectionP", "flatMap"]
+- ["So15CALayerDelegateP", "UIColor"]
+- !private ["So15CALayerDelegateP", "accessoryButton"]
+- !private ["So15CALayerDelegateP", "accessoryType"]
+- !private ["So15CALayerDelegateP", "awakeFromNib"]
+- !private ["So15CALayerDelegateP", "frame"]
+- !private ["So15CALayerDelegateP", "init"]
+- !private ["So15CALayerDelegateP", "layoutSubviews"]
+- !private ["So15CALayerDelegateP", "setSelected"]
+- !private ["So15CALayerDelegateP", "subviews"]
+- ["So15CALayerDelegateP", ""]
+- !private ["SC7CGPointV", "x"]
+- !private ["SC7CGPointV", "y"]
+- !private ["SC6CGRectV", "origin"]
+- ["s7CVarArgP", "UIColor"]
+- !private ["s7CVarArgP", "accessoryButton"]
+- !private ["s7CVarArgP", "accessoryType"]
+- !private ["s7CVarArgP", "awakeFromNib"]
+- !private ["s7CVarArgP", "first"]
+- !private ["s7CVarArgP", "flatMap"]
+- !private ["s7CVarArgP", "frame"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "layoutSubviews"]
+- !private ["s7CVarArgP", "setSelected"]
+- !private ["s7CVarArgP", "subviews"]
+- ["s7CVarArgP", ""]
+- !private ["s10CollectionP", "first"]
+- !private ["s10CollectionP", "flatMap"]
+- ["s28CustomDebugStringConvertibleP", "UIColor"]
+- !private ["s28CustomDebugStringConvertibleP", "accessoryButton"]
+- !private ["s28CustomDebugStringConvertibleP", "accessoryType"]
+- !private ["s28CustomDebugStringConvertibleP", "awakeFromNib"]
+- !private ["s28CustomDebugStringConvertibleP", "first"]
+- !private ["s28CustomDebugStringConvertibleP", "flatMap"]
+- !private ["s28CustomDebugStringConvertibleP", "frame"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "layoutSubviews"]
+- !private ["s28CustomDebugStringConvertibleP", "origin"]
+- !private ["s28CustomDebugStringConvertibleP", "setSelected"]
+- !private ["s28CustomDebugStringConvertibleP", "subviews"]
+- !private ["s28CustomDebugStringConvertibleP", "x"]
+- !private ["s28CustomDebugStringConvertibleP", "y"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "Bool"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "DiningName"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "DiningType"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "OpenNow"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "UIButton"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "UIColor"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "UILabel"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "accessoryButton"]
+- !private ["10dining_app029CustomDiningHallCellTableViewF0C", "accessoryType"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "awakeFromNib"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "deinit"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "green"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "grey"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "init"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "layoutSubviews"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "red"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "setSelected"]
+- !private ["10dining_app029CustomDiningHallCellTableViewF0C", "subviews"]
+- ["10dining_app029CustomDiningHallCellTableViewF0C", "yellow"]
+- !private ["s29CustomPlaygroundQuickLookableP", "origin"]
+- !private ["s29CustomPlaygroundQuickLookableP", "x"]
+- !private ["s29CustomPlaygroundQuickLookableP", "y"]
+- !private ["s17CustomReflectableP", "first"]
+- !private ["s17CustomReflectableP", "flatMap"]
+- !private ["s17CustomReflectableP", "origin"]
+- !private ["s17CustomReflectableP", "x"]
+- !private ["s17CustomReflectableP", "y"]
+- ["s23CustomStringConvertibleP", "UIColor"]
+- !private ["s23CustomStringConvertibleP", "accessoryButton"]
+- !private ["s23CustomStringConvertibleP", "accessoryType"]
+- !private ["s23CustomStringConvertibleP", "awakeFromNib"]
+- !private ["s23CustomStringConvertibleP", "first"]
+- !private ["s23CustomStringConvertibleP", "flatMap"]
+- !private ["s23CustomStringConvertibleP", "frame"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "layoutSubviews"]
+- !private ["s23CustomStringConvertibleP", "setSelected"]
+- !private ["s23CustomStringConvertibleP", "subviews"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s9DecodableP", "first"]
+- !private ["s9DecodableP", "flatMap"]
+- !private ["s9DecodableP", "origin"]
+- !private ["s9DecodableP", "x"]
+- !private ["s9DecodableP", "y"]
+- !private ["s9EncodableP", "first"]
+- !private ["s9EncodableP", "flatMap"]
+- !private ["s9EncodableP", "origin"]
+- !private ["s9EncodableP", "x"]
+- !private ["s9EncodableP", "y"]
+- ["s9EquatableP", "UIColor"]
+- !private ["s9EquatableP", "accessoryButton"]
+- !private ["s9EquatableP", "accessoryType"]
+- !private ["s9EquatableP", "awakeFromNib"]
+- !private ["s9EquatableP", "disclosureIndicator"]
+- !private ["s9EquatableP", "frame"]
+- ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "layoutSubviews"]
+- !private ["s9EquatableP", "origin"]
+- !private ["s9EquatableP", "setSelected"]
+- !private ["s9EquatableP", "subviews"]
+- !private ["s9EquatableP", "x"]
+- !private ["s9EquatableP", "y"]
+- ["s9EquatableP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "first"]
+- !private ["s25ExpressibleByArrayLiteralP", "flatMap"]
+- ["s8HashableP", "UIColor"]
+- !private ["s8HashableP", "accessoryButton"]
+- !private ["s8HashableP", "accessoryType"]
+- !private ["s8HashableP", "awakeFromNib"]
+- !private ["s8HashableP", "disclosureIndicator"]
+- !private ["s8HashableP", "frame"]
+- ["s8HashableP", "init"]
+- !private ["s8HashableP", "layoutSubviews"]
+- !private ["s8HashableP", "setSelected"]
+- !private ["s8HashableP", "subviews"]
+- ["s8HashableP", ""]
+- !private ["s17MutableCollectionP", "first"]
+- !private ["s17MutableCollectionP", "flatMap"]
+- ["So8NSCodingP", "UIColor"]
+- !private ["So8NSCodingP", "accessoryButton"]
+- !private ["So8NSCodingP", "accessoryType"]
+- !private ["So8NSCodingP", "awakeFromNib"]
+- !private ["So8NSCodingP", "frame"]
+- ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "layoutSubviews"]
+- !private ["So8NSCodingP", "setSelected"]
+- !private ["So8NSCodingP", "subviews"]
+- ["So8NSCodingP", ""]
+- ["So9NSCopyingP", "init"]
+- ["So21NSItemProviderReadingP", "init"]
+- ["So21NSItemProviderWritingP", "init"]
+- ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "DiningName"]
+- ["So8NSObjectC", "DiningType"]
+- ["So8NSObjectC", "OpenNow"]
+- ["So8NSObjectC", "UIButton"]
+- ["So8NSObjectC", "UIColor"]
+- ["So8NSObjectC", "UILabel"]
+- ["So8NSObjectC", "accessoryButton"]
+- !private ["So8NSObjectC", "accessoryType"]
+- ["So8NSObjectC", "awakeFromNib"]
+- !private ["So8NSObjectC", "frame"]
+- ["So8NSObjectC", "green"]
+- ["So8NSObjectC", "grey"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "layoutSubviews"]
+- ["So8NSObjectC", "red"]
+- ["So8NSObjectC", "setSelected"]
+- !private ["So8NSObjectC", "subviews"]
+- ["So8NSObjectC", "yellow"]
+- ["So16NSObjectProtocolP", "UIColor"]
+- !private ["So16NSObjectProtocolP", "accessoryButton"]
+- !private ["So16NSObjectProtocolP", "accessoryType"]
+- !private ["So16NSObjectProtocolP", "awakeFromNib"]
+- !private ["So16NSObjectProtocolP", "frame"]
+- ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "layoutSubviews"]
+- !private ["So16NSObjectProtocolP", "setSelected"]
+- !private ["So16NSObjectProtocolP", "subviews"]
+- ["So16NSObjectProtocolP", ""]
+- ["So14NSSecureCodingP", "init"]
+- !private ["s22RandomAccessCollectionP", "first"]
+- !private ["s22RandomAccessCollectionP", "flatMap"]
+- !private ["s26RangeReplaceableCollectionP", "first"]
+- !private ["s26RangeReplaceableCollectionP", "flatMap"]
+- !private ["s16RawRepresentableP", "disclosureIndicator"]
+- !private ["s8SequenceP", "first"]
+- !private ["s8SequenceP", "flatMap"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "frame"]
+- ["So29UIAccessibilityIdentificationP", "UIColor"]
+- !private ["So29UIAccessibilityIdentificationP", "accessoryButton"]
+- !private ["So29UIAccessibilityIdentificationP", "accessoryType"]
+- !private ["So29UIAccessibilityIdentificationP", "awakeFromNib"]
+- !private ["So29UIAccessibilityIdentificationP", "frame"]
+- !private ["So29UIAccessibilityIdentificationP", "init"]
+- !private ["So29UIAccessibilityIdentificationP", "layoutSubviews"]
+- !private ["So29UIAccessibilityIdentificationP", "setSelected"]
+- !private ["So29UIAccessibilityIdentificationP", "subviews"]
+- ["So29UIAccessibilityIdentificationP", ""]
+- ["So12UIAppearanceP", "UIColor"]
+- !private ["So12UIAppearanceP", "accessoryButton"]
+- !private ["So12UIAppearanceP", "accessoryType"]
+- !private ["So12UIAppearanceP", "awakeFromNib"]
+- !private ["So12UIAppearanceP", "frame"]
+- !private ["So12UIAppearanceP", "init"]
+- !private ["So12UIAppearanceP", "layoutSubviews"]
+- !private ["So12UIAppearanceP", "setSelected"]
+- !private ["So12UIAppearanceP", "subviews"]
+- ["So12UIAppearanceP", ""]
+- ["So21UIAppearanceContainerP", "UIColor"]
+- !private ["So21UIAppearanceContainerP", "accessoryButton"]
+- !private ["So21UIAppearanceContainerP", "accessoryType"]
+- !private ["So21UIAppearanceContainerP", "awakeFromNib"]
+- !private ["So21UIAppearanceContainerP", "frame"]
+- !private ["So21UIAppearanceContainerP", "init"]
+- !private ["So21UIAppearanceContainerP", "layoutSubviews"]
+- !private ["So21UIAppearanceContainerP", "setSelected"]
+- !private ["So21UIAppearanceContainerP", "subviews"]
+- ["So21UIAppearanceContainerP", ""]
+- !private ["So8UIButtonC", "frame"]
+- ["So7UIColorC", "init"]
+- !private ["So9UIControlC", "frame"]
+- ["So17UICoordinateSpaceP", "UIColor"]
+- !private ["So17UICoordinateSpaceP", "accessoryButton"]
+- !private ["So17UICoordinateSpaceP", "accessoryType"]
+- !private ["So17UICoordinateSpaceP", "awakeFromNib"]
+- !private ["So17UICoordinateSpaceP", "frame"]
+- !private ["So17UICoordinateSpaceP", "init"]
+- !private ["So17UICoordinateSpaceP", "layoutSubviews"]
+- !private ["So17UICoordinateSpaceP", "setSelected"]
+- !private ["So17UICoordinateSpaceP", "subviews"]
+- ["So17UICoordinateSpaceP", ""]
+- ["So13UIDynamicItemP", "UIColor"]
+- !private ["So13UIDynamicItemP", "accessoryButton"]
+- !private ["So13UIDynamicItemP", "accessoryType"]
+- !private ["So13UIDynamicItemP", "awakeFromNib"]
+- !private ["So13UIDynamicItemP", "frame"]
+- !private ["So13UIDynamicItemP", "init"]
+- !private ["So13UIDynamicItemP", "layoutSubviews"]
+- !private ["So13UIDynamicItemP", "setSelected"]
+- !private ["So13UIDynamicItemP", "subviews"]
+- ["So13UIDynamicItemP", ""]
+- ["So18UIFocusEnvironmentP", "UIColor"]
+- !private ["So18UIFocusEnvironmentP", "accessoryButton"]
+- !private ["So18UIFocusEnvironmentP", "accessoryType"]
+- !private ["So18UIFocusEnvironmentP", "awakeFromNib"]
+- !private ["So18UIFocusEnvironmentP", "frame"]
+- !private ["So18UIFocusEnvironmentP", "init"]
+- !private ["So18UIFocusEnvironmentP", "layoutSubviews"]
+- !private ["So18UIFocusEnvironmentP", "setSelected"]
+- !private ["So18UIFocusEnvironmentP", "subviews"]
+- ["So18UIFocusEnvironmentP", ""]
+- ["So11UIFocusItemP", "UIColor"]
+- !private ["So11UIFocusItemP", "accessoryButton"]
+- !private ["So11UIFocusItemP", "accessoryType"]
+- !private ["So11UIFocusItemP", "awakeFromNib"]
+- !private ["So11UIFocusItemP", "frame"]
+- !private ["So11UIFocusItemP", "init"]
+- !private ["So11UIFocusItemP", "layoutSubviews"]
+- !private ["So11UIFocusItemP", "setSelected"]
+- !private ["So11UIFocusItemP", "subviews"]
+- ["So11UIFocusItemP", ""]
+- ["So27UIGestureRecognizerDelegateP", "UIColor"]
+- !private ["So27UIGestureRecognizerDelegateP", "accessoryButton"]
+- !private ["So27UIGestureRecognizerDelegateP", "accessoryType"]
+- !private ["So27UIGestureRecognizerDelegateP", "awakeFromNib"]
+- !private ["So27UIGestureRecognizerDelegateP", "init"]
+- !private ["So27UIGestureRecognizerDelegateP", "layoutSubviews"]
+- !private ["So27UIGestureRecognizerDelegateP", "setSelected"]
+- !private ["So27UIGestureRecognizerDelegateP", "subviews"]
+- ["So27UIGestureRecognizerDelegateP", ""]
+- ["So30UIPasteConfigurationSupportingP", "UIColor"]
+- !private ["So30UIPasteConfigurationSupportingP", "accessoryButton"]
+- !private ["So30UIPasteConfigurationSupportingP", "accessoryType"]
+- !private ["So30UIPasteConfigurationSupportingP", "awakeFromNib"]
+- !private ["So30UIPasteConfigurationSupportingP", "frame"]
+- !private ["So30UIPasteConfigurationSupportingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "layoutSubviews"]
+- !private ["So30UIPasteConfigurationSupportingP", "setSelected"]
+- !private ["So30UIPasteConfigurationSupportingP", "subviews"]
+- ["So30UIPasteConfigurationSupportingP", ""]
+- ["So11UIResponderC", "Bool"]
+- ["So11UIResponderC", "DiningName"]
+- ["So11UIResponderC", "DiningType"]
+- ["So11UIResponderC", "OpenNow"]
+- ["So11UIResponderC", "UIButton"]
+- ["So11UIResponderC", "UIColor"]
+- ["So11UIResponderC", "UILabel"]
+- ["So11UIResponderC", "accessoryButton"]
+- !private ["So11UIResponderC", "accessoryType"]
+- ["So11UIResponderC", "awakeFromNib"]
+- !private ["So11UIResponderC", "frame"]
+- ["So11UIResponderC", "green"]
+- ["So11UIResponderC", "grey"]
+- ["So11UIResponderC", "init"]
+- ["So11UIResponderC", "layoutSubviews"]
+- ["So11UIResponderC", "red"]
+- ["So11UIResponderC", "setSelected"]
+- !private ["So11UIResponderC", "subviews"]
+- ["So11UIResponderC", "yellow"]
+- ["So30UIResponderStandardEditActionsP", "UIColor"]
+- !private ["So30UIResponderStandardEditActionsP", "accessoryButton"]
+- !private ["So30UIResponderStandardEditActionsP", "accessoryType"]
+- !private ["So30UIResponderStandardEditActionsP", "awakeFromNib"]
+- !private ["So30UIResponderStandardEditActionsP", "frame"]
+- !private ["So30UIResponderStandardEditActionsP", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "layoutSubviews"]
+- !private ["So30UIResponderStandardEditActionsP", "setSelected"]
+- !private ["So30UIResponderStandardEditActionsP", "subviews"]
+- ["So30UIResponderStandardEditActionsP", ""]
+- !private ["So35UISpringLoadedInteractionSupportingP", "frame"]
+- ["So15UITableViewCellC", "Bool"]
+- ["So15UITableViewCellC", "DiningName"]
+- ["So15UITableViewCellC", "DiningType"]
+- ["So15UITableViewCellC", "OpenNow"]
+- ["So15UITableViewCellC", "UIButton"]
+- ["So15UITableViewCellC", "UIColor"]
+- ["So15UITableViewCellC", "UILabel"]
+- ["So15UITableViewCellC", "accessoryButton"]
+- !private ["So15UITableViewCellC", "accessoryType"]
+- ["So15UITableViewCellC", "awakeFromNib"]
+- ["So15UITableViewCellC", "green"]
+- ["So15UITableViewCellC", "grey"]
+- ["So15UITableViewCellC", "init"]
+- ["So15UITableViewCellC", "layoutSubviews"]
+- ["So15UITableViewCellC", "red"]
+- ["So15UITableViewCellC", "setSelected"]
+- !private ["So15UITableViewCellC", "subviews"]
+- ["So15UITableViewCellC", "yellow"]
+- ["So15UITableViewCellC", ""]
+- !private ["SC28UITableViewCellAccessoryTypeO", "disclosureIndicator"]
+- ["So18UITraitEnvironmentP", "UIColor"]
+- !private ["So18UITraitEnvironmentP", "accessoryButton"]
+- !private ["So18UITraitEnvironmentP", "accessoryType"]
+- !private ["So18UITraitEnvironmentP", "awakeFromNib"]
+- !private ["So18UITraitEnvironmentP", "frame"]
+- !private ["So18UITraitEnvironmentP", "init"]
+- !private ["So18UITraitEnvironmentP", "layoutSubviews"]
+- !private ["So18UITraitEnvironmentP", "setSelected"]
+- !private ["So18UITraitEnvironmentP", "subviews"]
+- ["So18UITraitEnvironmentP", ""]
+- ["So6UIViewC", "Bool"]
+- ["So6UIViewC", "DiningName"]
+- ["So6UIViewC", "DiningType"]
+- ["So6UIViewC", "OpenNow"]
+- ["So6UIViewC", "UIButton"]
+- ["So6UIViewC", "UIColor"]
+- ["So6UIViewC", "UILabel"]
+- ["So6UIViewC", "accessoryButton"]
+- !private ["So6UIViewC", "accessoryType"]
+- ["So6UIViewC", "awakeFromNib"]
+- !private ["So6UIViewC", "frame"]
+- ["So6UIViewC", "green"]
+- ["So6UIViewC", "grey"]
+- ["So6UIViewC", "init"]
+- ["So6UIViewC", "layoutSubviews"]
+- ["So6UIViewC", "red"]
+- ["So6UIViewC", "setSelected"]
+- !private ["So6UIViewC", "subviews"]
+- ["So6UIViewC", "yellow"]
+- !private ["s14_ArrayProtocolP", "first"]
+- !private ["s14_ArrayProtocolP", "flatMap"]
+- !private ["s23_BidirectionalIndexableP", "first"]
+- !private ["s23_BidirectionalIndexableP", "flatMap"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", "UIColor"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "accessoryButton"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "accessoryType"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "awakeFromNib"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "frame"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "init"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "layoutSubviews"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "setSelected"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "subviews"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", ""]
+- !private ["s24_DestructorSafeContainerP", "first"]
+- !private ["s24_DestructorSafeContainerP", "flatMap"]
+- ["s26_ExpressibleByColorLiteralP", "init"]
+- !private ["s10_IndexableP", "first"]
+- !private ["s10_IndexableP", "flatMap"]
+- !private ["s14_IndexableBaseP", "first"]
+- !private ["s14_IndexableBaseP", "flatMap"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "accessoryButton"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "accessoryType"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "awakeFromNib"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "frame"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "layoutSubviews"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "setSelected"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "subviews"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["s17_MutableIndexableP", "first"]
+- !private ["s17_MutableIndexableP", "flatMap"]
+- !private ["s21_ObjectiveCBridgeableP", "first"]
+- !private ["s21_ObjectiveCBridgeableP", "flatMap"]
+- !private ["s21_ObjectiveCBridgeableP", "origin"]
+- !private ["s21_ObjectiveCBridgeableP", "x"]
+- !private ["s21_ObjectiveCBridgeableP", "y"]
+- !private ["s22_RandomAccessIndexableP", "first"]
+- !private ["s22_RandomAccessIndexableP", "flatMap"]
+- !private ["s26_RangeReplaceableIndexableP", "first"]
+- !private ["s26_RangeReplaceableIndexableP", "flatMap"]
+depends-nominal:
+- !private "Sa"
+- !private "s23BidirectionalCollectionP"
+- "So15CALayerDelegateP"
+- !private "SC7CGPointV"
+- !private "SC6CGRectV"
+- "s7CVarArgP"
+- !private "s10CollectionP"
+- "s28CustomDebugStringConvertibleP"
+- "10dining_app029CustomDiningHallCellTableViewF0C"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
+- "s9EquatableP"
+- !private "s25ExpressibleByArrayLiteralP"
+- "s8HashableP"
+- !private "s17MutableCollectionP"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- "So21NSItemProviderReadingP"
+- "So21NSItemProviderWritingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- "So14NSSecureCodingP"
+- !private "s22RandomAccessCollectionP"
+- !private "s26RangeReplaceableCollectionP"
+- !private "s16RawRepresentableP"
+- !private "s8SequenceP"
+- !private "So48UIAccessibilityContentSizeCategoryImageAdjustingP"
+- "So29UIAccessibilityIdentificationP"
+- "So12UIAppearanceP"
+- "So21UIAppearanceContainerP"
+- !private "So8UIButtonC"
+- "So7UIColorC"
+- !private "So9UIControlC"
+- "So17UICoordinateSpaceP"
+- "So13UIDynamicItemP"
+- "So18UIFocusEnvironmentP"
+- "So11UIFocusItemP"
+- "So27UIGestureRecognizerDelegateP"
+- "So30UIPasteConfigurationSupportingP"
+- "So11UIResponderC"
+- "So30UIResponderStandardEditActionsP"
+- !private "So35UISpringLoadedInteractionSupportingP"
+- "So15UITableViewCellC"
+- !private "SC28UITableViewCellAccessoryTypeO"
+- "So18UITraitEnvironmentP"
+- "So6UIViewC"
+- !private "s14_ArrayProtocolP"
+- !private "s23_BidirectionalIndexableP"
+- "s37_DefaultCustomPlaygroundQuickLookableP"
+- !private "s24_DestructorSafeContainerP"
+- "s26_ExpressibleByColorLiteralP"
+- !private "s10_IndexableP"
+- !private "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s17_MutableIndexableP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s22_RandomAccessIndexableP"
+- !private "s26_RangeReplaceableIndexableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "4c26ab5b57b979b3b3cccb9c9b701c02"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>dining</string>
+	<string>MapKit</string>
+	<string>XCTest</string>
+	<string>UserNotifications</string>
+	<string>UserNotificationsUI</string>
+	<string>HealthKit</string>
+	<string>UIKit</string>
+	<string>CoreLocation</string>
+	<string>Foundation</string>
+</array>
+</plist>

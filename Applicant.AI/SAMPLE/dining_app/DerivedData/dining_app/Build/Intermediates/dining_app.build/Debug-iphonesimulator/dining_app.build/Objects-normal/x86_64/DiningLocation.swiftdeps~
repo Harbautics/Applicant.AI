@@ -1,0 +1,682 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "DiningLocation"
+provides-nominal:
+- "C10dining_app14DiningLocation"
+- "OC10dining_app14DiningLocation18DiningLocationType"
+- "VC10dining_app14DiningLocation7Address"
+provides-member:
+- ["C10dining_app14DiningLocation", ""]
+- ["OC10dining_app14DiningLocation18DiningLocationType", ""]
+- ["VC10dining_app14DiningLocation7Address", ""]
+provides-dynamic-lookup:
+- "contactEmail"
+- "contactPhone"
+- "coordinate"
+- "description"
+- "detailedHours"
+- "encode"
+- "hours"
+- "id"
+- "name"
+depends-top-level:
+- "=="
+- "AssignmentPrecedence"
+- "CLLocationCoordinate2D"
+- "CastingPrecedence"
+- "CustomStringConvertible"
+- "DiningLocation"
+- "Int"
+- "JSON"
+- "NSCoder"
+- "NSCoding"
+- "NSObject"
+- "String"
+- "StringLiteralType"
+- !private "UnicodeScalarType"
+- !private "~="
+depends-member:
+- ["VC10dining_app14DiningLocation7Address", "String"]
+- ["VC10dining_app14DiningLocation7Address", "city"]
+- ["VC10dining_app14DiningLocation7Address", "deinit"]
+- ["VC10dining_app14DiningLocation7Address", "description"]
+- ["VC10dining_app14DiningLocation7Address", "fullAddress"]
+- ["VC10dining_app14DiningLocation7Address", "init"]
+- ["VC10dining_app14DiningLocation7Address", "state"]
+- ["VC10dining_app14DiningLocation7Address", "street"]
+- ["VC10dining_app14DiningLocation7Address", "zip"]
+- !private ["Ps9AnyObject", "Address"]
+- !private ["Ps9AnyObject", "CLLocationCoordinate2D"]
+- !private ["Ps9AnyObject", "DiningLocation"]
+- !private ["Ps9AnyObject", "DiningLocationType"]
+- !private ["Ps9AnyObject", "PropertyKey"]
+- !private ["Ps9AnyObject", "String"]
+- !private ["Ps9AnyObject", "address"]
+- !private ["Ps9AnyObject", "capacity"]
+- !private ["Ps9AnyObject", "contactEmail"]
+- !private ["Ps9AnyObject", "contactPhone"]
+- !private ["Ps9AnyObject", "containsValue"]
+- !private ["Ps9AnyObject", "coordinate"]
+- !private ["Ps9AnyObject", "currentOccupancy"]
+- !private ["Ps9AnyObject", "decodeDouble"]
+- !private ["Ps9AnyObject", "decodeInteger"]
+- !private ["Ps9AnyObject", "decodeObject"]
+- !private ["Ps9AnyObject", "detailedHours"]
+- ["Ps9AnyObject", "encode"]
+- ["Ps9AnyObject", "encodeWithCoder"]
+- !private ["Ps9AnyObject", "hours"]
+- !private ["Ps9AnyObject", "id"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "name"]
+- !private ["Ps9AnyObject", "type"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "append"]
+- !private ["Sa", "init"]
+- !private ["Ps23BidirectionalCollection", "append"]
+- !private ["Ps23BidirectionalCollection", "init"]
+- !private ["Ps17BitwiseOperations", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["VSC22CLLocationCoordinate2D", "init"]
+- !private ["VSC22CLLocationCoordinate2D", "latitude"]
+- !private ["VSC22CLLocationCoordinate2D", "longitude"]
+- !private ["Ps7CVarArg", "Address"]
+- !private ["Ps7CVarArg", "CLLocationCoordinate2D"]
+- !private ["Ps7CVarArg", "DiningLocation"]
+- !private ["Ps7CVarArg", "DiningLocationType"]
+- !private ["Ps7CVarArg", "PropertyKey"]
+- !private ["Ps7CVarArg", "String"]
+- !private ["Ps7CVarArg", "address"]
+- !private ["Ps7CVarArg", "append"]
+- !private ["Ps7CVarArg", "capacity"]
+- !private ["Ps7CVarArg", "contactEmail"]
+- !private ["Ps7CVarArg", "contactPhone"]
+- !private ["Ps7CVarArg", "containsValue"]
+- !private ["Ps7CVarArg", "coordinate"]
+- !private ["Ps7CVarArg", "currentOccupancy"]
+- !private ["Ps7CVarArg", "decodeDouble"]
+- !private ["Ps7CVarArg", "decodeInteger"]
+- !private ["Ps7CVarArg", "decodeObject"]
+- !private ["Ps7CVarArg", "detailedHours"]
+- ["Ps7CVarArg", "encode"]
+- ["Ps7CVarArg", "encodeWithCoder"]
+- !private ["Ps7CVarArg", "hashValue"]
+- !private ["Ps7CVarArg", "hours"]
+- !private ["Ps7CVarArg", "id"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "name"]
+- !private ["Ps7CVarArg", "subscript"]
+- !private ["Ps7CVarArg", "type"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Collection", "append"]
+- !private ["Ps10Collection", "array"]
+- !private ["Ps10Collection", "double"]
+- !private ["Ps10Collection", "init"]
+- !private ["Ps10Collection", "int"]
+- !private ["Ps10Collection", "string"]
+- !private ["Ps10Collection", "subscript"]
+- !private ["Ps10Comparable", "array"]
+- !private ["Ps10Comparable", "double"]
+- !private ["Ps10Comparable", "hashValue"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "int"]
+- !private ["Ps10Comparable", "string"]
+- !private ["Ps10Comparable", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "Address"]
+- !private ["Ps28CustomDebugStringConvertible", "CLLocationCoordinate2D"]
+- !private ["Ps28CustomDebugStringConvertible", "DiningLocation"]
+- !private ["Ps28CustomDebugStringConvertible", "DiningLocationType"]
+- !private ["Ps28CustomDebugStringConvertible", "PropertyKey"]
+- !private ["Ps28CustomDebugStringConvertible", "String"]
+- !private ["Ps28CustomDebugStringConvertible", "address"]
+- !private ["Ps28CustomDebugStringConvertible", "append"]
+- !private ["Ps28CustomDebugStringConvertible", "array"]
+- !private ["Ps28CustomDebugStringConvertible", "capacity"]
+- !private ["Ps28CustomDebugStringConvertible", "contactEmail"]
+- !private ["Ps28CustomDebugStringConvertible", "contactPhone"]
+- !private ["Ps28CustomDebugStringConvertible", "containsValue"]
+- !private ["Ps28CustomDebugStringConvertible", "coordinate"]
+- !private ["Ps28CustomDebugStringConvertible", "currentOccupancy"]
+- !private ["Ps28CustomDebugStringConvertible", "decodeDouble"]
+- !private ["Ps28CustomDebugStringConvertible", "decodeInteger"]
+- !private ["Ps28CustomDebugStringConvertible", "decodeObject"]
+- !private ["Ps28CustomDebugStringConvertible", "detailedHours"]
+- !private ["Ps28CustomDebugStringConvertible", "double"]
+- ["Ps28CustomDebugStringConvertible", "encode"]
+- ["Ps28CustomDebugStringConvertible", "encodeWithCoder"]
+- !private ["Ps28CustomDebugStringConvertible", "hours"]
+- !private ["Ps28CustomDebugStringConvertible", "id"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "int"]
+- !private ["Ps28CustomDebugStringConvertible", "name"]
+- !private ["Ps28CustomDebugStringConvertible", "string"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "type"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "append"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "subscript"]
+- !private ["Ps23CustomStringConvertible", "Address"]
+- !private ["Ps23CustomStringConvertible", "CLLocationCoordinate2D"]
+- !private ["Ps23CustomStringConvertible", "DiningLocation"]
+- !private ["Ps23CustomStringConvertible", "DiningLocationType"]
+- !private ["Ps23CustomStringConvertible", "PropertyKey"]
+- !private ["Ps23CustomStringConvertible", "String"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "address"]
+- !private ["Ps23CustomStringConvertible", "append"]
+- !private ["Ps23CustomStringConvertible", "array"]
+- !private ["Ps23CustomStringConvertible", "capacity"]
+- !private ["Ps23CustomStringConvertible", "city"]
+- !private ["Ps23CustomStringConvertible", "contactEmail"]
+- !private ["Ps23CustomStringConvertible", "contactPhone"]
+- !private ["Ps23CustomStringConvertible", "containsValue"]
+- !private ["Ps23CustomStringConvertible", "coordinate"]
+- !private ["Ps23CustomStringConvertible", "currentOccupancy"]
+- !private ["Ps23CustomStringConvertible", "decodeDouble"]
+- !private ["Ps23CustomStringConvertible", "decodeInteger"]
+- !private ["Ps23CustomStringConvertible", "decodeObject"]
+- ["Ps23CustomStringConvertible", "description"]
+- !private ["Ps23CustomStringConvertible", "detailedHours"]
+- !private ["Ps23CustomStringConvertible", "double"]
+- ["Ps23CustomStringConvertible", "encode"]
+- ["Ps23CustomStringConvertible", "encodeWithCoder"]
+- !private ["Ps23CustomStringConvertible", "fullAddress"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
+- !private ["Ps23CustomStringConvertible", "hours"]
+- !private ["Ps23CustomStringConvertible", "id"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "int"]
+- !private ["Ps23CustomStringConvertible", "name"]
+- !private ["Ps23CustomStringConvertible", "state"]
+- !private ["Ps23CustomStringConvertible", "street"]
+- !private ["Ps23CustomStringConvertible", "string"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- !private ["Ps23CustomStringConvertible", "type"]
+- !private ["Ps23CustomStringConvertible", "zip"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Vs10Dictionary", "init"]
+- !private ["Vs10Dictionary", "subscript"]
+- ["C10dining_app14DiningLocation", "Address"]
+- ["C10dining_app14DiningLocation", "CLLocationCoordinate2D"]
+- ["C10dining_app14DiningLocation", "CustomStringConvertible"]
+- !private ["C10dining_app14DiningLocation", "DiningLocation"]
+- ["C10dining_app14DiningLocation", "DiningLocationType"]
+- ["C10dining_app14DiningLocation", "Int"]
+- ["C10dining_app14DiningLocation", "JSON"]
+- ["C10dining_app14DiningLocation", "NSCoder"]
+- !private ["C10dining_app14DiningLocation", "PropertyKey"]
+- ["C10dining_app14DiningLocation", "String"]
+- ["C10dining_app14DiningLocation", "address"]
+- ["C10dining_app14DiningLocation", "capacity"]
+- ["C10dining_app14DiningLocation", "contactEmail"]
+- ["C10dining_app14DiningLocation", "contactPhone"]
+- ["C10dining_app14DiningLocation", "coordinate"]
+- ["C10dining_app14DiningLocation", "currentOccupancy"]
+- ["C10dining_app14DiningLocation", "deinit"]
+- ["C10dining_app14DiningLocation", "description"]
+- ["C10dining_app14DiningLocation", "detailedHours"]
+- ["C10dining_app14DiningLocation", "encode"]
+- ["C10dining_app14DiningLocation", "encodeWithCoder"]
+- ["C10dining_app14DiningLocation", "hours"]
+- ["C10dining_app14DiningLocation", "id"]
+- ["C10dining_app14DiningLocation", "init"]
+- ["C10dining_app14DiningLocation", "name"]
+- ["C10dining_app14DiningLocation", "type"]
+- ["OC10dining_app14DiningLocation18DiningLocationType", "Cafe"]
+- ["OC10dining_app14DiningLocation18DiningLocationType", "DiningHall"]
+- ["OC10dining_app14DiningLocation18DiningLocationType", "Market"]
+- ["OC10dining_app14DiningLocation18DiningLocationType", "RawValue"]
+- ["OC10dining_app14DiningLocation18DiningLocationType", "_toAnyHashable"]
+- ["OC10dining_app14DiningLocation18DiningLocationType", "deinit"]
+- ["OC10dining_app14DiningLocation18DiningLocationType", "hashValue"]
+- ["OC10dining_app14DiningLocation18DiningLocationType", "init"]
+- ["OC10dining_app14DiningLocation18DiningLocationType", "rawValue"]
+- !private ["Ps9Equatable", "Address"]
+- !private ["Ps9Equatable", "CLLocationCoordinate2D"]
+- !private ["Ps9Equatable", "Cafe"]
+- !private ["Ps9Equatable", "DiningHall"]
+- !private ["Ps9Equatable", "DiningLocation"]
+- !private ["Ps9Equatable", "DiningLocationType"]
+- !private ["Ps9Equatable", "Market"]
+- !private ["Ps9Equatable", "PropertyKey"]
+- !private ["Ps9Equatable", "String"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- !private ["Ps9Equatable", "address"]
+- !private ["Ps9Equatable", "array"]
+- !private ["Ps9Equatable", "capacity"]
+- !private ["Ps9Equatable", "contactEmail"]
+- !private ["Ps9Equatable", "contactPhone"]
+- !private ["Ps9Equatable", "containsValue"]
+- !private ["Ps9Equatable", "coordinate"]
+- !private ["Ps9Equatable", "currentOccupancy"]
+- !private ["Ps9Equatable", "decodeDouble"]
+- !private ["Ps9Equatable", "decodeInteger"]
+- !private ["Ps9Equatable", "decodeObject"]
+- !private ["Ps9Equatable", "detailedHours"]
+- !private ["Ps9Equatable", "double"]
+- ["Ps9Equatable", "encode"]
+- ["Ps9Equatable", "encodeWithCoder"]
+- ["Ps9Equatable", "hashValue"]
+- !private ["Ps9Equatable", "hours"]
+- !private ["Ps9Equatable", "id"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "int"]
+- !private ["Ps9Equatable", "name"]
+- ["Ps9Equatable", "rawValue"]
+- !private ["Ps9Equatable", "string"]
+- !private ["Ps9Equatable", "subscript"]
+- !private ["Ps9Equatable", "type"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "append"]
+- !private ["Ps25ExpressibleByArrayLiteral", "array"]
+- !private ["Ps25ExpressibleByArrayLiteral", "double"]
+- !private ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps25ExpressibleByArrayLiteral", "int"]
+- !private ["Ps25ExpressibleByArrayLiteral", "string"]
+- !private ["Ps25ExpressibleByArrayLiteral", "subscript"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "array"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "double"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "int"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "string"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "subscript"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "array"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "double"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "init"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "int"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "string"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "array"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "double"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "int"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "string"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "subscript"]
+- !private ["Ps25ExpressibleByFloatLiteral", "array"]
+- !private ["Ps25ExpressibleByFloatLiteral", "double"]
+- !private ["Ps25ExpressibleByFloatLiteral", "int"]
+- !private ["Ps25ExpressibleByFloatLiteral", "string"]
+- !private ["Ps25ExpressibleByFloatLiteral", "subscript"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "array"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "double"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "int"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "string"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "subscript"]
+- !private ["Ps23ExpressibleByNilLiteral", "array"]
+- !private ["Ps23ExpressibleByNilLiteral", "double"]
+- !private ["Ps23ExpressibleByNilLiteral", "int"]
+- !private ["Ps23ExpressibleByNilLiteral", "string"]
+- !private ["Ps23ExpressibleByNilLiteral", "subscript"]
+- !private ["Ps26ExpressibleByStringLiteral", "array"]
+- !private ["Ps26ExpressibleByStringLiteral", "double"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "int"]
+- !private ["Ps26ExpressibleByStringLiteral", "string"]
+- !private ["Ps26ExpressibleByStringLiteral", "subscript"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "array"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "double"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "int"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "string"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "subscript"]
+- !private ["Ps8Hashable", "Address"]
+- !private ["Ps8Hashable", "CLLocationCoordinate2D"]
+- !private ["Ps8Hashable", "Cafe"]
+- !private ["Ps8Hashable", "DiningHall"]
+- !private ["Ps8Hashable", "DiningLocation"]
+- !private ["Ps8Hashable", "DiningLocationType"]
+- !private ["Ps8Hashable", "Market"]
+- !private ["Ps8Hashable", "PropertyKey"]
+- !private ["Ps8Hashable", "String"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- !private ["Ps8Hashable", "address"]
+- !private ["Ps8Hashable", "capacity"]
+- !private ["Ps8Hashable", "contactEmail"]
+- !private ["Ps8Hashable", "contactPhone"]
+- !private ["Ps8Hashable", "containsValue"]
+- !private ["Ps8Hashable", "coordinate"]
+- !private ["Ps8Hashable", "currentOccupancy"]
+- !private ["Ps8Hashable", "decodeDouble"]
+- !private ["Ps8Hashable", "decodeInteger"]
+- !private ["Ps8Hashable", "decodeObject"]
+- !private ["Ps8Hashable", "detailedHours"]
+- ["Ps8Hashable", "encode"]
+- ["Ps8Hashable", "encodeWithCoder"]
+- ["Ps8Hashable", "hashValue"]
+- !private ["Ps8Hashable", "hours"]
+- !private ["Ps8Hashable", "id"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "name"]
+- ["Ps8Hashable", "rawValue"]
+- !private ["Ps8Hashable", "type"]
+- ["Ps8Hashable", ""]
+- !private ["Si", "hashValue"]
+- !private ["Ps7Integer", "hashValue"]
+- !private ["Ps17IntegerArithmetic", "hashValue"]
+- !private ["V10dining_app4JSON", "array"]
+- !private ["V10dining_app4JSON", "deinit"]
+- !private ["V10dining_app4JSON", "double"]
+- !private ["V10dining_app4JSON", "int"]
+- !private ["V10dining_app4JSON", "string"]
+- !private ["V10dining_app4JSON", "subscript"]
+- !private ["P10dining_app17JSONSubscriptType", "hashValue"]
+- !private ["P10dining_app17JSONSubscriptType", "init"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "append"]
+- !private ["Ps17MutableCollection", "init"]
+- !private ["CSo7NSCoder", "containsValue"]
+- !private ["CSo7NSCoder", "decodeDouble"]
+- !private ["CSo7NSCoder", "decodeInteger"]
+- !private ["CSo7NSCoder", "decodeObject"]
+- !private ["CSo7NSCoder", "encode"]
+- !private ["PSo8NSCoding", "Address"]
+- !private ["PSo8NSCoding", "CLLocationCoordinate2D"]
+- !private ["PSo8NSCoding", "DiningLocation"]
+- !private ["PSo8NSCoding", "DiningLocationType"]
+- !private ["PSo8NSCoding", "PropertyKey"]
+- !private ["PSo8NSCoding", "String"]
+- !private ["PSo8NSCoding", "address"]
+- !private ["PSo8NSCoding", "capacity"]
+- !private ["PSo8NSCoding", "contactEmail"]
+- !private ["PSo8NSCoding", "contactPhone"]
+- !private ["PSo8NSCoding", "coordinate"]
+- !private ["PSo8NSCoding", "currentOccupancy"]
+- !private ["PSo8NSCoding", "detailedHours"]
+- ["PSo8NSCoding", "encode"]
+- ["PSo8NSCoding", "encodeWithCoder"]
+- !private ["PSo8NSCoding", "hours"]
+- !private ["PSo8NSCoding", "id"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "name"]
+- !private ["PSo8NSCoding", "type"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "Address"]
+- ["CSo8NSObject", "CLLocationCoordinate2D"]
+- ["CSo8NSObject", "CustomStringConvertible"]
+- !private ["CSo8NSObject", "DiningLocation"]
+- ["CSo8NSObject", "DiningLocationType"]
+- ["CSo8NSObject", "Int"]
+- ["CSo8NSObject", "JSON"]
+- ["CSo8NSObject", "NSCoder"]
+- !private ["CSo8NSObject", "PropertyKey"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "address"]
+- ["CSo8NSObject", "capacity"]
+- ["CSo8NSObject", "contactEmail"]
+- ["CSo8NSObject", "contactPhone"]
+- !private ["CSo8NSObject", "containsValue"]
+- ["CSo8NSObject", "coordinate"]
+- ["CSo8NSObject", "currentOccupancy"]
+- !private ["CSo8NSObject", "decodeDouble"]
+- !private ["CSo8NSObject", "decodeInteger"]
+- !private ["CSo8NSObject", "decodeObject"]
+- ["CSo8NSObject", "description"]
+- ["CSo8NSObject", "detailedHours"]
+- ["CSo8NSObject", "encode"]
+- ["CSo8NSObject", "encodeWithCoder"]
+- ["CSo8NSObject", "hours"]
+- ["CSo8NSObject", "id"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "name"]
+- ["CSo8NSObject", "type"]
+- ["CSo8NSObject", ""]
+- !private ["PSo16NSObjectProtocol", "Address"]
+- !private ["PSo16NSObjectProtocol", "CLLocationCoordinate2D"]
+- !private ["PSo16NSObjectProtocol", "DiningLocation"]
+- !private ["PSo16NSObjectProtocol", "DiningLocationType"]
+- !private ["PSo16NSObjectProtocol", "PropertyKey"]
+- !private ["PSo16NSObjectProtocol", "String"]
+- !private ["PSo16NSObjectProtocol", "address"]
+- !private ["PSo16NSObjectProtocol", "capacity"]
+- !private ["PSo16NSObjectProtocol", "contactEmail"]
+- !private ["PSo16NSObjectProtocol", "contactPhone"]
+- !private ["PSo16NSObjectProtocol", "containsValue"]
+- !private ["PSo16NSObjectProtocol", "coordinate"]
+- !private ["PSo16NSObjectProtocol", "currentOccupancy"]
+- !private ["PSo16NSObjectProtocol", "decodeDouble"]
+- !private ["PSo16NSObjectProtocol", "decodeInteger"]
+- !private ["PSo16NSObjectProtocol", "decodeObject"]
+- !private ["PSo16NSObjectProtocol", "detailedHours"]
+- ["PSo16NSObjectProtocol", "encode"]
+- ["PSo16NSObjectProtocol", "encodeWithCoder"]
+- !private ["PSo16NSObjectProtocol", "hours"]
+- !private ["PSo16NSObjectProtocol", "id"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "name"]
+- !private ["PSo16NSObjectProtocol", "type"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["Ps22RandomAccessCollection", "append"]
+- !private ["Ps22RandomAccessCollection", "init"]
+- !private ["Ps26RangeReplaceableCollection", "append"]
+- !private ["Ps26RangeReplaceableCollection", "init"]
+- !private ["Ps16RawRepresentable", "Cafe"]
+- !private ["Ps16RawRepresentable", "DiningHall"]
+- !private ["Ps16RawRepresentable", "Market"]
+- ["Ps16RawRepresentable", "_toAnyHashable"]
+- !private ["Ps16RawRepresentable", "array"]
+- !private ["Ps16RawRepresentable", "double"]
+- ["Ps16RawRepresentable", "hashValue"]
+- ["Ps16RawRepresentable", "init"]
+- !private ["Ps16RawRepresentable", "int"]
+- ["Ps16RawRepresentable", "rawValue"]
+- !private ["Ps16RawRepresentable", "string"]
+- !private ["Ps16RawRepresentable", "subscript"]
+- ["Ps16RawRepresentable", ""]
+- !private ["Ps8Sequence", "append"]
+- !private ["Ps8Sequence", "array"]
+- !private ["Ps8Sequence", "double"]
+- !private ["Ps8Sequence", "init"]
+- !private ["Ps8Sequence", "int"]
+- !private ["Ps8Sequence", "string"]
+- !private ["Ps8Sequence", "subscript"]
+- !private ["Ps13SignedInteger", "hashValue"]
+- !private ["Ps12SignedNumber", "hashValue"]
+- !private ["Vs5Slice", "array"]
+- !private ["Vs5Slice", "double"]
+- !private ["Vs5Slice", "int"]
+- !private ["Vs5Slice", "string"]
+- !private ["Vs5Slice", "subscript"]
+- !private ["Vs12StaticString", "init"]
+- !private ["Ps10Strideable", "hashValue"]
+- !private ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps14_ArrayProtocol", "append"]
+- !private ["Ps14_ArrayProtocol", "init"]
+- !private ["Ps23_BidirectionalIndexable", "append"]
+- !private ["Ps23_BidirectionalIndexable", "init"]
+- !private ["Ps24_DestructorSafeContainer", "append"]
+- !private ["Ps24_DestructorSafeContainer", "init"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "Address"]
+- !private ["Ps9_Hashable", "CLLocationCoordinate2D"]
+- !private ["Ps9_Hashable", "Cafe"]
+- !private ["Ps9_Hashable", "DiningHall"]
+- !private ["Ps9_Hashable", "DiningLocation"]
+- !private ["Ps9_Hashable", "DiningLocationType"]
+- !private ["Ps9_Hashable", "Market"]
+- !private ["Ps9_Hashable", "PropertyKey"]
+- !private ["Ps9_Hashable", "String"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- !private ["Ps9_Hashable", "address"]
+- !private ["Ps9_Hashable", "capacity"]
+- !private ["Ps9_Hashable", "contactEmail"]
+- !private ["Ps9_Hashable", "contactPhone"]
+- !private ["Ps9_Hashable", "containsValue"]
+- !private ["Ps9_Hashable", "coordinate"]
+- !private ["Ps9_Hashable", "currentOccupancy"]
+- !private ["Ps9_Hashable", "decodeDouble"]
+- !private ["Ps9_Hashable", "decodeInteger"]
+- !private ["Ps9_Hashable", "decodeObject"]
+- !private ["Ps9_Hashable", "detailedHours"]
+- ["Ps9_Hashable", "encode"]
+- ["Ps9_Hashable", "encodeWithCoder"]
+- ["Ps9_Hashable", "hashValue"]
+- !private ["Ps9_Hashable", "hours"]
+- !private ["Ps9_Hashable", "id"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "name"]
+- ["Ps9_Hashable", "rawValue"]
+- !private ["Ps9_Hashable", "type"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "hashValue"]
+- !private ["Ps10_Indexable", "append"]
+- !private ["Ps10_Indexable", "array"]
+- !private ["Ps10_Indexable", "double"]
+- !private ["Ps10_Indexable", "init"]
+- !private ["Ps10_Indexable", "int"]
+- !private ["Ps10_Indexable", "string"]
+- !private ["Ps10_Indexable", "subscript"]
+- !private ["Ps14_IndexableBase", "append"]
+- !private ["Ps14_IndexableBase", "array"]
+- !private ["Ps14_IndexableBase", "double"]
+- !private ["Ps14_IndexableBase", "init"]
+- !private ["Ps14_IndexableBase", "int"]
+- !private ["Ps14_IndexableBase", "string"]
+- !private ["Ps14_IndexableBase", "subscript"]
+- !private ["Ps8_Integer", "hashValue"]
+- !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["Ps17_MutableIndexable", "append"]
+- !private ["Ps17_MutableIndexable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "append"]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "latitude"]
+- !private ["Ps21_ObjectiveCBridgeable", "longitude"]
+- !private ["Ps21_ObjectiveCBridgeable", "subscript"]
+- !private ["Ps22_RandomAccessIndexable", "append"]
+- !private ["Ps22_RandomAccessIndexable", "init"]
+- !private ["Ps26_RangeReplaceableIndexable", "append"]
+- !private ["Ps26_RangeReplaceableIndexable", "init"]
+- !private ["Ps14_SignedInteger", "hashValue"]
+- !private ["Ps11_Strideable", "hashValue"]
+depends-nominal:
+- "VC10dining_app14DiningLocation7Address"
+- "Ps9AnyObject"
+- !private "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps17BitwiseOperations"
+- !private "Sb"
+- !private "VSC22CLLocationCoordinate2D"
+- "Ps7CVarArg"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "Vs10Dictionary"
+- "C10dining_app14DiningLocation"
+- "OC10dining_app14DiningLocation18DiningLocationType"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps30ExpressibleByDictionaryLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "V10dining_app4JSON"
+- !private "P10dining_app17JSONSubscriptType"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "CSo7NSCoder"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps26RangeReplaceableCollection"
+- "Ps16RawRepresentable"
+- !private "Ps8Sequence"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Vs5Slice"
+- !private "Vs12StaticString"
+- !private "Ps10Strideable"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps23_BidirectionalIndexable"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps33_ExpressibleByStringInterpolation"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps10_Indexable"
+- !private "Ps14_IndexableBase"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps17_MutableIndexable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps22_RandomAccessIndexable"
+- !private "Ps26_RangeReplaceableIndexable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UserNotifications.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/HealthKit.apinotesc"
+interface-hash: "50c7f7c928fe6ebc47f6ddb023e61ec1"

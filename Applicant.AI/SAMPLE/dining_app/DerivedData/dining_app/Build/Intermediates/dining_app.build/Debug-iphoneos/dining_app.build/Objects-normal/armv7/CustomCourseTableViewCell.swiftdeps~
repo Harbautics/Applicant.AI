@@ -1,0 +1,226 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "CustomCourseTableViewCell"
+provides-nominal:
+- "C10dining_app25CustomCourseTableViewCell"
+provides-member:
+- ["C10dining_app25CustomCourseTableViewCell", ""]
+provides-dynamic-lookup:
+- "awakeFromNib"
+- "Menu_Item_Price"
+- "layoutSubviews"
+- "Menu_Item_Name"
+depends-top-level:
+- "UITableViewCell"
+- "UILabel"
+- "CustomCourseTableViewCell"
+depends-member:
+- ["Ps9AnyObject", "Menu_Item_Name"]
+- ["Ps9AnyObject", "Menu_Item_Price"]
+- ["Ps9AnyObject", "awakeFromNib"]
+- !private ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "layoutSubviews"]
+- ["Ps9AnyObject", ""]
+- ["PSo15CALayerDelegate", "Menu_Item_Name"]
+- ["PSo15CALayerDelegate", "Menu_Item_Price"]
+- ["PSo15CALayerDelegate", "awakeFromNib"]
+- !private ["PSo15CALayerDelegate", "init"]
+- ["PSo15CALayerDelegate", "layoutSubviews"]
+- ["PSo15CALayerDelegate", ""]
+- ["Ps7CVarArg", "Menu_Item_Name"]
+- ["Ps7CVarArg", "Menu_Item_Price"]
+- ["Ps7CVarArg", "awakeFromNib"]
+- !private ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "layoutSubviews"]
+- ["Ps7CVarArg", ""]
+- ["C10dining_app25CustomCourseTableViewCell", "Menu_Item_Name"]
+- ["C10dining_app25CustomCourseTableViewCell", "Menu_Item_Price"]
+- ["C10dining_app25CustomCourseTableViewCell", "UILabel"]
+- ["C10dining_app25CustomCourseTableViewCell", "awakeFromNib"]
+- ["C10dining_app25CustomCourseTableViewCell", "deinit"]
+- ["C10dining_app25CustomCourseTableViewCell", "init"]
+- ["C10dining_app25CustomCourseTableViewCell", "layoutSubviews"]
+- ["Ps28CustomDebugStringConvertible", "Menu_Item_Name"]
+- ["Ps28CustomDebugStringConvertible", "Menu_Item_Price"]
+- ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "layoutSubviews"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "Menu_Item_Name"]
+- ["Ps23CustomStringConvertible", "Menu_Item_Price"]
+- ["Ps23CustomStringConvertible", "awakeFromNib"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "layoutSubviews"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "Menu_Item_Name"]
+- ["Ps9Equatable", "Menu_Item_Price"]
+- ["Ps9Equatable", "awakeFromNib"]
+- !private ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "layoutSubviews"]
+- ["Ps9Equatable", ""]
+- ["Ps8Hashable", "Menu_Item_Name"]
+- ["Ps8Hashable", "Menu_Item_Price"]
+- ["Ps8Hashable", "awakeFromNib"]
+- !private ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "layoutSubviews"]
+- ["Ps8Hashable", ""]
+- ["SQ", "deinit"]
+- ["CSo7NSCoder", "deinit"]
+- ["PSo8NSCoding", "Menu_Item_Name"]
+- ["PSo8NSCoding", "Menu_Item_Price"]
+- ["PSo8NSCoding", "awakeFromNib"]
+- !private ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "layoutSubviews"]
+- ["PSo8NSCoding", ""]
+- ["CSo8NSObject", "Menu_Item_Name"]
+- ["CSo8NSObject", "Menu_Item_Price"]
+- ["CSo8NSObject", "UILabel"]
+- ["CSo8NSObject", "awakeFromNib"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "layoutSubviews"]
+- ["PSo16NSObjectProtocol", "Menu_Item_Name"]
+- ["PSo16NSObjectProtocol", "Menu_Item_Price"]
+- ["PSo16NSObjectProtocol", "awakeFromNib"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "layoutSubviews"]
+- ["PSo16NSObjectProtocol", ""]
+- ["Sq", "deinit"]
+- ["PSo29UIAccessibilityIdentification", "Menu_Item_Name"]
+- ["PSo29UIAccessibilityIdentification", "Menu_Item_Price"]
+- ["PSo29UIAccessibilityIdentification", "awakeFromNib"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- ["PSo29UIAccessibilityIdentification", "layoutSubviews"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- ["PSo12UIAppearance", "Menu_Item_Name"]
+- ["PSo12UIAppearance", "Menu_Item_Price"]
+- ["PSo12UIAppearance", "awakeFromNib"]
+- !private ["PSo12UIAppearance", "init"]
+- ["PSo12UIAppearance", "layoutSubviews"]
+- ["PSo12UIAppearance", ""]
+- ["PSo21UIAppearanceContainer", "Menu_Item_Name"]
+- ["PSo21UIAppearanceContainer", "Menu_Item_Price"]
+- ["PSo21UIAppearanceContainer", "awakeFromNib"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "layoutSubviews"]
+- ["PSo21UIAppearanceContainer", ""]
+- ["PSo17UICoordinateSpace", "Menu_Item_Name"]
+- ["PSo17UICoordinateSpace", "Menu_Item_Price"]
+- ["PSo17UICoordinateSpace", "awakeFromNib"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- ["PSo17UICoordinateSpace", "layoutSubviews"]
+- ["PSo17UICoordinateSpace", ""]
+- ["PSo13UIDynamicItem", "Menu_Item_Name"]
+- ["PSo13UIDynamicItem", "Menu_Item_Price"]
+- ["PSo13UIDynamicItem", "awakeFromNib"]
+- !private ["PSo13UIDynamicItem", "init"]
+- ["PSo13UIDynamicItem", "layoutSubviews"]
+- ["PSo13UIDynamicItem", ""]
+- ["PSo18UIFocusEnvironment", "Menu_Item_Name"]
+- ["PSo18UIFocusEnvironment", "Menu_Item_Price"]
+- ["PSo18UIFocusEnvironment", "awakeFromNib"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "layoutSubviews"]
+- ["PSo18UIFocusEnvironment", ""]
+- ["PSo11UIFocusItem", "Menu_Item_Name"]
+- ["PSo11UIFocusItem", "Menu_Item_Price"]
+- ["PSo11UIFocusItem", "awakeFromNib"]
+- !private ["PSo11UIFocusItem", "init"]
+- ["PSo11UIFocusItem", "layoutSubviews"]
+- ["PSo11UIFocusItem", ""]
+- ["PSo27UIGestureRecognizerDelegate", "Menu_Item_Name"]
+- ["PSo27UIGestureRecognizerDelegate", "Menu_Item_Price"]
+- ["PSo27UIGestureRecognizerDelegate", "awakeFromNib"]
+- !private ["PSo27UIGestureRecognizerDelegate", "init"]
+- ["PSo27UIGestureRecognizerDelegate", "layoutSubviews"]
+- ["PSo27UIGestureRecognizerDelegate", ""]
+- ["CSo11UIResponder", "Menu_Item_Name"]
+- ["CSo11UIResponder", "Menu_Item_Price"]
+- ["CSo11UIResponder", "UILabel"]
+- ["CSo11UIResponder", "awakeFromNib"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "layoutSubviews"]
+- ["PSo30UIResponderStandardEditActions", "Menu_Item_Name"]
+- ["PSo30UIResponderStandardEditActions", "Menu_Item_Price"]
+- ["PSo30UIResponderStandardEditActions", "awakeFromNib"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "layoutSubviews"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- ["CSo15UITableViewCell", "Menu_Item_Name"]
+- ["CSo15UITableViewCell", "Menu_Item_Price"]
+- ["CSo15UITableViewCell", "UILabel"]
+- ["CSo15UITableViewCell", "awakeFromNib"]
+- ["CSo15UITableViewCell", "deinit"]
+- ["CSo15UITableViewCell", "init"]
+- ["CSo15UITableViewCell", "layoutSubviews"]
+- ["CSo15UITableViewCell", ""]
+- ["OSC20UITableViewCellStyle", "deinit"]
+- ["PSo18UITraitEnvironment", "Menu_Item_Name"]
+- ["PSo18UITraitEnvironment", "Menu_Item_Price"]
+- ["PSo18UITraitEnvironment", "awakeFromNib"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "layoutSubviews"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "Menu_Item_Name"]
+- ["CSo6UIView", "Menu_Item_Price"]
+- ["CSo6UIView", "UILabel"]
+- ["CSo6UIView", "awakeFromNib"]
+- ["CSo6UIView", "init"]
+- ["CSo6UIView", "layoutSubviews"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "Menu_Item_Name"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "Menu_Item_Price"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "awakeFromNib"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "layoutSubviews"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- ["Ps9_Hashable", "Menu_Item_Name"]
+- ["Ps9_Hashable", "Menu_Item_Price"]
+- ["Ps9_Hashable", "awakeFromNib"]
+- !private ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "layoutSubviews"]
+- ["Ps9_Hashable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "C10dining_app25CustomCourseTableViewCell"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "SQ"
+- "CSo7NSCoder"
+- "PSo8NSCoding"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "Sq"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- "PSo27UIGestureRecognizerDelegate"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "CSo15UITableViewCell"
+- "OSC20UITableViewCellStyle"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreLocation.swiftmodule"
+interface-hash: "820ad6d378a8edae47d83435c7083820"
