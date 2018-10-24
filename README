@@ -6,3 +6,5 @@ folder within the project structure
 
 To run the project you have to do a git clone of the project and then open it up in Xcode (using the .xcodeproj file) 
 and the click run.
+
+Our backend framework will involve the usage of Python, with Flask and mySQL to handle the API and database portions. This will be hosted on AWS
