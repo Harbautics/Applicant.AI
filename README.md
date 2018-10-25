@@ -8,6 +8,13 @@ and the click run.
 
 Backend has been moved to different repo
 
+# Current File Structure
+- Xcode project
+
+# Build Instruction
+- Open xcode project
+- Hit build and run (triangle play button)
+
 ## Features
 
 ###### Applicant Orgs and Apps View
