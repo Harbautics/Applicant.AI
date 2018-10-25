@@ -11,13 +11,13 @@ Backend has been moved to different repo
 # Current File Structure
 - Xcode project
 
-# Build Instruction
+# Build Instructions
 - Open xcode project
 - Hit build and run (triangle play button)
 
-## Features
+# Current Features
 
-###### Applicant Orgs and Apps View
+## Applicant Orgs and Apps View
 Applicant tab bar view has been set up. Using placeholder data they can navigate through a list of organizations and view the basic info for an org.
 Similarly, they can see a list of applications with placeholder data.
 Defined the JSON structure with backend team, more advanced placeholder data coming in few weeks.
