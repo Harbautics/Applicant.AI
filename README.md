@@ -1,19 +1,19 @@
-# This is the README for Applicant.AI.
+#  Applicant.AI.
+
+# Current File Structure
+- Xcode project
 
 The folder structure will be the standard for all Xcode project. The assets folder in the Xcode should be used 
 for all assets and will be sub divided into different folder based off of type.
+
+# Build Instructions
+- Open xcode project
+- Hit build and run (triangle play button)
 
 To run the project you have to do a git clone of the project and then open it up in Xcode (using the .xcodeproj file) 
 and the click run.
 
 Backend has been moved to different repo
-
-# Current File Structure
-- Xcode project
-
-# Build Instructions
-- Open xcode project
-- Hit build and run (triangle play button)
 
 # Current Features
 
