@@ -6,3 +6,4 @@ for all assets and will be sub divided into different folder based off of type.
 To run the project you have to do a git clone of the project and then open it up in Xcode (using the .xcodeproj file) 
 and the click run.
 
+Backend has been moved to different repo
