@@ -1,10 +1,9 @@
 This is the README for Applicant.AI.
 
 The folder structure will be the standard for all Xcode project. The assets folder in the Xcode should be used 
-for all assets and will be sub divided into different folder based off of type. All backend code will go in the backend
-folder within the project structure
+for all assets and will be sub divided into different folder based off of type.
 
 To run the project you have to do a git clone of the project and then open it up in Xcode (using the .xcodeproj file) 
 and the click run.
 
-Our backend framework will involve the usage of Python, with Flask and mySQL to handle the API and database portions. This will be hosted on AWS
+Backend has been moved to different repo
