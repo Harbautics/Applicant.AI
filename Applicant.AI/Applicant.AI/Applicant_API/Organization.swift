@@ -40,6 +40,7 @@ public class Organization: NSObject {
         
         public let id: String
         public let name: String
+        public let status: String
         public let jobDescription: String
         public let questions: [Question]
         public let applicants: [Applicant]
