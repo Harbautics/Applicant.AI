@@ -1,7 +1,7 @@
 #  Applicant.AI.
 
 # Current File Structure
-.
+```bash
 ├── Applicant.AI
 │   ├── Applicant.AI
 │   │   ├── AppDelegate.swift
@@ -56,8 +56,7 @@
 │       ├── Applicant_AIUITests.swift
 │       └── Info.plist
 └── README.md
-
-
+```
 
 The folder structure will be the standard for all Xcode project. The assets folder in the Xcode should be used 
 for all assets and will be sub divided into different folder based off of type.
