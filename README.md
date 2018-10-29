@@ -1,7 +1,63 @@
 #  Applicant.AI.
 
 # Current File Structure
-- Xcode project
+.
+├── Applicant.AI
+│   ├── Applicant.AI
+│   │   ├── AppDelegate.swift
+│   │   ├── Applicant_API
+│   │   │   ├── ApplicantAPIManager.swift
+│   │   │   ├── Application.swift
+│   │   │   ├── Organization.swift
+│   │   │   └── SwiftyJSON.swift
+│   │   ├── Applicant_Controllers
+│   │   │   ├── Applicant_All_Apps_TableViewController.swift
+│   │   │   ├── Applicant_All_Orgs_TableViewController.swift
+│   │   │   └── Applicant_Specific_TableViewController.swift
+│   │   ├── Assets.xcassets
+│   │   │   ├── AppIcon.appiconset
+│   │   │   │   └── Contents.json
+│   │   │   ├── Contents.json
+│   │   │   ├── first.imageset
+│   │   │   │   ├── Contents.json
+│   │   │   │   └── first.pdf
+│   │   │   └── second.imageset
+│   │   │       ├── Contents.json
+│   │   │       └── second.pdf
+│   │   ├── Base.lproj
+│   │   │   ├── LaunchScreen.storyboard
+│   │   │   └── Main.storyboard
+│   │   ├── FirstViewController.swift
+│   │   ├── Info.plist
+│   │   └── SecondViewController.swift
+│   ├── Applicant.AI.xcodeproj
+│   │   ├── project.pbxproj
+│   │   ├── project.xcworkspace
+│   │   │   ├── contents.xcworkspacedata
+│   │   │   ├── xcshareddata
+│   │   │   │   └── IDEWorkspaceChecks.plist
+│   │   │   └── xcuserdata
+│   │   │       ├── jordanwolff.xcuserdatad
+│   │   │       │   └── UserInterfaceState.xcuserstate
+│   │   │       └── troystacer.xcuserdatad
+│   │   │           ├── IDEFindNavigatorScopes.plist
+│   │   │           └── UserInterfaceState.xcuserstate
+│   │   └── xcuserdata
+│   │       ├── jordanwolff.xcuserdatad
+│   │       │   └── xcschemes
+│   │       │       └── xcschememanagement.plist
+│   │       └── troystacer.xcuserdatad
+│   │           └── xcschemes
+│   │               └── xcschememanagement.plist
+│   ├── Applicant.AITests
+│   │   ├── Applicant_AITests.swift
+│   │   └── Info.plist
+│   └── Applicant.AIUITests
+│       ├── Applicant_AIUITests.swift
+│       └── Info.plist
+└── README.md
+
+
 
 The folder structure will be the standard for all Xcode project. The assets folder in the Xcode should be used 
 for all assets and will be sub divided into different folder based off of type.
