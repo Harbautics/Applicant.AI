@@ -1,4 +1,5 @@
 #  Applicant.AI.
+> Artificial Intelligence that makes finding your next recruit easy.
 
 # Current File Structure
 ```bash
@@ -61,12 +62,15 @@
 The folder structure will be the standard for all Xcode project. The assets folder in the Xcode should be used 
 for all assets and will be sub divided into different folder based off of type.
 
-# Build Instructions
-- Open xcode project
-- Hit build and run (triangle play button)
+# Getting Started 
 
-To run the project you have to do a git clone of the project and then open it up in Xcode (using the .xcodeproj file) 
-and the click run.
+* Clone the GitHub Repository 
+``` 
+git clone https://github.com/Harbautics/Applicant.AI.git
+```
+
+- Open xcode project (using the .xcodeproj file) 
+- Hit build and run (triangle play button)
 
 Backend has been moved to different repo
 
