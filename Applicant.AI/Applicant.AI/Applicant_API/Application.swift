@@ -13,7 +13,7 @@ import Foundation
 // An app has a list of Questions
 public class Application: NSObject {
     
-    //Properties
+    // Properties
     public let appid: String
     public let orgname: String
     public let name: String
@@ -21,7 +21,7 @@ public class Application: NSObject {
     public let status: String
     public let questions: [Question]
     
-    //Initialization
+    // Constructors
     init(appid:String, orgname:String, name:String, pos_description:String, status:String, questions: [Question]) {
         self.appid = appid
         self.orgname = orgname
@@ -32,11 +32,26 @@ public class Application: NSObject {
         
         super.init()
     }
-    // Convenience Init (JSON) -- requires SwiftyJSON
-//    convenience init(json: JSON) {
-//        if let appid = json["appid"].string {
-//            
-//        }
-//    }
+    
+    convenience init?(json: JSON) {
+        // if we can get the application information from JSON response
+        if let appid_JSON = json["appid"].string,
+            let orgname_JSON = json["orgname"].string,
+            let name_JSON = json["name"].string,
+            let pos_desc_JSON = json["position-description"].string,
+            let status_JSON = json["status"].string,
+            let questions_array_JSON = json["questions"].array {
+            
+            // Go through the array of questions, create and append question to the questions array
+            var questions_array = [Question]()
+            for question in questions_array_JSON {
+                questions_array.append(Question(description_in: question["description"].string!, question_in: question["question"].string!, applicant_answer_in: question["answer"].string!))
+            }
+            self.init(appid: appid_JSON, orgname: orgname_JSON, name: name_JSON, pos_description: pos_desc_JSON, status: status_JSON, questions: questions_array)
+        }
+        else {
+            return nil
+        }
+    }
     
 }

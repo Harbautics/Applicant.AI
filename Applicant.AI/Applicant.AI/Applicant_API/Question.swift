@@ -22,6 +22,7 @@ public class Question: NSObject {
         self.sub_description = description_in
         self.question = question_in
         self.applicant_answer = applicant_answer_in
+        
         super.init()
     }
     

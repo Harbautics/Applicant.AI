@@ -8,48 +8,36 @@
 
 import Foundation
 
+// Represents the member of an organization
+// Not used outside the organization
+public class Member: NSObject {
+    
+    // Properties
+    public let id: String
+    public let name: String
+    
+    // Constructors
+    init(id_in: String, name_in: String) {
+        self.id = id_in
+        self.name = name_in
+        
+        super.init()
+    }
+}
+
+// Represents an organization
+// organizations contains members and postings
 public class Organization: NSObject {
-    
-    public struct Member: CustomStringConvertible {
-        public var description: String
-        public let id: String
-        public let name: String
-    }
-    
-    public struct Posting: CustomStringConvertible {
-        public var description: String
-        
-        public struct Question: CustomStringConvertible {
-            public var description: String
-            public let question: String
-            public let type: String
-            public let answers: [String]
-        }
-        
-        public struct Applicant: CustomStringConvertible {
-            public var description: String
-            public let id: String
-            public let name: String
-            public let answers: [String]
-        }
-        
-        public let id: String
-        public let name: String
-        public let status: String
-        public let jobDescription: String
-        public let questions: [Question]
-        public let applicants: [Applicant]
-    }
     
     //Properties
     public let name: String
     public let id: String
-    public let members: [Member]
-    public let postings: [Posting]
+    public let members: [Member]?
+    public let postings: [Posting]?
     
     
-    // Initializations
-    init(name:String, id:String, members:[Member], postings:[Posting] ){
+    // Constructors
+    init(name:String, id:String, members:[Member]?, postings: [Posting]? ){
         self.id = id
         self.name = name
         self.members = members
@@ -57,4 +45,11 @@ public class Organization: NSObject {
         
         super.init()
     }
+    
+    // Debeugging Description
+    public override var description: String {
+        return "\(id): \(name)"
+    }
 }
+
+
