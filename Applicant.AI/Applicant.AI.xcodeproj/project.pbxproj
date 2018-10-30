@@ -22,6 +22,8 @@
 		5DFA7EEB21891446007C3FF0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA7EEA21891446007C3FF0 /* Question.swift */; };
 		5DFA7EED218916ED007C3FF0 /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA7EEC218916ED007C3FF0 /* Posting.swift */; };
 		5DFA7EEF21891924007C3FF0 /* Applicant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA7EEE21891924007C3FF0 /* Applicant.swift */; };
+		5DFA7EF121891F4A007C3FF0 /* Organizations_Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA7EF021891F4A007C3FF0 /* Organizations_Provider.swift */; };
+		5DFA7EF321892042007C3FF0 /* Applications_Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA7EF221892042007C3FF0 /* Applications_Provider.swift */; };
 		7F986BC921867CFB006916F6 /* ApplicantAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F986BC821867CFB006916F6 /* ApplicantAPIManager.swift */; };
 		7F986BCB2186800E006916F6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F986BCA2186800E006916F6 /* SwiftyJSON.swift */; };
 		7F986BCD218680F0006916F6 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F986BCC218680F0006916F6 /* Organization.swift */; };
@@ -66,6 +68,8 @@
 		5DFA7EEA21891446007C3FF0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		5DFA7EEC218916ED007C3FF0 /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
 		5DFA7EEE21891924007C3FF0 /* Applicant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant.swift; sourceTree = "<group>"; };
+		5DFA7EF021891F4A007C3FF0 /* Organizations_Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organizations_Provider.swift; sourceTree = "<group>"; };
+		5DFA7EF221892042007C3FF0 /* Applications_Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applications_Provider.swift; sourceTree = "<group>"; };
 		7F986BC821867CFB006916F6 /* ApplicantAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantAPIManager.swift; sourceTree = "<group>"; };
 		7F986BCA2186800E006916F6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		7F986BCC218680F0006916F6 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 		5DD97228217BE25600ECA085 /* Applicant_Model */ = {
 			isa = PBXGroup;
 			children = (
+				5DFA7EF021891F4A007C3FF0 /* Organizations_Provider.swift */,
+				5DFA7EF221892042007C3FF0 /* Applications_Provider.swift */,
 			);
 			path = Applicant_Model;
 			sourceTree = "<group>";
@@ -317,12 +323,14 @@
 				341B83DC217132CB0024335A /* SecondViewController.swift in Sources */,
 				5DD9722C217BE5BE00ECA085 /* Application.swift in Sources */,
 				341B83D8217132CB0024335A /* AppDelegate.swift in Sources */,
+				5DFA7EF121891F4A007C3FF0 /* Organizations_Provider.swift in Sources */,
 				341B83DA217132CB0024335A /* FirstViewController.swift in Sources */,
 				5DD97226217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift in Sources */,
 				7F986BC921867CFB006916F6 /* ApplicantAPIManager.swift in Sources */,
 				7F986BCB2186800E006916F6 /* SwiftyJSON.swift in Sources */,
 				5DFA7EEF21891924007C3FF0 /* Applicant.swift in Sources */,
 				5DD9722A217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift in Sources */,
+				5DFA7EF321892042007C3FF0 /* Applications_Provider.swift in Sources */,
 				5DFA7EED218916ED007C3FF0 /* Posting.swift in Sources */,
 				7F986BCD218680F0006916F6 /* Organization.swift in Sources */,
 				5DFA7EEB21891446007C3FF0 /* Question.swift in Sources */,
