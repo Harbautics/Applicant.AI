@@ -8,14 +8,10 @@
 
 import Foundation
 
+// Application:
+// This class represents an application.
+// An app has a list of Questions
 public class Application: NSObject {
-    
-    public struct question: CustomStringConvertible {
-        public var description: String
-        
-        public var question: String
-        public var answer: String
-    }
     
     //Properties
     public let appid: String
@@ -23,10 +19,10 @@ public class Application: NSObject {
     public let name: String
     public let pos_description: String
     public let status: String
-    public let questions: [question]
+    public let questions: [Question]
     
     //Initialization
-    init(appid:String, orgname:String, name:String, pos_description:String, status:String, questions: [question]){
+    init(appid:String, orgname:String, name:String, pos_description:String, status:String, questions: [Question]) {
         self.appid = appid
         self.orgname = orgname
         self.name = name
@@ -36,27 +32,11 @@ public class Application: NSObject {
         
         super.init()
     }
-//    // Properties
-//    public let organization_name: String
-//    public let position_name: String
-//    // questions array
-//
-//
-//    // Description -- for debugging
-//    override public var description: String {
-//        return "\(self.organization_name) - \(self.position_name)"
-//    }
-//
-//    // Initializations
-//    init(organization_name_in: String, position_name_in: String) {
-//        self.organization_name = organization_name_in
-//        self.position_name = position_name_in
-//        super.init()
-//    }
-    
     // Convenience Init (JSON) -- requires SwiftyJSON
-//    convenience init?(json: JSON) {
-//
+//    convenience init(json: JSON) {
+//        if let appid = json["appid"].string {
+//            
+//        }
 //    }
     
 }

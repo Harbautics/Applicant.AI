@@ -12,10 +12,8 @@ public class Organization: NSObject {
     
     public struct Member: CustomStringConvertible {
         public var description: String
-        
         public let id: String
         public let name: String
-
     }
     
     public struct Posting: CustomStringConvertible {
@@ -23,7 +21,6 @@ public class Organization: NSObject {
         
         public struct Question: CustomStringConvertible {
             public var description: String
-            
             public let question: String
             public let type: String
             public let answers: [String]
@@ -31,11 +28,9 @@ public class Organization: NSObject {
         
         public struct Applicant: CustomStringConvertible {
             public var description: String
-            
             public let id: String
             public let name: String
             public let answers: [String]
-            
         }
         
         public let id: String
@@ -44,8 +39,6 @@ public class Organization: NSObject {
         public let jobDescription: String
         public let questions: [Question]
         public let applicants: [Applicant]
-        
-
     }
     
     //Properties

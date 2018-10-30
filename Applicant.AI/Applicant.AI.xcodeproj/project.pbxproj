@@ -19,6 +19,7 @@
 		5DD97226217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97225217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift */; };
 		5DD9722A217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97229217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift */; };
 		5DD9722C217BE5BE00ECA085 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD9722B217BE5BE00ECA085 /* Application.swift */; };
+		5DFA7EEB21891446007C3FF0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA7EEA21891446007C3FF0 /* Question.swift */; };
 		7F986BC921867CFB006916F6 /* ApplicantAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F986BC821867CFB006916F6 /* ApplicantAPIManager.swift */; };
 		7F986BCB2186800E006916F6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F986BCA2186800E006916F6 /* SwiftyJSON.swift */; };
 		7F986BCD218680F0006916F6 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F986BCC218680F0006916F6 /* Organization.swift */; };
@@ -60,6 +61,7 @@
 		5DD97225217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_All_Apps_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97229217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_Specific_TableViewController.swift; sourceTree = "<group>"; };
 		5DD9722B217BE5BE00ECA085 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		5DFA7EEA21891446007C3FF0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		7F986BC821867CFB006916F6 /* ApplicantAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantAPIManager.swift; sourceTree = "<group>"; };
 		7F986BCA2186800E006916F6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		7F986BCC218680F0006916F6 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				5DD9722B217BE5BE00ECA085 /* Application.swift */,
+				5DFA7EEA21891446007C3FF0 /* Question.swift */,
 				7F986BC821867CFB006916F6 /* ApplicantAPIManager.swift */,
 				7F986BCA2186800E006916F6 /* SwiftyJSON.swift */,
 				7F986BCC218680F0006916F6 /* Organization.swift */,
@@ -314,6 +317,7 @@
 				7F986BCB2186800E006916F6 /* SwiftyJSON.swift in Sources */,
 				5DD9722A217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift in Sources */,
 				7F986BCD218680F0006916F6 /* Organization.swift in Sources */,
+				5DFA7EEB21891446007C3FF0 /* Question.swift in Sources */,
 				5DD97224217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
