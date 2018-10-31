@@ -19,12 +19,16 @@ class Organizations_Provider {
     
     // Initialization -- runs when app opens
     private init() {
-        // make the api call
-            // Callback:
-                // fill the organizations array
-                // post notification saying it was loaded successfully
-                let notificationName = NSNotification.Name("OrganizationsLoaded")
-                NotificationCenter.default.post(name: notificationName, object: nil)
+        // make the api call, callback function
+        ApplicantAPIManager.getOrganizations { (orgs) in
+            // fill the organizations array
+            self.organizations = orgs
+            
+            // post notification saying it was loaded successfully
+            let notificationName = NSNotification.Name("OrganizationsLoaded")
+            NotificationCenter.default.post(name: notificationName, object: nil)
+        }
+        
     }
     
     // Member Functions
