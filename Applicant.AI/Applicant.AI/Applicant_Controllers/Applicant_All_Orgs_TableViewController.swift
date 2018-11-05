@@ -7,53 +7,41 @@
 //
 
 import UIKit
+import Foundation
 
 class Applicant_All_Orgs_TableViewController: UITableViewController {
 
-    // Properties
-    var orgData = [["Sample Org 1", "Sample Org 2", "Sample Org 3"],["Your Org 1", "Your Org 2", "Your Org 3"]]
-    
+    // Properties    
     var all_organizations = [Organization]()
     
     override func viewDidLoad() {
+        print("org view loading")
+        
+        // Access the organizations provider (even though there's no data there) in order to create the global instance
+        self.all_organizations = Organizations_Provider.shared.organizations
+        
+        // Notification to listen for when we have Organization data from the API
+        let notificationName = NSNotification.Name("OrganizationsLoaded")
+        NotificationCenter.default.addObserver(self, selector: #selector(Applicant_All_Orgs_TableViewController.reloadTableView), name: notificationName, object: nil)
+        
+        
+        self.title = "Organizations"
         super.viewDidLoad()
-        
-        print("view loading")
-        
-        // make the API request
-//        ApplicantAPIManager.getOrganizationsPost { (orgs) in
-//            print("back in controller")
-//            self.all_organizations = orgs
-//            self.tableView.reloadData()
-//        }
-        ApplicantAPIManager.getOrganizationsGet { (orgs) in
-            print("back to controller")
-            self.all_organizations = orgs
-            print(orgs)
-            self.tableView.reloadData()
-        }
-        //print("back in controller")
-        self.tableView.reloadData()
-        
-        self.title = "Org View"
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
+    // The callback function when we have organizations data
+    @objc func reloadTableView() {
+        // pull data from global shared
+        self.all_organizations = Organizations_Provider.shared.organizations
+        // don't forget to reload the table view
+        self.tableView.reloadData()
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return all_organizations.count
     }
     
@@ -115,14 +103,22 @@ class Applicant_All_Orgs_TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "allOrgsToSpecific" {
+            if let specific_Org_TVC = segue.destination as? Applicant_Specific_Org_TableViewController {
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    specific_Org_TVC.specificOrg = self.all_organizations[indexPath.row]
+                    specific_Org_TVC.title = "Testing title"
+                }
+            }
+        }
     }
-    */
+    
 
 }

@@ -44,9 +44,10 @@ public class Application: NSObject {
             
             // Go through the array of questions, create and append question to the questions array
             var questions_array = [Question]()
-            for question in questions_array_JSON {
-                questions_array.append(Question(description_in: question["description"].string!, question_in: question["question"].string!, applicant_answer_in: question["answer"].string!))
-            }
+            questions_array = questions_array_JSON.map { Question(json: $0)! }
+//            for question in questions_array_JSON {
+//                questions_array.append(Question(description_in: question["description"].string!, question_in: question["question"].string!, applicant_answer_in: question["answer"].string!))
+//            }
             self.init(appid: appid_JSON, orgname: orgname_JSON, name: name_JSON, pos_description: pos_desc_JSON, status: status_JSON, questions: questions_array)
         }
         else {

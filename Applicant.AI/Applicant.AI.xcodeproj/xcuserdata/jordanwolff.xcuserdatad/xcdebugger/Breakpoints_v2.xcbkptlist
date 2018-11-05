@@ -9,46 +9,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Applicant.AI/Applicant_API/ApplicantAPIManager.swift"
-            timestampString = "563078459.66329"
+            filePath = "Applicant.AI/Applicant_Controllers/Applicant_Specific_Org_TableViewController.swift"
+            timestampString = "563140503.214429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "getOrganizationsPost(completionHandler:)"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Applicant_AI.ApplicantAPIManager.getOrganizationsPost(completionHandler: (Swift.Array&lt;Applicant_AI.Organization&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Applicant.AI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jordanwolff/Desktop/University-of-Michigan/F18/EECS%20441/Front-End-Applicant.AI/Applicant.AI/Applicant.AI/Applicant_API/ApplicantAPIManager.swift"
-                  timestampString = "563077251.212163"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "332">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Applicant_AI.JSON&gt;) -&gt; () in static Applicant_AI.ApplicantAPIManager.getOrganizationsPost(completionHandler: (Swift.Array&lt;Applicant_AI.Organization&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Applicant.AI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jordanwolff/Desktop/University-of-Michigan/F18/EECS%20441/Front-End-Applicant.AI/Applicant.AI/Applicant.AI/Applicant_API/ApplicantAPIManager.swift"
-                  timestampString = "563077251.214231"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "71">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,45 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Applicant.AI/Applicant_API/ApplicantAPIManager.swift"
-            timestampString = "563078459.663805"
+            filePath = "Applicant.AI/Applicant_Controllers/Applicant_Specific_Org_TableViewController.swift"
+            timestampString = "563140503.214514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "getOrganizationsPost(completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Applicant.AI/Applicant_API/ApplicantAPIManager.swift"
-            timestampString = "563078459.664162"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "getOrganizationsPost(completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Applicant.AI/Applicant_API/ApplicantAPIManager.swift"
-            timestampString = "563078459.664456"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "postData(url:data:completionHandler:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

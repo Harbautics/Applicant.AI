@@ -46,6 +46,7 @@ public class Organization: NSObject {
     
     
     // Constructors
+    // init with all data
     init(name:String, id:String, members:[Member]?, postings: [Posting]? ){
         self.id = id
         self.name = name
@@ -54,47 +55,37 @@ public class Organization: NSObject {
         
         super.init()
     }
-    
+    // init with just name and id
     init(name: String, id: String) {
         self.id = id
         self.name = name
         self.members = [Member]()
         self.postings = [Posting]()
+        super.init()
+    }
+    // default constructor - init with no data
+    override init() {
+        self.id = "default"
+        self.name = "default"
+        self.members = [Member]()
+        self.postings = [Posting]()
+        super.init()
     }
     
-    convenience init?(json: JSON) {
-        // if we can pull information from JSON Response
+    // init from JSON
+    convenience init?(id: String, json: JSON) {
         if let name_JSON = json["name"].string,
-            let id_JSON = json["id"].string,
-            let members_JSON = json["members"].array,
-            let postings_JSON = json["postings"].array {
+            let membersJSON = json["members"].array,
+            let postingsJSON = json["postings"].array {
             
-            // Go through the array of members, create and append member to the members array
-            var members_array = [Member]()
-            for member in members_JSON {
-                members_array.append(Member(id_in: member["id"].int!, name_in: member["name"].string!))
-            }
-            // Go through the array of postings, create and append posting to the posting array
-            var postings_array = [Posting]()
-            for posting in postings_JSON {
-                
-                // go through the questions and applicants, create and append
-                var questions_array = [Question]()
-                var applicants_array = [Applicant]()
-                for question in posting["questions"].array! {
-                    questions_array.append(Question(description_in: question["description"].string!, question_in: question["question"].string!, applicant_answer_in: question["answer"].string!))
-                }
-                for applicant in posting["applicants"].array! {
-                    applicants_array.append(Applicant(id_in: applicant["id"].string!, name_in: applicant["name"].string!))
-                }
-                
-                postings_array.append(Posting(name_in: posting["name"].string!, id_in: posting["id"].int!, status_in: posting["status"].string!, job_desc_in: posting["job-description"].string!, questions_in: questions_array, applicants_in: applicants_array))
-            }
+            // $0 just means for each JSON entry - for each JSON entry, create a new Member/Posting
+            let memberList = membersJSON.map { Member(json: $0) }
+            let postingList = postingsJSON.map {Posting(json: $0) }
             
-            self.init(name: name_JSON, id: id_JSON, members: members_array, postings: postings_array)
+            self.init(name: name_JSON, id: id, members: memberList as? [Member], postings: postingList as? [Posting])
         }
         else {
-            return nil
+            self.init()
         }
     }
     

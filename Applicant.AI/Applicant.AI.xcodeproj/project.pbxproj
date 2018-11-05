@@ -15,6 +15,7 @@
 		341B83E4217132CB0024335A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341B83E2217132CB0024335A /* LaunchScreen.storyboard */; };
 		341B83EF217132CB0024335A /* Applicant_AITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B83EE217132CB0024335A /* Applicant_AITests.swift */; };
 		341B83FA217132CB0024335A /* Applicant_AIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B83F9217132CB0024335A /* Applicant_AIUITests.swift */; };
+		5DD164A92190997000932731 /* Applicant_Specific_Org_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */; };
 		5DD97224217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */; };
 		5DD97226217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97225217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift */; };
 		5DD9722A217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97229217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift */; };
@@ -61,6 +62,7 @@
 		341B83F5217132CB0024335A /* Applicant.AIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Applicant.AIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		341B83F9217132CB0024335A /* Applicant_AIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_AIUITests.swift; sourceTree = "<group>"; };
 		341B83FB217132CB0024335A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_Specific_Org_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_All_Orgs_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97225217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_All_Apps_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97229217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_Specific_TableViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */,
+				5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */,
 				5DD97225217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift */,
 				5DD97229217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift */,
 			);
@@ -168,9 +171,9 @@
 		5DD97227217BE24E00ECA085 /* Applicant_API */ = {
 			isa = PBXGroup;
 			children = (
+				7F986BC821867CFB006916F6 /* ApplicantAPIManager.swift */,
 				5DD9722B217BE5BE00ECA085 /* Application.swift */,
 				5DFA7EEA21891446007C3FF0 /* Question.swift */,
-				7F986BC821867CFB006916F6 /* ApplicantAPIManager.swift */,
 				7F986BCA2186800E006916F6 /* SwiftyJSON.swift */,
 				7F986BCC218680F0006916F6 /* Organization.swift */,
 				5DFA7EEC218916ED007C3FF0 /* Posting.swift */,
@@ -329,6 +332,7 @@
 				7F986BC921867CFB006916F6 /* ApplicantAPIManager.swift in Sources */,
 				7F986BCB2186800E006916F6 /* SwiftyJSON.swift in Sources */,
 				5DFA7EEF21891924007C3FF0 /* Applicant.swift in Sources */,
+				5DD164A92190997000932731 /* Applicant_Specific_Org_TableViewController.swift in Sources */,
 				5DD9722A217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift in Sources */,
 				5DFA7EF321892042007C3FF0 /* Applications_Provider.swift in Sources */,
 				5DFA7EED218916ED007C3FF0 /* Posting.swift in Sources */,

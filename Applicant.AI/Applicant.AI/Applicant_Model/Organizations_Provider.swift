@@ -17,31 +17,24 @@ class Organizations_Provider {
     // Global Variable used for access
     static let shared = Organizations_Provider()
     
-    // Initialization -- runs when app opens
+    // Initialization -- runs when app opens (only if called from somewhere else in the app!)
+    // private init allows only 1 instance
     private init() {
         // make the api call, callback function
-//        ApplicantAPIManager.getOrganizationsPost { (orgs) in
-//            // fill the organizations array
-//            self.organizations = orgs
-//            
-//            // post notification saying it was loaded successfully
-//            let notificationName = NSNotification.Name("OrganizationsLoaded")
-//            NotificationCenter.default.post(name: notificationName, object: nil)
-//        }
-        
-        
-//        ApplicantAPIManager.getOrganizationsP { (orgs) in
-//            // fill the organizations array
-//            self.organizations = orgs
-//
-//            // post notification saying it was loaded successfully
-//            let notificationName = NSNotification.Name("OrganizationsLoaded")
-//            NotificationCenter.default.post(name: notificationName, object: nil)
-//        }
-        
+        ApplicantAPIManager.getOrganizationsGet { (orgs) in
+            // fill the organizations array
+            self.organizations = orgs
+            
+            // post notification saying it was loaded successfully
+            let notificationName = NSNotification.Name("OrganizationsLoaded")
+            NotificationCenter.default.post(name: notificationName, object: nil)
+        }
     }
     
     // Member Functions
+    func getAllOrganizations() -> [Organization] {
+        return self.organizations
+    }
     
     // Printing for debugging
     func printAllOrgs() {

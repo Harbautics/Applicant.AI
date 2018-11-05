@@ -10,37 +10,64 @@ import UIKit
 
 class Applicant_Specific_Org_TableViewController: UITableViewController {
 
+    var specificOrg: Organization!
+    
+    
     override func viewDidLoad() {
+        self.title = specificOrg.name
+        
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        // members, postings
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if section == 0 {
+            return self.specificOrg.postings?.count ?? 0
+        }
+        else if section == 1 {
+            return self.specificOrg.members?.count ?? 0
+        }
+        else {
+            return 0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Positions"
+        }
+        else if section == 1 {
+            return "Members"
+        }
+        else {
+            return "Extra"
+        }
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "specificOrgCell", for: indexPath)
 
-        // Configure the cell...
+        // postings
+        if (indexPath.section == 0) {
+            cell.textLabel?.text = specificOrg.postings?[indexPath.row].name ?? "no name"
+            cell.detailTextLabel?.text = specificOrg.postings?[indexPath.row].status ?? "no status"
+        }
+        // members
+        else if (indexPath.section == 1) {
+            cell.textLabel?.text = specificOrg.members?[indexPath.row].name ?? "no member name"
+            cell.detailTextLabel?.text = ""
+        }
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

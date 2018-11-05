@@ -31,21 +31,27 @@ public class Posting: NSObject {
         
         super.init()
     }
-    init(name_in: String, id_in: Int) {
+    init(name_in: String, id_in: Int, status_in: String, job_desc_in: String, questions_in: [Question]) {
         self.name = name_in
         self.id = id_in
-        self.status = "status"
-        self.job_description = "job_desc"
-        self.questions = [Question]()
-        self.applicants = [Applicant]()
+        self.status = status_in
+        self.job_description = job_desc_in
+        self.questions = questions_in
+        self.applicants = [Applicant]() // TODO: convenience init for applicant
         
         super.init()
     }
     
     convenience init?(json: JSON) {
         if let nameJSON = json["name"].string,
-            let idJSON = json["id"].int {
-            self.init(name_in: nameJSON, id_in: idJSON)
+            let idJSON = json["id"].int,
+            let statusJSON = json["status"].string,
+            let jobDescJSON = json["description"].string,
+            let questionsJSON = json["questions"].array {
+            
+            let questionList = questionsJSON.map { Question(json: $0) }
+            
+            self.init(name_in: nameJSON, id_in: idJSON, status_in: statusJSON, job_desc_in: jobDescJSON, questions_in: questionList as! [Question])
         }
         else {
             return nil
