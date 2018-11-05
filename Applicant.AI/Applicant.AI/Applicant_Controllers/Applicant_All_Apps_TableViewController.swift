@@ -15,10 +15,10 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let newApp = Application(organization_name_in: "sample_org", position_name_in: "sample_position_name")
-        let newApp2 = Application(organization_name_in: "sample_org2", position_name_in: "sample_position_name_2")
-        sampleData.append(newApp)
-        sampleData.append(newApp2)
+        //let newApp = Application(organization_name_in: "sample_org", position_name_in: "sample_position_name")
+        //let newApp2 = Application(organization_name_in: "sample_org2", position_name_in: "sample_position_name_2")
+        //sampleData.append(newApp)
+        //sampleData.append(newApp2)
         
         self.title = "Applications"
         self.tableView.reloadData()
@@ -46,8 +46,8 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "app_cell_identifier", for: indexPath)
 
-        cell.textLabel?.text = sampleData[indexPath.row].position_name
-        cell.detailTextLabel?.text = sampleData[indexPath.row].organization_name
+        cell.textLabel?.text = "Test"//sampleData[indexPath.row].position_name
+        cell.detailTextLabel?.text = "Test"//sampleData[indexPath.row].organization_name
 
         return cell
     }
@@ -105,7 +105,7 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
             if let specific_app_TVC = segue.destination as? Applicant_Specific_TableViewController {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     specific_app_TVC.specificApplication = sampleData[indexPath.row]
-                    specific_app_TVC.title = sampleData[indexPath.row].position_name
+                    specific_app_TVC.title = "Testing title" //sampleData[indexPath.row].position_name
                 }
             }
         }

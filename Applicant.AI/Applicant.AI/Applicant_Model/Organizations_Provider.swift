@@ -20,14 +20,24 @@ class Organizations_Provider {
     // Initialization -- runs when app opens
     private init() {
         // make the api call, callback function
-        ApplicantAPIManager.getOrganizations { (orgs) in
-            // fill the organizations array
-            self.organizations = orgs
-            
-            // post notification saying it was loaded successfully
-            let notificationName = NSNotification.Name("OrganizationsLoaded")
-            NotificationCenter.default.post(name: notificationName, object: nil)
-        }
+//        ApplicantAPIManager.getOrganizationsPost { (orgs) in
+//            // fill the organizations array
+//            self.organizations = orgs
+//            
+//            // post notification saying it was loaded successfully
+//            let notificationName = NSNotification.Name("OrganizationsLoaded")
+//            NotificationCenter.default.post(name: notificationName, object: nil)
+//        }
+        
+        
+//        ApplicantAPIManager.getOrganizationsP { (orgs) in
+//            // fill the organizations array
+//            self.organizations = orgs
+//
+//            // post notification saying it was loaded successfully
+//            let notificationName = NSNotification.Name("OrganizationsLoaded")
+//            NotificationCenter.default.post(name: notificationName, object: nil)
+//        }
         
     }
     

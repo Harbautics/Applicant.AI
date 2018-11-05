@@ -46,6 +46,13 @@ public class Organization: NSObject {
         super.init()
     }
     
+    init(name: String, id: String) {
+        self.id = id
+        self.name = name
+        self.members = [Member]()
+        self.postings = [Posting]()
+    }
+    
     convenience init?(json: JSON) {
         // if we can pull information from JSON Response
         if let name_JSON = json["name"].string,

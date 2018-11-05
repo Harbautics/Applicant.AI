@@ -13,14 +13,28 @@ class Applicant_All_Orgs_TableViewController: UITableViewController {
     // Properties
     var orgData = [["Sample Org 1", "Sample Org 2", "Sample Org 3"],["Your Org 1", "Your Org 2", "Your Org 3"]]
     
+    var all_organizations = [Organization]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Org View"
         
-        // to come soon:
-        // API Call
-        // self.tableView.reloadData()
+        print("view loading")
+        
+        // make the API request
+//        ApplicantAPIManager.getOrganizationsPost { (orgs) in
+//            print("back in controller")
+//            self.all_organizations = orgs
+//            self.tableView.reloadData()
+//        }
+        ApplicantAPIManager.getOrganizationsGet { (orgs) in
+            print("back to controller")
+            self.all_organizations = orgs
+            self.tableView.reloadData()
+        }
+        //print("back in controller")
+        self.tableView.reloadData()
+        
+        self.title = "Org View"
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -34,12 +48,12 @@ class Applicant_All_Orgs_TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return orgData[section].count
+        return all_organizations.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -58,7 +72,7 @@ class Applicant_All_Orgs_TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        cell.textLabel?.text = orgData[indexPath.section][indexPath.row]
+        cell.textLabel?.text = all_organizations[indexPath.row].name
         cell.accessoryType = .disclosureIndicator
 
         return cell

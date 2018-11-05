@@ -41,10 +41,10 @@ class Applicant_Specific_TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "applicant_info_identifier", for: indexPath)
 
         if (indexPath.row == 0) {
-            cell.textLabel?.text = self.specificApplication.organization_name
+            cell.textLabel?.text = "test" //self.specificApplication.organization_name
         }
         else if (indexPath.row == 1) {
-            cell.textLabel?.text = self.specificApplication.position_name
+            cell.textLabel?.text = "Test" //self.specificApplication.position_name
         }
         else {
             cell.textLabel?.text = "Error"
