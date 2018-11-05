@@ -29,6 +29,7 @@ class Applicant_All_Orgs_TableViewController: UITableViewController {
         ApplicantAPIManager.getOrganizationsGet { (orgs) in
             print("back to controller")
             self.all_organizations = orgs
+            print(orgs)
             self.tableView.reloadData()
         }
         //print("back in controller")

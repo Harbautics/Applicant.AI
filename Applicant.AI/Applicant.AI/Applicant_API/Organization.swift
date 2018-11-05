@@ -13,15 +13,24 @@ import Foundation
 public class Member: NSObject {
     
     // Properties
-    public let id: String
+    public let id: Int
     public let name: String
     
     // Constructors
-    init(id_in: String, name_in: String) {
+    init(id_in: Int, name_in: String) {
         self.id = id_in
         self.name = name_in
         
         super.init()
+    }
+    convenience init?(json: JSON) {
+        if let nameJSON = json["name"].string,
+           let idJSON = json["id"].int {
+           self.init(id_in: idJSON, name_in: nameJSON)
+        }
+        else {
+            return nil
+        }
     }
 }
 
@@ -63,7 +72,7 @@ public class Organization: NSObject {
             // Go through the array of members, create and append member to the members array
             var members_array = [Member]()
             for member in members_JSON {
-                members_array.append(Member(id_in: member["id"].string!, name_in: member["name"].string!))
+                members_array.append(Member(id_in: member["id"].int!, name_in: member["name"].string!))
             }
             // Go through the array of postings, create and append posting to the posting array
             var postings_array = [Posting]()
@@ -79,7 +88,7 @@ public class Organization: NSObject {
                     applicants_array.append(Applicant(id_in: applicant["id"].string!, name_in: applicant["name"].string!))
                 }
                 
-                postings_array.append(Posting(name_in: posting["name"].string!, id_in: posting["id"].string!, status_in: posting["status"].string!, job_desc_in: posting["job-description"].string!, questions_in: questions_array, applicants_in: applicants_array))
+                postings_array.append(Posting(name_in: posting["name"].string!, id_in: posting["id"].int!, status_in: posting["status"].string!, job_desc_in: posting["job-description"].string!, questions_in: questions_array, applicants_in: applicants_array))
             }
             
             self.init(name: name_JSON, id: id_JSON, members: members_array, postings: postings_array)

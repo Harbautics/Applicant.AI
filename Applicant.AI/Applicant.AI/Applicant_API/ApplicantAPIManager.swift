@@ -79,8 +79,25 @@ public class ApplicantAPIManager {
         fetch(url: url) { (json) in
             if let organizationsJSON = json?.dictionary!["organizations"] {
                 for item in organizationsJSON {
-                    let (first, second) = item
-                    organizations.append(Organization(name: second["name"].string ?? "error name", id: first))
+                    let (ID, json_resp) = item
+                    
+                    if let membersJSON: [JSON] = json_resp["members"].array,
+                       let postingJSON: [JSON] = json_resp["postings"].array,
+                       let nameJSON: String = json_resp["name"].string {
+                       if nameJSON != nil {
+                        var memberList = [Member]()
+                        for m in membersJSON {
+                            memberList.append(Member(json: m)!)
+                        }
+                        var postingList = [Posting]()
+                        for p in postingJSON {
+                            postingList.append(Posting(json: p)!)
+                        }
+                            organizations.append(Organization(name: nameJSON, id: ID, members: memberList, postings: postingList))
+                        }
+                    }
+                    
+                    
                 }
             }
             // get back on the main queue and call the completionHandler with the data
