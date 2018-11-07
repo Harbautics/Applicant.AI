@@ -68,6 +68,9 @@ class Applicant_Specific_Org_TableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath)
             cell.textLabel?.text = specificOrg.members?[indexPath.row].name ?? "no member name"
             cell.detailTextLabel?.text = ""
+            
+            cell.isUserInteractionEnabled = false
+            
             return cell
         }
     }

@@ -178,6 +178,31 @@
                                     <outlet property="Description" destination="nwr-FP-O74" id="jBy-3o-9gA"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="questionCell" rowHeight="83" id="wuK-zF-ub6" userLabel="Question Cell" customClass="Description_TableViewCell" customModule="Applicant_AI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="167" width="375" height="83"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wuK-zF-ub6" id="8nF-Nn-0jh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="82.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1X-N1-WZd">
+                                            <rect key="frame" x="16" y="8" width="343" height="66.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="J1X-N1-WZd" secondAttribute="trailing" constant="16" id="3HX-Cm-cMo"/>
+                                        <constraint firstItem="J1X-N1-WZd" firstAttribute="top" secondItem="8nF-Nn-0jh" secondAttribute="top" constant="8" id="RrA-sQ-gQu"/>
+                                        <constraint firstItem="J1X-N1-WZd" firstAttribute="leading" secondItem="8nF-Nn-0jh" secondAttribute="leading" constant="16" id="Sc2-9f-J2x"/>
+                                        <constraint firstAttribute="bottom" secondItem="J1X-N1-WZd" secondAttribute="bottom" constant="8" id="t5c-tR-GbX"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="Description" destination="J1X-N1-WZd" id="Vj0-0f-kV7"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="yXV-Cu-7sp" id="gXK-pP-qCa"/>

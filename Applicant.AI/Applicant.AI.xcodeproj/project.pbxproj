@@ -18,6 +18,7 @@
 		5D65979C219247370022240C /* Posting_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65979B219247370022240C /* Posting_TableViewController.swift */; };
 		5D65979F219248350022240C /* Status_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65979E219248350022240C /* Status_TableViewCell.swift */; };
 		5D6597A1219249030022240C /* Description_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A0219249030022240C /* Description_TableViewCell.swift */; };
+		5D6597A32192717C0022240C /* Questions_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A22192717C0022240C /* Questions_TableViewCell.swift */; };
 		5DD164A92190997000932731 /* Applicant_Specific_Org_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */; };
 		5DD97224217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */; };
 		5DD97226217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97225217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift */; };
@@ -68,6 +69,7 @@
 		5D65979B219247370022240C /* Posting_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting_TableViewController.swift; sourceTree = "<group>"; };
 		5D65979E219248350022240C /* Status_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status_TableViewCell.swift; sourceTree = "<group>"; };
 		5D6597A0219249030022240C /* Description_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description_TableViewCell.swift; sourceTree = "<group>"; };
+		5D6597A22192717C0022240C /* Questions_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Questions_TableViewCell.swift; path = "Applicant.AI/Custom Cells/Questions_TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_Specific_Org_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_All_Orgs_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97225217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_All_Apps_TableViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				5D65979E219248350022240C /* Status_TableViewCell.swift */,
 				5D6597A0219249030022240C /* Description_TableViewCell.swift */,
+				5D6597A22192717C0022240C /* Questions_TableViewCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				341B83D8217132CB0024335A /* AppDelegate.swift in Sources */,
 				5DFA7EF121891F4A007C3FF0 /* Organizations_Provider.swift in Sources */,
 				341B83DA217132CB0024335A /* FirstViewController.swift in Sources */,
+				5D6597A32192717C0022240C /* Questions_TableViewCell.swift in Sources */,
 				5D65979F219248350022240C /* Status_TableViewCell.swift in Sources */,
 				5DD97226217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift in Sources */,
 				7F986BC921867CFB006916F6 /* ApplicantAPIManager.swift in Sources */,

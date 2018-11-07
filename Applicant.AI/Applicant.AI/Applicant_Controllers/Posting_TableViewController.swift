@@ -28,12 +28,29 @@ class Posting_TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if section == 2 {
+            return self.specificPosting.questions?.count ?? 0
+        }
         return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 2 {
+            if self.specificPosting.questions?.count != 0 {
+                return "Questions"
+            }
+            else {
+                return ""
+            }
+        }
+        else {
+            return ""
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,7 +80,11 @@ class Posting_TableViewController: UITableViewController {
         }
         // questions
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "questionPromptCell", for: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! Description_TableViewCell
+            
+            cell.Description.text = self.specificPosting.questions?[indexPath.row].question ?? "No question given"
+            
+            cell.accessoryType = .disclosureIndicator
             
             return cell
         }
