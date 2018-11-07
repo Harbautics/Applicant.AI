@@ -1,75 +1,73 @@
 //
-//  Applicant_Specific_Org_TableViewController.swift
+//  Posting_TableViewController.swift
 //  Applicant.AI
 //
-//  Created by Jordan Wolff on 11/5/18.
+//  Created by Jordan Wolff on 11/6/18.
 //  Copyright © 2018 Harbautics. All rights reserved.
 //
 
 import UIKit
 
-class Applicant_Specific_Org_TableViewController: UITableViewController {
+class Posting_TableViewController: UITableViewController {
 
-    var specificOrg: Organization!
-    
+    // Properties
+    var specificPosting: Posting!
     
     override func viewDidLoad() {
-        self.title = specificOrg.name
-        
         super.viewDidLoad()
+
+        self.title = self.specificPosting.name
+        
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 44
+        
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // members, postings
+        // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return self.specificOrg.postings?.count ?? 0
-        }
-        else if section == 1 {
-            return self.specificOrg.members?.count ?? 0
-        }
-        else {
-            return 0
-        }
+        // #warning Incomplete implementation, return the number of rows
+        return 1
     }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Positions"
-        }
-        else if section == 1 {
-            return "Members"
-        }
-        else {
-            return "Extra"
-        }
-    }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Posting
+        // status
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "postingCell", for: indexPath)
-            cell.textLabel?.text = specificOrg.postings?[indexPath.row].name ?? "no name"
-            cell.detailTextLabel?.text = specificOrg.postings?[indexPath.row].status ?? "no status"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as! Status_TableViewCell
             
-            cell.accessoryType = .disclosureIndicator
+            cell.statusLabel.text = self.specificPosting.status
+            
+            if self.specificPosting.status == "open" {
+                cell.statusLabel.textColor = UIColor(red:0.15, green:0.68, blue:0.38, alpha:1.0)
+            }
+            else {
+                cell.statusLabel.textColor = UIColor.red
+            }
             
             return cell
         }
-        // Member
+        // description
+        else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! Description_TableViewCell
+            
+            cell.Description.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec consectetur est, a tincidunt turpis. Maecenas commodo libero ut turpis scelerisque tempor. Curabitur blandit urna mauris, sit amet convallis massa accumsan at. Phasellus molestie fringilla ligula, sed bibendum nisi imperdiet quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc condimentum, magna id varius pretium, risus nulla dictum justo, sed lobortis urna nunc vel ipsum. Aenean interdum rutrum mollis. Nulla facilisi."//self.specificPosting.job_description
+            
+            return cell
+        }
+        // questions
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath)
-            cell.textLabel?.text = specificOrg.members?[indexPath.row].name ?? "no member name"
-            cell.detailTextLabel?.text = ""
+            let cell = tableView.dequeueReusableCell(withIdentifier: "questionPromptCell", for: indexPath) as! UITableViewCell
+            
             return cell
         }
+        
     }
     
 
@@ -108,21 +106,14 @@ class Applicant_Specific_Org_TableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "specificOrgToPosting" {
-            if let postingTVC = segue.destination as? Posting_TableViewController {
-                if let indexPath = self.tableView.indexPathForSelectedRow {
-                    postingTVC.specificPosting = self.specificOrg.postings?[indexPath.row]
-                }
-            }
-        }
     }
-    
+    */
 
 }
