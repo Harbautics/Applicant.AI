@@ -9,28 +9,26 @@
 import UIKit
 
 class Dropdown_Answer_TableViewCell: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.answers.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.answers[row]
-    }
-    
 
     @IBOutlet weak var answerPicker: UIPickerView!
     
     // Potential Answers
     var answers = [String]()
+    var questionIndex: Int!
+    var postingTVC: Posting_TableViewController?
     
-    func configure(answersIn: [String]) {
+    func configure(answersIn: [String], questionIndexIn: Int, controller: Posting_TableViewController) {
         self.answers = answersIn
+        self.questionIndex = questionIndexIn
+        self.postingTVC = controller
+        
+        // send the default choice initially back the controller
+        if self.answers.count != 0 {
+            postingTVC?.setPickerCellAnswer(forQuestion: self.questionIndex, selection: self.answers[0])
+        }
+        else {
+            postingTVC?.setPickerCellAnswer(forQuestion: self.questionIndex, selection: "")
+        }
     }
     
     override func awakeFromNib() {
@@ -46,4 +44,21 @@ class Dropdown_Answer_TableViewCell: UITableViewCell,UIPickerViewDelegate, UIPic
         // Configure the view for the selected state
     }
 
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.answers.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.answers[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let choice = self.answers[row]
+        //print(choice)
+        postingTVC?.setPickerCellAnswer(forQuestion: self.questionIndex, selection: choice)
+    }
+    
 }

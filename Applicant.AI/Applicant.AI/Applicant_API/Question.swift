@@ -28,7 +28,6 @@ public class Question: NSObject {
         self.answers_list = answer_list_in
         
         super.init()
-        print(self.type)
     }
     
     // Init from JSON object
@@ -51,6 +50,6 @@ public class Question: NSObject {
     
     // Debugging
     override public var description: String  {
-        return "\(self.question), \(self.sub_description)"
+        return "\(self.question), \(self.applicant_answer)"
     }
 }

@@ -17,7 +17,12 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     var specificPosting: Posting!
     var currentQuestionIndex = 0; // keeps track of question to render
     var currentPickerIndex = 0;
-    var pickerData = ["First option", "second option", "third option", "fourth option"]
+    var applicant_answers = [String]()
+    
+    
+    //let dropdown_tvc = Dropdown_Answer_TableViewCell
+    //let dropdown_tvc = Dropdown_Answer_TableViewCell(nibName: "Dropdown_Answer_TableViewCell", bundle: nil)
+    //dropdown_tvc.Posting_TableViewController = self
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,10 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
         
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44
+        
+    
+       // reserve some space for answers
+        self.applicant_answers.reserveCapacity(self.specificPosting.questions?.count ?? 0)
         
         self.tableView.reloadData()
     }
@@ -119,10 +128,9 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
                 }
                 // dropdown selection
                 else {
-                    print("dropdown1")
                     let cell = tableView.dequeueReusableCell(withIdentifier: "dropdownAnswerCell", for: indexPath) as! Dropdown_Answer_TableViewCell
                     
-                    cell.configure(answersIn: self.specificPosting.questions?[self.currentQuestionIndex - 1].answers_list ?? [""])
+                    cell.configure(answersIn: self.specificPosting.questions?[self.currentQuestionIndex - 1].answers_list ?? [""], questionIndexIn: self.currentQuestionIndex - 1, controller: self)
                     
                     //cell.answerPicker.delegate = self
                     //cell.answerPicker.dataSource = self
@@ -137,6 +145,14 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     func isEven(_ num: Int) -> Bool {
         return (num % 2 == 0)
     }
+    
+    // Receiving data from child cells
+    func setPickerCellAnswer(forQuestion: Int, selection: String) {
+        //print(forQuestion, selection)
+        self.specificPosting.questions?[forQuestion].applicant_answer = selection
+        print(self.specificPosting.questions)
+    }
+    
     
     // Picker
 //    func numberOfComponents(in pickerView: UIPickerView) -> Int {
