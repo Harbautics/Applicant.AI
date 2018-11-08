@@ -28,6 +28,7 @@ public class Question: NSObject {
         self.answers_list = answer_list_in
         
         super.init()
+        print(self.type)
     }
     
     // Init from JSON object

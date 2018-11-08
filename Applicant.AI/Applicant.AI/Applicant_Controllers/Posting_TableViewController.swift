@@ -8,10 +8,16 @@
 
 import UIKit
 
-class Posting_TableViewController: UITableViewController {
+class Posting_TableViewController: UITableViewController, UITextViewDelegate {
+    
+    // UIPickerViewDelegate, UIPickerViewDataSource
+    
 
     // Properties
     var specificPosting: Posting!
+    var currentQuestionIndex = 0; // keeps track of question to render
+    var currentPickerIndex = 0;
+    var pickerData = ["First option", "second option", "third option", "fourth option"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +40,7 @@ class Posting_TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 2 {
-            return self.specificPosting.questions?.count ?? 0
+            return (self.specificPosting.questions?.count ?? 0) * 2
         }
         return 1
     }
@@ -80,16 +86,70 @@ class Posting_TableViewController: UITableViewController {
         }
         // questions
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! Description_TableViewCell
             
-            cell.Description.text = self.specificPosting.questions?[indexPath.row].question ?? "No question given"
-            
-            cell.accessoryType = .disclosureIndicator
-            
-            return cell
+            // question cell
+            if isEven(indexPath.row) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! Description_TableViewCell
+                
+                // current question rendered
+                cell.Description.text = self.specificPosting.questions?[self.currentQuestionIndex].question ?? "No question given"
+                
+                cell.isUserInteractionEnabled = false
+                
+                self.currentQuestionIndex += 1
+                
+                return cell
+            }
+            // answer cell
+            else {
+                
+                // text entry
+                if (self.specificPosting.questions?[self.currentQuestionIndex - 1].type == "text") {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "textAnswerCell", for: indexPath) as! TextAnswer_TableViewCell
+                    
+                    cell.textEntryArea.delegate = self
+
+                    // TODO: set user's text if they've applied
+                    cell.textEntryArea.text = "Your answer here"
+                    
+                    // TODO: set to false if user has already submitted application
+                    //cell.isUserInteractionEnabled = true
+                    
+                    return cell
+                }
+                // dropdown selection
+                else {
+                    print("dropdown1")
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "dropdownAnswerCell", for: indexPath) as! Dropdown_Answer_TableViewCell
+                    
+                    cell.configure(answersIn: self.specificPosting.questions?[self.currentQuestionIndex - 1].answers_list ?? [""])
+                    
+                    //cell.answerPicker.delegate = self
+                    //cell.answerPicker.dataSource = self
+                                        
+                    return cell
+                }
+            }
         }
         
     }
+    
+    func isEven(_ num: Int) -> Bool {
+        return (num % 2 == 0)
+    }
+    
+    // Picker
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return self.pickerData.count
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return self.pickerData[row]
+//    }
     
 
     /*

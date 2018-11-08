@@ -203,6 +203,53 @@
                                     <outlet property="Description" destination="J1X-N1-WZd" id="Vj0-0f-kV7"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="textAnswerCell" rowHeight="168" id="7xq-9a-WIX" userLabel="Text Answer Cell" customClass="TextAnswer_TableViewCell" customModule="Applicant_AI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="250" width="375" height="168"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7xq-9a-WIX" id="Pwe-Ki-Rdx">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="167.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type your answer here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S6F-d6-4FV">
+                                            <rect key="frame" x="16" y="32" width="343" height="103.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="S6F-d6-4FV" secondAttribute="trailing" constant="16" id="ArQ-F2-z4F"/>
+                                        <constraint firstAttribute="bottom" secondItem="S6F-d6-4FV" secondAttribute="bottom" constant="32" id="aRs-1P-Iev"/>
+                                        <constraint firstItem="S6F-d6-4FV" firstAttribute="leading" secondItem="Pwe-Ki-Rdx" secondAttribute="leading" constant="16" id="oJz-X7-sDO"/>
+                                        <constraint firstItem="S6F-d6-4FV" firstAttribute="top" secondItem="Pwe-Ki-Rdx" secondAttribute="top" constant="32" id="qW5-NC-S28"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textEntryArea" destination="S6F-d6-4FV" id="XOh-ej-XHZ"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dropdownAnswerCell" rowHeight="102" id="Q9O-cz-XC3" userLabel="Dropdown Answer Cell" customClass="Dropdown_Answer_TableViewCell" customModule="Applicant_AI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="418" width="375" height="102"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q9O-cz-XC3" id="jwC-XL-JQ5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7O-hm-N2S">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
+                                        </pickerView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Z7O-hm-N2S" firstAttribute="leading" secondItem="jwC-XL-JQ5" secondAttribute="leading" id="HU0-vA-Wmr"/>
+                                        <constraint firstAttribute="bottom" secondItem="Z7O-hm-N2S" secondAttribute="bottom" id="JpQ-s8-WV7"/>
+                                        <constraint firstAttribute="trailing" secondItem="Z7O-hm-N2S" secondAttribute="trailing" id="h12-8E-c0h"/>
+                                        <constraint firstItem="Z7O-hm-N2S" firstAttribute="top" secondItem="jwC-XL-JQ5" secondAttribute="top" id="y2y-So-x7z"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="answerPicker" destination="Z7O-hm-N2S" id="lWN-rR-RR6"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="yXV-Cu-7sp" id="gXK-pP-qCa"/>
