@@ -4,58 +4,80 @@
 # Current File Structure
 ```bash
 ├── Applicant.AI
-│   ├── Applicant.AI
-│   │   ├── AppDelegate.swift
-│   │   ├── Applicant_API
-│   │   │   ├── ApplicantAPIManager.swift
-│   │   │   ├── Application.swift
-│   │   │   ├── Organization.swift
-│   │   │   └── SwiftyJSON.swift
-│   │   ├── Applicant_Controllers
-│   │   │   ├── Applicant_All_Apps_TableViewController.swift
-│   │   │   ├── Applicant_All_Orgs_TableViewController.swift
-│   │   │   └── Applicant_Specific_TableViewController.swift
-│   │   ├── Assets.xcassets
-│   │   │   ├── AppIcon.appiconset
-│   │   │   │   └── Contents.json
+│   ├── AppDelegate.swift
+│   ├── Applicant_API
+│   │   ├── Applicant.swift
+│   │   ├── ApplicantAPIManager.swift
+│   │   ├── Application.swift
+│   │   ├── Organization.swift
+│   │   ├── Posting.swift
+│   │   ├── Question.swift
+│   │   └── SwiftyJSON.swift
+│   ├── Applicant_Controllers
+│   │   ├── Applicant_All_Apps_TableViewController.swift
+│   │   ├── Applicant_All_Orgs_TableViewController.swift
+│   │   ├── Applicant_Specific_Org_TableViewController.swift
+│   │   ├── Applicant_Specific_TableViewController.swift
+│   │   └── Posting_TableViewController.swift
+│   ├── Applicant_Model
+│   │   ├── Applications_Provider.swift
+│   │   └── Organizations_Provider.swift
+│   ├── Assets.xcassets
+│   │   ├── AppIcon.appiconset
+│   │   │   └── Contents.json
+│   │   ├── Contents.json
+│   │   ├── first.imageset
 │   │   │   ├── Contents.json
-│   │   │   ├── first.imageset
-│   │   │   │   ├── Contents.json
-│   │   │   │   └── first.pdf
-│   │   │   └── second.imageset
-│   │   │       ├── Contents.json
-│   │   │       └── second.pdf
-│   │   ├── Base.lproj
-│   │   │   ├── LaunchScreen.storyboard
-│   │   │   └── Main.storyboard
-│   │   ├── FirstViewController.swift
-│   │   ├── Info.plist
-│   │   └── SecondViewController.swift
-│   ├── Applicant.AI.xcodeproj
-│   │   ├── project.pbxproj
-│   │   ├── project.xcworkspace
-│   │   │   ├── contents.xcworkspacedata
-│   │   │   ├── xcshareddata
-│   │   │   │   └── IDEWorkspaceChecks.plist
-│   │   │   └── xcuserdata
-│   │   │       ├── jordanwolff.xcuserdatad
-│   │   │       │   └── UserInterfaceState.xcuserstate
-│   │   │       └── troystacer.xcuserdatad
-│   │   │           ├── IDEFindNavigatorScopes.plist
-│   │   │           └── UserInterfaceState.xcuserstate
+│   │   │   └── first.pdf
+│   │   ├── multiple-users-silhouette.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── multiple-users-silhouette.png
+│   │   ├── second.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── second.pdf
+│   │   └── text-document.imageset
+│   │       ├── Contents.json
+│   │       └── text-document.png
+│   ├── Base.lproj
+│   │   ├── LaunchScreen.storyboard
+│   │   └── Main.storyboard
+│   ├── Custom\ Cells
+│   │   ├── Description_TableViewCell.swift
+│   │   ├── Dropdown_Answer_TableViewCell.swift
+│   │   ├── Status_TableViewCell.swift
+│   │   └── TextAnswer_TableViewCell.swift
+│   └── Info.plist
+├── Applicant.AI.xcodeproj
+│   ├── project.pbxproj
+│   ├── project.xcworkspace
+│   │   ├── contents.xcworkspacedata
+│   │   ├── xcshareddata
+│   │   │   └── IDEWorkspaceChecks.plist
 │   │   └── xcuserdata
+│   │       ├── alexisopsasnick.xcuserdatad
+│   │       │   └── UserInterfaceState.xcuserstate
 │   │       ├── jordanwolff.xcuserdatad
-│   │       │   └── xcschemes
-│   │       │       └── xcschememanagement.plist
+│   │       │   └── UserInterfaceState.xcuserstate
 │   │       └── troystacer.xcuserdatad
-│   │           └── xcschemes
-│   │               └── xcschememanagement.plist
-│   ├── Applicant.AITests
-│   │   ├── Applicant_AITests.swift
-│   │   └── Info.plist
-│   └── Applicant.AIUITests
-│       ├── Applicant_AIUITests.swift
-│       └── Info.plist
+│   │           └── UserInterfaceState.xcuserstate
+│   └── xcuserdata
+│       ├── alexisopsasnick.xcuserdatad
+│       │   └── xcschemes
+│       │       └── xcschememanagement.plist
+│       ├── jordanwolff.xcuserdatad
+│       │   ├── xcdebugger
+│       │   │   └── Breakpoints_v2.xcbkptlist
+│       │   └── xcschemes
+│       │       └── xcschememanagement.plist
+│       └── troystacer.xcuserdatad
+│           └── xcschemes
+│               └── xcschememanagement.plist
+├── Applicant.AITests
+│   ├── Applicant_AITests.swift
+│   └── Info.plist
+├── Applicant.AIUITests
+│   ├── Applicant_AIUITests.swift
+│   └── Info.plist
 └── README.md
 ```
 
@@ -75,6 +97,9 @@ git clone https://github.com/Harbautics/Applicant.AI.git
 Backend has been moved to different repo
 
 # Current Features
+- view all organizations 
+  - search using org name or id
+- view applications and status for each org
 
 ## Applicant Orgs and Apps View
 Applicant tab bar view has been set up. Using placeholder data they can navigate through a list of organizations and view the basic info for an org.
