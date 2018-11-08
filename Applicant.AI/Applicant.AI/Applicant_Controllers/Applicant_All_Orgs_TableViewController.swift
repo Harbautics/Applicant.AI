@@ -9,10 +9,20 @@
 import UIKit
 import Foundation
 
-class Applicant_All_Orgs_TableViewController: UITableViewController {
+extension Applicant_All_Orgs_TableViewController: UISearchResultsUpdating {
+    @available(iOS 8.0, *)
+    public func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+}
 
-    // Properties    
+
+class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBarDelegate {
+
+    // Properties
+    let searchController = UISearchController(searchResultsController: nil)
     var all_organizations = [Organization]()
+    var filtered_organizations = [Organization]()
     
     override func viewDidLoad() {
         print("org view loading")
@@ -24,7 +34,11 @@ class Applicant_All_Orgs_TableViewController: UITableViewController {
         let notificationName = NSNotification.Name("OrganizationsLoaded")
         NotificationCenter.default.addObserver(self, selector: #selector(Applicant_All_Orgs_TableViewController.reloadTableView), name: notificationName, object: nil)
         
-        
+        // Search
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation =  false
+        definesPresentationContext = true
+        self.tableView.tableHeaderView = searchController.searchBar
         self.title = "Organizations"
         super.viewDidLoad()
     }
@@ -42,7 +56,13 @@ class Applicant_All_Orgs_TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return all_organizations.count
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return self.filtered_organizations.count
+        }
+        else {
+            return all_organizations.count
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -60,11 +80,30 @@ class Applicant_All_Orgs_TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        cell.textLabel?.text = all_organizations[indexPath.row].name
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            cell.textLabel?.text = filtered_organizations[indexPath.row].name
+        }
+        else {
+            cell.textLabel?.text = all_organizations[indexPath.row].name
+        }
+        
         cell.accessoryType = .disclosureIndicator
 
         return cell
+    }
+    
+    // search functions
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        var results = [Organization]()
+        print(searchText)
+        for item in self.all_organizations {
+            if item.name.localizedCaseInsensitiveContains(searchText) || item.id.localizedCaseInsensitiveContains(searchText) {
+                results.append(item)
+            }
+        }
+        self.filtered_organizations = results
+        self.tableView.reloadData()
     }
     
 
@@ -113,8 +152,12 @@ class Applicant_All_Orgs_TableViewController: UITableViewController {
         if segue.identifier == "allOrgsToSpecific" {
             if let specific_Org_TVC = segue.destination as? Applicant_Specific_Org_TableViewController {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
-                    specific_Org_TVC.specificOrg = self.all_organizations[indexPath.row]
-                    specific_Org_TVC.title = "Testing title"
+                    if searchController.isActive {
+                        specific_Org_TVC.specificOrg = self.filtered_organizations[indexPath.row]
+                    }
+                    else {
+                        specific_Org_TVC.specificOrg = self.all_organizations[indexPath.row]
+                    }
                 }
             }
         }
