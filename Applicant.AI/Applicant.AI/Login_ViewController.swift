@@ -35,7 +35,7 @@ class Login_ViewController: UIViewController {
             if user != nil {
                 self.performSegue(withIdentifier: "login_as_applicant", sender: self)
             }
-            if error != nil {
+            if error != nil { w
                 print(":(")
             }
         }
