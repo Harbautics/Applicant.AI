@@ -33,6 +33,9 @@ class Login_ViewController: UIViewController {
         Auth.auth().signIn(withEmail: self.email.text!, password: self.password.text!) {
             (user, error) in
             if user != nil {
+                // log in the user
+                Login_Provider.shared.logInUser(usernameIn: self.email.text!)
+                // segue
                 self.performSegue(withIdentifier: "login_as_applicant", sender: self)
             }
             if error != nil {
@@ -40,7 +43,12 @@ class Login_ViewController: UIViewController {
             }
         }
     }
+    
     override func viewDidLoad() {
+        
+        // In AppDelegat.swift:
+        // checking to see if user is logged in, if so passing through 
+
         super.viewDidLoad()
     }
     override func didReceiveMemoryWarning() {

@@ -79,6 +79,7 @@ public class ApplicantAPIManager {
         let url = APIURLs.getOrganizations
         fetch(url: url) { (json) in
             // if we can pull out of the JSON
+            print(json)
             if let organizationsJSON = json?.dictionary!["organizations"] {
                 for item in organizationsJSON {
                     let (ID, json_resp) = item

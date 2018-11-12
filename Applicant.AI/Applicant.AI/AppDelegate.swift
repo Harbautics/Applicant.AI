@@ -18,6 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         //print(Organizations_Provider.shared)
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+
+        if Login_Provider.shared.isLoggedIn() {
+            let mainScreen = storyBoard.instantiateViewController(withIdentifier: "Applicant_Tab_View")
+            self.window?.rootViewController = mainScreen
+        }
+        else {
+            let loginScreen = storyBoard.instantiateViewController(withIdentifier: "Login_ViewController")
+            self.window?.rootViewController = loginScreen
+        }
+        
+        
+        
         return true
     }
 

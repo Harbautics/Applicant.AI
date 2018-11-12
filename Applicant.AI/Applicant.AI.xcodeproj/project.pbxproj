@@ -22,6 +22,7 @@
 		5D6597A1219249030022240C /* Description_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A0219249030022240C /* Description_TableViewCell.swift */; };
 		5D6597A5219375F10022240C /* TextAnswer_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A4219375F10022240C /* TextAnswer_TableViewCell.swift */; };
 		5D6597A721937DF90022240C /* Dropdown_Answer_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A621937DF90022240C /* Dropdown_Answer_TableViewCell.swift */; };
+		5D8C4140219A04FC0029C1EE /* Login_Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C413F219A04FC0029C1EE /* Login_Provider.swift */; };
 		5DD164A92190997000932731 /* Applicant_Specific_Org_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */; };
 		5DD97224217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */; };
 		5DD97226217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97225217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift */; };
@@ -77,6 +78,7 @@
 		5D6597A0219249030022240C /* Description_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description_TableViewCell.swift; sourceTree = "<group>"; };
 		5D6597A4219375F10022240C /* TextAnswer_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnswer_TableViewCell.swift; sourceTree = "<group>"; };
 		5D6597A621937DF90022240C /* Dropdown_Answer_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dropdown_Answer_TableViewCell.swift; sourceTree = "<group>"; };
+		5D8C413F219A04FC0029C1EE /* Login_Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_Provider.swift; sourceTree = "<group>"; };
 		5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_Specific_Org_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_All_Orgs_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97225217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_All_Apps_TableViewController.swift; sourceTree = "<group>"; };
@@ -152,7 +154,6 @@
 		341B83D6217132CB0024335A /* Applicant.AI */ = {
 			isa = PBXGroup;
 			children = (
-				34F679722198EB8B0074CBF8 /* GoogleService-Info.plist */,
 				5D65979D219248230022240C /* Custom Cells */,
 				5DD97228217BE25600ECA085 /* Applicant_Model */,
 				5DD97227217BE24E00ECA085 /* Applicant_API */,
@@ -162,7 +163,7 @@
 				341B83E0217132CB0024335A /* Assets.xcassets */,
 				341B83E2217132CB0024335A /* LaunchScreen.storyboard */,
 				341B83E5217132CB0024335A /* Info.plist */,
-				342AEF2A2198E2D000CCAFA2 /* Login_ViewController.swift */,
+				34F679722198EB8B0074CBF8 /* GoogleService-Info.plist */,
 			);
 			path = Applicant.AI;
 			sourceTree = "<group>";
@@ -214,6 +215,7 @@
 				5D65979B219247370022240C /* Posting_TableViewController.swift */,
 				5DD97225217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift */,
 				5DD97229217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift */,
+				342AEF2A2198E2D000CCAFA2 /* Login_ViewController.swift */,
 			);
 			path = Applicant_Controllers;
 			sourceTree = "<group>";
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				5DFA7EF021891F4A007C3FF0 /* Organizations_Provider.swift */,
+				5D8C413F219A04FC0029C1EE /* Login_Provider.swift */,
 				5DFA7EF221892042007C3FF0 /* Applications_Provider.swift */,
 			);
 			path = Applicant_Model;
@@ -501,6 +504,7 @@
 				342AEF2B2198E2D000CCAFA2 /* Login_ViewController.swift in Sources */,
 				5DFA7EF321892042007C3FF0 /* Applications_Provider.swift in Sources */,
 				5DFA7EED218916ED007C3FF0 /* Posting.swift in Sources */,
+				5D8C4140219A04FC0029C1EE /* Login_Provider.swift in Sources */,
 				7F986BCD218680F0006916F6 /* Organization.swift in Sources */,
 				5D65979C219247370022240C /* Posting_TableViewController.swift in Sources */,
 				5DFA7EEB21891446007C3FF0 /* Question.swift in Sources */,
