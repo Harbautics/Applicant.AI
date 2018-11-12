@@ -38,4 +38,13 @@ class Login_Provider {
         return !(self.username.isEmpty)
     }
     
+    func clearDefaults() {
+        self.username = ""
+        let encodedData = self.username
+        self.defaults.set(encodedData, forKey: "username")
+        self.defaults.synchronize()
+        let notificationName = NSNotification.Name("clearDefaults")
+        NotificationCenter.default.post(name: notificationName, object: nil)
+    }
+    
 }

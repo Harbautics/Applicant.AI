@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 
+        // Login_Provider.shared.clearDefaults() // uncomment when you want to clear the user and then direct to login screen
+        
         if Login_Provider.shared.isLoggedIn() {
             let mainScreen = storyBoard.instantiateViewController(withIdentifier: "Applicant_Tab_View")
             self.window?.rootViewController = mainScreen
