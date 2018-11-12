@@ -10,17 +10,22 @@ import UIKit
 
 class Dropdown_Answer_TableViewCell: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var question: UILabel!
     @IBOutlet weak var answerPicker: UIPickerView!
     
     // Potential Answers
     var answers = [String]()
     var questionIndex: Int!
     var postingTVC: Posting_TableViewController?
+    var displayedQuestion = String()
     
-    func configure(answersIn: [String], questionIndexIn: Int, controller: Posting_TableViewController) {
+    // sets the question label and the picker data
+    func configure(answersIn: [String], questionIn: String, questionIndexIn: Int, controller: Posting_TableViewController) {
         self.answers = answersIn
         self.questionIndex = questionIndexIn
         self.postingTVC = controller
+        self.displayedQuestion = questionIn
+        self.question.text = questionIn
         
         // send the default choice initially back the controller
         if self.answers.count != 0 {
@@ -34,8 +39,8 @@ class Dropdown_Answer_TableViewCell: UITableViewCell,UIPickerViewDelegate, UIPic
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.answerPicker.delegate = self
-        self.answerPicker.dataSource = self
+        //self.answerPicker.delegate = self
+        //self.answerPicker.dataSource = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

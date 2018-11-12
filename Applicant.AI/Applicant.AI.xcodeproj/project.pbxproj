@@ -22,6 +22,7 @@
 		5D6597A1219249030022240C /* Description_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A0219249030022240C /* Description_TableViewCell.swift */; };
 		5D6597A5219375F10022240C /* TextAnswer_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A4219375F10022240C /* TextAnswer_TableViewCell.swift */; };
 		5D6597A721937DF90022240C /* Dropdown_Answer_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A621937DF90022240C /* Dropdown_Answer_TableViewCell.swift */; };
+		5D7DCE17219A273F00F621D1 /* Submit_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE16219A273F00F621D1 /* Submit_TableViewCell.swift */; };
 		5D8C4140219A04FC0029C1EE /* Login_Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C413F219A04FC0029C1EE /* Login_Provider.swift */; };
 		5DD164A92190997000932731 /* Applicant_Specific_Org_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */; };
 		5DD97224217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */; };
@@ -78,6 +79,7 @@
 		5D6597A0219249030022240C /* Description_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description_TableViewCell.swift; sourceTree = "<group>"; };
 		5D6597A4219375F10022240C /* TextAnswer_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnswer_TableViewCell.swift; sourceTree = "<group>"; };
 		5D6597A621937DF90022240C /* Dropdown_Answer_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dropdown_Answer_TableViewCell.swift; sourceTree = "<group>"; };
+		5D7DCE16219A273F00F621D1 /* Submit_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submit_TableViewCell.swift; sourceTree = "<group>"; };
 		5D8C413F219A04FC0029C1EE /* Login_Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_Provider.swift; sourceTree = "<group>"; };
 		5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_Specific_Org_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_All_Orgs_TableViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				5D6597A0219249030022240C /* Description_TableViewCell.swift */,
 				5D6597A4219375F10022240C /* TextAnswer_TableViewCell.swift */,
 				5D6597A621937DF90022240C /* Dropdown_Answer_TableViewCell.swift */,
+				5D7DCE16219A273F00F621D1 /* Submit_TableViewCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				5DFA7EEB21891446007C3FF0 /* Question.swift in Sources */,
 				5D6597A721937DF90022240C /* Dropdown_Answer_TableViewCell.swift in Sources */,
 				5DD97224217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift in Sources */,
+				5D7DCE17219A273F00F621D1 /* Submit_TableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,7 +691,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 383GGYK7EE;
 				INFOPLIST_FILE = Applicant.AI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -697,7 +701,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -708,7 +712,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 383GGYK7EE;
 				INFOPLIST_FILE = Applicant.AI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -717,7 +721,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Harbautics.Applicant-AI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

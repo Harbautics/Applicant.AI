@@ -14,6 +14,7 @@ public class ApplicantAPIManager {
     //URLs for APIs
     private struct APIURLs {
         static let getOrganizations = URL(string: "http://sdocsverification-env.dfcuq7wid3.us-east-2.elasticbeanstalk.com/getOrganizationInfo")!
+        static let submitApplication = URL(string: "http://testing.com")!
     }
     
     // A generic fetch that gets JSON and calls the completion handler
@@ -73,13 +74,48 @@ public class ApplicantAPIManager {
         }
     }
     
+    private class func postData(url: URL, data: JSON, completionHandler: @escaping ((JSON?) -> Void )) {
+        print("making request")
+        
+        // use a separate thread
+        DispatchQueue.global(qos: .default).async {
+            // build request
+            let config = URLSessionConfiguration.default
+            let request = NSMutableURLRequest(url: url)
+            request.httpMethod = "POST"
+            //request.httpBody = data.rawData() // TODO: configure json data
+            let session = URLSession(configuration: config)
+            
+            let task = session.dataTask(with: url as URL, completionHandler: {(data, response, error) in
+                if error != nil {
+                    debugPrint(error!)
+                }
+                else {
+                    if data != nil {
+                        let json = JSON(data:data!)
+                        completionHandler(json)
+                    }
+                    else {
+                        print("No data!")
+                    }
+                }
+            })
+            task.resume()
+            
+        }
+        // get back on the main queue and call the completionHandler with the data
+        DispatchQueue.main.async {
+            completionHandler(data)
+        }
+    }
+        
+    
     public class func getOrganizationsGet(completionHandler: @escaping (([Organization]) -> Void )) {
         print("get all organizations get")
         var organizations = [Organization]()
         let url = APIURLs.getOrganizations
         fetch(url: url) { (json) in
             // if we can pull out of the JSON
-            print(json)
             if let organizationsJSON = json?.dictionary!["organizations"] {
                 for item in organizationsJSON {
                     let (ID, json_resp) = item
@@ -93,6 +129,22 @@ public class ApplicantAPIManager {
             }
         }
     }
+    
+    // TODO: finish this
+    public class func submitApplication(data: [[String: String]], completionHandler: @escaping () -> Void) {
+        print("submitting...")
+//        let url = APIURLs.submitApplication
+//        let dataJSON = JSON(arrayLiteral: data)
+//
+//        postData(url: url, data: dataJSON) { (json) in
+//            // parse the response
+//        }
+        // get back on the main queue and continue
+        DispatchQueue.main.async {
+            completionHandler()
+        }
+    }
+        
     
 //    public class func getOrganizationsPost(completionHandler: @escaping (([Organization]) -> Void )) {
 //        print("get all organizations")

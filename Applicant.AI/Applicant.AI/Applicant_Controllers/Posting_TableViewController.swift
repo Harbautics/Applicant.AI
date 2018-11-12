@@ -43,13 +43,13 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 2 {
-            return (self.specificPosting.questions?.count ?? 0) * 2
+            return (self.specificPosting.questions?.count ?? 0)
         }
         return 1
     }
@@ -94,50 +94,43 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             return cell
         }
         // questions
-        else {
+        else if indexPath.section == 2 {
+//            if indexPath.row ==
             
-            // question cell
-            if isEven(indexPath.row) {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! Description_TableViewCell
+            // get the question to render
+            let currentQuestion = self.specificPosting.questions?[self.currentQuestionIndex]
+            
+            // text entry
+            if currentQuestion?.type == "text" {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "textAnswerCell", for: indexPath) as! TextAnswer_TableViewCell
                 
-                // current question rendered
-                cell.Description.text = self.specificPosting.questions?[self.currentQuestionIndex].question ?? "No question given"
+                cell.configure(questionIn: currentQuestion?.question ?? "no question text", questionIndexIn: self.currentQuestionIndex, controller: self, answerIn: "")
                 
-                cell.isUserInteractionEnabled = false
-                
+                // move to next question
                 self.currentQuestionIndex += 1
                 
                 return cell
             }
-            // answer cell
+            // dropdown
             else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "dropdownAnswerCell", for: indexPath) as! Dropdown_Answer_TableViewCell
                 
-                // text entry
-                if (self.specificPosting.questions?[self.currentQuestionIndex - 1].type == "text") {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "textAnswerCell", for: indexPath) as! TextAnswer_TableViewCell
-                    
-                    cell.textEntryArea.delegate = self
-
-                    // TODO: set user's text if they've applied
-                    cell.textEntryArea.text = "Your answer here"
-                    
-                    // TODO: set to false if user has already submitted application
-                    //cell.isUserInteractionEnabled = true
-                    
-                    return cell
-                }
-                // dropdown selection
-                else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "dropdownAnswerCell", for: indexPath) as! Dropdown_Answer_TableViewCell
-                    
-                    cell.configure(answersIn: self.specificPosting.questions?[self.currentQuestionIndex - 1].answers_list ?? [""], questionIndexIn: self.currentQuestionIndex - 1, controller: self)
-                    
-                    //cell.answerPicker.delegate = self
-                    //cell.answerPicker.dataSource = self
-                                        
-                    return cell
-                }
+                cell.configure(answersIn: currentQuestion?.answers_list ?? [""], questionIn: currentQuestion?.question ?? "no question text", questionIndexIn: self.currentQuestionIndex, controller: self)
+                
+                // move to next question
+                self.currentQuestionIndex += 1
+                
+                return cell
             }
+        }
+        // submit button cell
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath) as! Submit_TableViewCell
+            
+            cell.submitButton.tag = indexPath.row
+            cell.submitButton.addTarget(self, action: #selector(self.submitApplication), for: .touchUpInside)
+            
+            return cell
         }
         
     }
@@ -153,19 +146,16 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
         print(self.specificPosting.questions)
     }
     
+    func setTextEntry(forQuestion: Int, answer: String) {
+        self.specificPosting.questions?[forQuestion].applicant_answer = answer
+        print(self.specificPosting.questions)
+    }
     
-    // Picker
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return self.pickerData.count
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return self.pickerData[row]
-//    }
+    @objc func submitApplication() {
+        ApplicantAPIManager.submitApplication(data: [["":""]]) {
+            print("submitted")
+        }
+    }
     
 
     /*
