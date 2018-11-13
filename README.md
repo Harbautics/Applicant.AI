@@ -90,8 +90,10 @@ for all assets and will be sub divided into different folder based off of type.
 ``` 
 git clone https://github.com/Harbautics/Applicant.AI.git
 ```
-
-- Open xcode project (using the .xcodeproj file) 
+- navigate the Applicant.AI folder
+- install cocoapods (sudo gem install cocoapods)
+- initialize the pod (pod install)
+- Open xcode project (using the .xcworkspace file)
 - Hit build and run (triangle play button)
 
 Backend has been moved to different repo
