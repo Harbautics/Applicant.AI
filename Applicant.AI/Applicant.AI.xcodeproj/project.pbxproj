@@ -23,6 +23,11 @@
 		5D6597A5219375F10022240C /* TextAnswer_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A4219375F10022240C /* TextAnswer_TableViewCell.swift */; };
 		5D6597A721937DF90022240C /* Dropdown_Answer_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A621937DF90022240C /* Dropdown_Answer_TableViewCell.swift */; };
 		5D7DCE17219A273F00F621D1 /* Submit_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE16219A273F00F621D1 /* Submit_TableViewCell.swift */; };
+		5D7DCE1A219A774300F621D1 /* Recruiter_All_Orgs_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE19219A774300F621D1 /* Recruiter_All_Orgs_TableViewController.swift */; };
+		5D7DCE1C219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE1B219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift */; };
+		5D7DCE1E219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE1D219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift */; };
+		5D7DCE20219A7A3100F621D1 /* Recruiter_Specific_Application_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE1F219A7A3100F621D1 /* Recruiter_Specific_Application_TableViewController.swift */; };
+		5D7DCE22219A84B000F621D1 /* Recruiter_Create_Posting_Questions_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE21219A84B000F621D1 /* Recruiter_Create_Posting_Questions_TableViewController.swift */; };
 		5D8C4140219A04FC0029C1EE /* Login_Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C413F219A04FC0029C1EE /* Login_Provider.swift */; };
 		5DD164A92190997000932731 /* Applicant_Specific_Org_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */; };
 		5DD97224217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */; };
@@ -80,6 +85,11 @@
 		5D6597A4219375F10022240C /* TextAnswer_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnswer_TableViewCell.swift; sourceTree = "<group>"; };
 		5D6597A621937DF90022240C /* Dropdown_Answer_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dropdown_Answer_TableViewCell.swift; sourceTree = "<group>"; };
 		5D7DCE16219A273F00F621D1 /* Submit_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submit_TableViewCell.swift; sourceTree = "<group>"; };
+		5D7DCE19219A774300F621D1 /* Recruiter_All_Orgs_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recruiter_All_Orgs_TableViewController.swift; sourceTree = "<group>"; };
+		5D7DCE1B219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recruiter_SpecificOrg_TableViewController.swift; sourceTree = "<group>"; };
+		5D7DCE1D219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recruiter_Postings_TableViewController.swift; sourceTree = "<group>"; };
+		5D7DCE1F219A7A3100F621D1 /* Recruiter_Specific_Application_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Recruiter_Specific_Application_TableViewController.swift; path = "/Users/jordanwolff/Desktop/University-of-Michigan/F18/EECS 441/Front-End-Applicant.AI/Applicant.AI/Applicant.AI/Recruiter_Controllers/Recruiter_Specific_Application_TableViewController.swift"; sourceTree = "<absolute>"; };
+		5D7DCE21219A84B000F621D1 /* Recruiter_Create_Posting_Questions_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recruiter_Create_Posting_Questions_TableViewController.swift; sourceTree = "<group>"; };
 		5D8C413F219A04FC0029C1EE /* Login_Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_Provider.swift; sourceTree = "<group>"; };
 		5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_Specific_Org_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_All_Orgs_TableViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +169,7 @@
 				5D65979D219248230022240C /* Custom Cells */,
 				5DD97228217BE25600ECA085 /* Applicant_Model */,
 				5DD97227217BE24E00ECA085 /* Applicant_API */,
+				5D7DCE18219A745200F621D1 /* Recruiter_Controllers */,
 				5DD9721F217BDC6B00ECA085 /* Applicant_Controllers */,
 				341B83D7217132CB0024335A /* AppDelegate.swift */,
 				341B83DD217132CB0024335A /* Main.storyboard */,
@@ -208,6 +219,18 @@
 				5D7DCE16219A273F00F621D1 /* Submit_TableViewCell.swift */,
 			);
 			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		5D7DCE18219A745200F621D1 /* Recruiter_Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D7DCE19219A774300F621D1 /* Recruiter_All_Orgs_TableViewController.swift */,
+				5D7DCE1B219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift */,
+				5D7DCE21219A84B000F621D1 /* Recruiter_Create_Posting_Questions_TableViewController.swift */,
+				5D7DCE1D219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift */,
+				5D7DCE1F219A7A3100F621D1 /* Recruiter_Specific_Application_TableViewController.swift */,
+			);
+			path = Recruiter_Controllers;
 			sourceTree = "<group>";
 		};
 		5DD9721F217BDC6B00ECA085 /* Applicant_Controllers */ = {
@@ -493,6 +516,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D6597A5219375F10022240C /* TextAnswer_TableViewCell.swift in Sources */,
+				5D7DCE1A219A774300F621D1 /* Recruiter_All_Orgs_TableViewController.swift in Sources */,
+				5D7DCE20219A7A3100F621D1 /* Recruiter_Specific_Application_TableViewController.swift in Sources */,
 				5DD9722C217BE5BE00ECA085 /* Application.swift in Sources */,
 				341B83D8217132CB0024335A /* AppDelegate.swift in Sources */,
 				5DFA7EF121891F4A007C3FF0 /* Organizations_Provider.swift in Sources */,
@@ -501,6 +526,7 @@
 				7F986BC921867CFB006916F6 /* ApplicantAPIManager.swift in Sources */,
 				5D6597A1219249030022240C /* Description_TableViewCell.swift in Sources */,
 				7F986BCB2186800E006916F6 /* SwiftyJSON.swift in Sources */,
+				5D7DCE1C219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift in Sources */,
 				5DFA7EEF21891924007C3FF0 /* Applicant.swift in Sources */,
 				5DD164A92190997000932731 /* Applicant_Specific_Org_TableViewController.swift in Sources */,
 				5DD9722A217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift in Sources */,
@@ -511,8 +537,10 @@
 				7F986BCD218680F0006916F6 /* Organization.swift in Sources */,
 				5D65979C219247370022240C /* Posting_TableViewController.swift in Sources */,
 				5DFA7EEB21891446007C3FF0 /* Question.swift in Sources */,
+				5D7DCE1E219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift in Sources */,
 				5D6597A721937DF90022240C /* Dropdown_Answer_TableViewCell.swift in Sources */,
 				5DD97224217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift in Sources */,
+				5D7DCE22219A84B000F621D1 /* Recruiter_Create_Posting_Questions_TableViewController.swift in Sources */,
 				5D7DCE17219A273F00F621D1 /* Submit_TableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
