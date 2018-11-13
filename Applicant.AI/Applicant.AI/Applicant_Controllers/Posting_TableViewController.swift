@@ -104,7 +104,9 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             if currentQuestion?.type == "text" {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "textAnswerCell", for: indexPath) as! TextAnswer_TableViewCell
                 
-                cell.configure(questionIn: currentQuestion?.question ?? "no question text", questionIndexIn: self.currentQuestionIndex, controller: self, answerIn: "")
+                //cell.configure(questionIn: currentQuestion?.question ?? "no question text", questionIndexIn: self.currentQuestionIndex, controller: self, answerIn: "")
+                
+                cell.configure(questionIn: currentQuestion?.question ?? "no question text", questionIndexIn: self.currentQuestionIndex, controller: self, answerIn: "", viewIn: self.view)
                 
                 // move to next question
                 self.currentQuestionIndex += 1

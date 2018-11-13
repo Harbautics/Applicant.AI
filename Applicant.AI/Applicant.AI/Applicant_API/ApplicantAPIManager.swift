@@ -115,6 +115,7 @@ public class ApplicantAPIManager {
         var organizations = [Organization]()
         let url = APIURLs.getOrganizations
         fetch(url: url) { (json) in
+            print(json)
             // if we can pull out of the JSON
             if let organizationsJSON = json?.dictionary!["organizations"] {
                 for item in organizationsJSON {

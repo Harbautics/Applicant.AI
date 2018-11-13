@@ -34,14 +34,8 @@ public class Question: NSObject {
     convenience init?(json: JSON) {
         // question, type, answers[]
         // if we can pull the description, question, and applicants answer from JSON
-        if let question_JSON = json["question"].string,
-            let type_JSON = json["type"].string,
-            let answerJSON = json["answers"].array {
-            
-            // pulls out the list of potential answers, uses default value if no answers given
-            let answerList = answerJSON.map { $0.string ?? "no answer select" }
-            
-            self.init(description_in: "no description provided", question_in: question_JSON, applicant_answer_in: "no applicant answer provided", type_in: type_JSON, answer_list_in: answerList)
+        if let question = json.string {
+            self.init(description_in: "no description provided", question_in: question, applicant_answer_in: "no applicant answer provided", type_in: "text", answer_list_in: [""])
         }
         else {
             return nil
