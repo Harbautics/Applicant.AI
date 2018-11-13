@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/jordanwolff/Desktop/University-of-Michigan/F18/EECS 441/Front-End-Applicant.AI/Applicant.AI/Applicant.AI/Recruiter_Controllers/Recruiter_Specific_Application_TableViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:Applicant.AI.xcodeproj">
    </FileRef>
    <FileRef

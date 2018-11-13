@@ -13,8 +13,8 @@ import Foundation
 public class Member: NSObject {
     
     // Properties
-    public let id: Int
-    public let name: String
+    public var id: Int
+    public var name: String
     
     // Constructors
     init(id_in: Int, name_in: String) {
@@ -39,10 +39,10 @@ public class Member: NSObject {
 public class Organization: NSObject {
     
     //Properties
-    public let name: String
-    public let id: String
-    public let members: [Member]?
-    public let postings: [Posting]?
+    public var name: String
+    public var id: String
+    public var members: [Member]?
+    public var postings: [Posting]?
     
     
     // Constructors
@@ -59,6 +59,14 @@ public class Organization: NSObject {
     init(name: String, id: String) {
         self.id = id
         self.name = name
+        self.members = [Member]()
+        self.postings = [Posting]()
+        super.init()
+    }
+    // only to be used when creating a new organization, then will set the correct ID later on
+    init(name_in: String) {
+        self.name = name_in
+        self.id = "-1"
         self.members = [Member]()
         self.postings = [Posting]()
         super.init()

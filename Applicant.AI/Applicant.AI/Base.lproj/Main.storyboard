@@ -407,6 +407,169 @@
             </objects>
             <point key="canvasLocation" x="1791.2" y="-656.22188905547227"/>
         </scene>
+        <!--Organizations-->
+        <scene sceneID="OZp-Cc-XuA">
+            <objects>
+                <tableViewController id="faD-UG-8sd" customClass="Recruiter_All_Orgs_TableViewController" customModule="Applicant_AI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FnD-p3-key">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recruiter_organization_cell" id="sko-vr-l8w">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sko-vr-l8w" id="JvO-Xt-Chs">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="WXr-wP-0DR" kind="show" identifier="recruiter_all_orgs_to_specific" id="5sh-GW-bA3"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="faD-UG-8sd" id="qMF-XV-Wbe"/>
+                            <outlet property="delegate" destination="faD-UG-8sd" id="Xmh-Nl-mF5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Organizations" id="rUh-gC-VCd"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3a-BV-rON" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186" y="1149"/>
+        </scene>
+        <!--Recruiter Specific Org Table View Controller-->
+        <scene sceneID="3vm-ag-1G4">
+            <objects>
+                <tableViewController id="WXr-wP-0DR" customClass="Recruiter_SpecificOrg_TableViewController" customModule="Applicant_AI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sI8-s0-sXA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EsX-u1-Rz4">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EsX-u1-Rz4" id="PtT-iR-VgT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WXr-wP-0DR" id="WFh-TS-pe4"/>
+                            <outlet property="delegate" destination="WXr-wP-0DR" id="p9B-qB-doR"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="Sun-Ki-70q" kind="show" identifier="recruiter_create_questions" id="JgY-TS-cr8"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jS7-vq-b24" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186" y="1831"/>
+        </scene>
+        <!--Recruiter Create Posting Questions Table View Controller-->
+        <scene sceneID="3EB-po-Gzm">
+            <objects>
+                <tableViewController id="Sun-Ki-70q" customClass="Recruiter_Create_Posting_Questions_TableViewController" customModule="Applicant_AI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WeI-8N-eCy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newQuestionCell" id="1dH-P5-EPN">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1dH-P5-EPN" id="CDz-kp-lUt">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Sun-Ki-70q" id="BSj-TL-LvF"/>
+                            <outlet property="delegate" destination="Sun-Ki-70q" id="Jm1-bd-n7q"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nUd-bx-29t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="641" y="1830"/>
+        </scene>
+        <!--Recruiter Postings Table View Controller-->
+        <scene sceneID="dEm-Ru-qz5">
+            <objects>
+                <tableViewController id="2OU-rf-sRY" customClass="Recruiter_Postings_TableViewController" customModule="Applicant_AI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vWt-Wl-e5q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Eqa-L3-FhB">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eqa-L3-FhB" id="joF-Vd-dPs">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2OU-rf-sRY" id="NTI-Xv-doa"/>
+                            <outlet property="delegate" destination="2OU-rf-sRY" id="2IS-EF-zA6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nKC-hJ-TnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186" y="2504"/>
+        </scene>
+        <!--Recruiter Specific Application Table View Controller-->
+        <scene sceneID="FvG-9k-VRM">
+            <objects>
+                <tableViewController id="y5K-lS-oUU" customClass="Recruiter_Specific_Application_TableViewController" customModule="Applicant_AI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BRb-R7-Mh4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="v0b-aZ-ahN">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v0b-aZ-ahN" id="UTT-er-Hlx">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="y5K-lS-oUU" id="0PP-W0-BkY"/>
+                            <outlet property="delegate" destination="y5K-lS-oUU" id="WFp-3v-vxF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7mx-lx-iJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186" y="3212"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="A9l-Eh-qaE">
+            <objects>
+                <navigationController storyboardIdentifier="Recruiter_Main_View" id="fq7-uS-mJR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="55I-k5-MhA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="faD-UG-8sd" kind="relationship" relationship="rootViewController" id="cCU-g7-qWf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rwi-LM-V7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186" y="426"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="PZ9-Mo-4pi">
             <objects>
@@ -472,9 +635,11 @@
                         <viewLayoutGuide key="safeArea" id="HvE-Yy-H0j"/>
                     </view>
                     <connections>
+                        <outlet property="accountType" destination="YeT-sr-Kne" id="3AS-Kx-MTT"/>
                         <outlet property="email" destination="ZnM-GT-7Bq" id="Ibm-Ef-XGp"/>
                         <outlet property="password" destination="MP4-9n-RB2" id="nJq-RL-uJR"/>
                         <segue destination="oS7-AW-cMV" kind="show" identifier="login_as_applicant" id="zfw-RP-yn0"/>
+                        <segue destination="fq7-uS-mJR" kind="show" identifier="login_as_recruiter" id="3R5-ij-Imj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkd-8R-Vdi" userLabel="First Responder" sceneMemberID="firstResponder"/>

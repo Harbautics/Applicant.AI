@@ -41,6 +41,14 @@ public class Posting: NSObject {
         
         super.init()
     }
+    override init() {
+        self.name = ""
+        self.id = -1
+        self.status = "open"
+        self.job_description = ""
+        self.questions = [Question]()
+        self.applicants = [Applicant]()
+    }
     
     convenience init?(json: JSON) {
         if let nameJSON = json["name"].string,
