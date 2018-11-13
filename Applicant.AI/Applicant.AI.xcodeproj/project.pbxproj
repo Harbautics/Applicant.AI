@@ -26,8 +26,8 @@
 		5D7DCE1A219A774300F621D1 /* Recruiter_All_Orgs_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE19219A774300F621D1 /* Recruiter_All_Orgs_TableViewController.swift */; };
 		5D7DCE1C219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE1B219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift */; };
 		5D7DCE1E219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE1D219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift */; };
-		5D7DCE20219A7A3100F621D1 /* Recruiter_Specific_Application_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE1F219A7A3100F621D1 /* Recruiter_Specific_Application_TableViewController.swift */; };
 		5D7DCE22219A84B000F621D1 /* Recruiter_Create_Posting_Questions_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE21219A84B000F621D1 /* Recruiter_Create_Posting_Questions_TableViewController.swift */; };
+		5D7DCE28219A89FD00F621D1 /* Recruiter_Specific_Application_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DCE27219A89FD00F621D1 /* Recruiter_Specific_Application_TableViewController.swift */; };
 		5D8C4140219A04FC0029C1EE /* Login_Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C413F219A04FC0029C1EE /* Login_Provider.swift */; };
 		5DD164A92190997000932731 /* Applicant_Specific_Org_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */; };
 		5DD97224217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */; };
@@ -88,8 +88,8 @@
 		5D7DCE19219A774300F621D1 /* Recruiter_All_Orgs_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recruiter_All_Orgs_TableViewController.swift; sourceTree = "<group>"; };
 		5D7DCE1B219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recruiter_SpecificOrg_TableViewController.swift; sourceTree = "<group>"; };
 		5D7DCE1D219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recruiter_Postings_TableViewController.swift; sourceTree = "<group>"; };
-		5D7DCE1F219A7A3100F621D1 /* Recruiter_Specific_Application_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Recruiter_Specific_Application_TableViewController.swift; path = "/Users/jordanwolff/Desktop/University-of-Michigan/F18/EECS 441/Front-End-Applicant.AI/Applicant.AI/Applicant.AI/Recruiter_Controllers/Recruiter_Specific_Application_TableViewController.swift"; sourceTree = "<absolute>"; };
 		5D7DCE21219A84B000F621D1 /* Recruiter_Create_Posting_Questions_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recruiter_Create_Posting_Questions_TableViewController.swift; sourceTree = "<group>"; };
+		5D7DCE27219A89FD00F621D1 /* Recruiter_Specific_Application_TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recruiter_Specific_Application_TableViewController.swift; sourceTree = "<group>"; };
 		5D8C413F219A04FC0029C1EE /* Login_Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_Provider.swift; sourceTree = "<group>"; };
 		5DD164A82190997000932731 /* Applicant_Specific_Org_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_Specific_Org_TableViewController.swift; sourceTree = "<group>"; };
 		5DD97223217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_All_Orgs_TableViewController.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 				5D7DCE1B219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift */,
 				5D7DCE21219A84B000F621D1 /* Recruiter_Create_Posting_Questions_TableViewController.swift */,
 				5D7DCE1D219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift */,
-				5D7DCE1F219A7A3100F621D1 /* Recruiter_Specific_Application_TableViewController.swift */,
+				5D7DCE27219A89FD00F621D1 /* Recruiter_Specific_Application_TableViewController.swift */,
 			);
 			path = Recruiter_Controllers;
 			sourceTree = "<group>";
@@ -517,7 +517,6 @@
 			files = (
 				5D6597A5219375F10022240C /* TextAnswer_TableViewCell.swift in Sources */,
 				5D7DCE1A219A774300F621D1 /* Recruiter_All_Orgs_TableViewController.swift in Sources */,
-				5D7DCE20219A7A3100F621D1 /* Recruiter_Specific_Application_TableViewController.swift in Sources */,
 				5DD9722C217BE5BE00ECA085 /* Application.swift in Sources */,
 				341B83D8217132CB0024335A /* AppDelegate.swift in Sources */,
 				5DFA7EF121891F4A007C3FF0 /* Organizations_Provider.swift in Sources */,
@@ -525,6 +524,7 @@
 				5DD97226217BDCF700ECA085 /* Applicant_All_Apps_TableViewController.swift in Sources */,
 				7F986BC921867CFB006916F6 /* ApplicantAPIManager.swift in Sources */,
 				5D6597A1219249030022240C /* Description_TableViewCell.swift in Sources */,
+				5D7DCE28219A89FD00F621D1 /* Recruiter_Specific_Application_TableViewController.swift in Sources */,
 				7F986BCB2186800E006916F6 /* SwiftyJSON.swift in Sources */,
 				5D7DCE1C219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift in Sources */,
 				5DFA7EEF21891924007C3FF0 /* Applicant.swift in Sources */,
