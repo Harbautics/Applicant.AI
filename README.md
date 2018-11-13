@@ -92,7 +92,7 @@ for all assets and will be sub divided into different folder based off of type.
 - install cocoapods
 ```sudo gem install cocoapods```
 - initialize the pod
-```pod install111
+```pod install```
 - Open xcode project (using the .xcworkspace file)
 - Hit build and run (triangle play button)
 
