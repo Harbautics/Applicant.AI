@@ -108,7 +108,7 @@ public class ApplicantAPIManager {
             completionHandler(data)
         }
     }
-        
+    
     
     public class func getOrganizationsGet(completionHandler: @escaping (([Organization]) -> Void )) {
         print("get all organizations get")
@@ -132,14 +132,14 @@ public class ApplicantAPIManager {
     }
     
     // TODO: finish this
-    public class func submitApplication(data: [[String: String]], completionHandler: @escaping () -> Void) {
+    public class func submitApplication(data: [[String: Any]], completionHandler: @escaping () -> Void) {
         print("submitting...")
-//        let url = APIURLs.submitApplication
-//        let dataJSON = JSON(arrayLiteral: data)
-//
-//        postData(url: url, data: dataJSON) { (json) in
-//            // parse the response
-//        }
+        let url = APIURLs.submitApplication
+        let dataJSON = JSON(arrayLiteral: data)
+        
+        postData(url: url, data: dataJSON) { (json) in
+            print(json)
+        }
         // get back on the main queue and continue
         DispatchQueue.main.async {
             completionHandler()

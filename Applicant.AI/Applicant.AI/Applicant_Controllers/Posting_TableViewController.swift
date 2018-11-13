@@ -15,6 +15,7 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
 
     // Properties
     var specificPosting: Posting!
+    var orgName: String!
     var currentQuestionIndex = 0; // keeps track of question to render
     var currentPickerIndex = 0;
     var applicant_answers = [String]()
@@ -154,7 +155,16 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     }
     
     @objc func submitApplication() {
-        ApplicantAPIManager.submitApplication(data: [["":""]]) {
+        self.specificPosting.questions?.forEach({
+            applicant_answers.append($0.applicant_answer!)
+        })
+        let jsonObject: [String: Any] = [
+            "org_name": self.orgName,
+            "email": Login_Provider.shared.getUsername(),
+            "pos_name": self.title,
+            "answers": applicant_answers
+        ]
+        ApplicantAPIManager.submitApplication(data: [jsonObject]) {
             print("submitted")
         }
     }

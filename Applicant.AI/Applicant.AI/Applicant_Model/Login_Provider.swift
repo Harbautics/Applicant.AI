@@ -58,4 +58,8 @@ class Login_Provider {
         NotificationCenter.default.post(name: notificationName, object: nil)
     }
     
+    func getUsername() -> String {
+        return self.username
+    }
+    
 }

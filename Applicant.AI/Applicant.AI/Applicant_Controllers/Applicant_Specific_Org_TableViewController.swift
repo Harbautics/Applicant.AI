@@ -122,6 +122,7 @@ class Applicant_Specific_Org_TableViewController: UITableViewController {
             if let postingTVC = segue.destination as? Posting_TableViewController {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     postingTVC.specificPosting = self.specificOrg.postings?[indexPath.row]
+                    postingTVC.orgName = self.specificOrg.name
                 }
             }
         }
