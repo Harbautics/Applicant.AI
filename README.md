@@ -87,21 +87,28 @@ for all assets and will be sub divided into different folder based off of type.
 # Getting Started 
 
 * Clone the GitHub Repository 
-``` 
-git clone https://github.com/Harbautics/Applicant.AI.git
-```
-- navigate the Applicant.AI folder
-- install cocoapods (sudo gem install cocoapods)
-- initialize the pod (pod install)
+``` git clone https://github.com/Harbautics/Applicant.AI.git```
+- navigate the Applicant.AI folder containing the xcode project
+- install cocoapods
+```sudo gem install cocoapods```
+- initialize the pod
+```pod install111
 - Open xcode project (using the .xcworkspace file)
 - Hit build and run (triangle play button)
 
 Backend has been moved to different repo
 
 # Current Features
+- login 
+
+Applicant View:
 - view all organizations 
   - search using org name or id
 - view applications and status for each org
+- pick and application, answer questions, and submit application
+
+Recruiter View:
+- Create organization
 
 ## Applicant Orgs and Apps View
 Applicant tab bar view has been set up. Using placeholder data they can navigate through a list of organizations and view the basic info for an org.
