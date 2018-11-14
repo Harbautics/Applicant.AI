@@ -13,7 +13,7 @@ public class ApplicantAPIManager {
     //URLs for APIs
     private struct APIURLs {
         static let getOrganizations = URL(string: "http://sdocsverification-env.dfcuq7wid3.us-east-2.elasticbeanstalk.com/getOrganizationInfo")!
-        static let submitApplication = URL(string: "http://testing.com")!
+        static let submitApplication = URL(string: "http://sdocsverification-env.dfcuq7wid3.us-east-2.elasticbeanstalk.com/CreateSubmission")!
         static let getApplications = URL(string: "TODO")!
     }
     
@@ -137,7 +137,7 @@ public class ApplicantAPIManager {
         let dataJSON = JSON(arrayLiteral: data)
         
         postData(url: url, data: dataJSON) { (json) in
-            print(json)
+            print(json!)
         }
         // get back on the main queue and continue
         DispatchQueue.main.async {
