@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreLocation
 
 public class ApplicantAPIManager {
     
@@ -15,6 +14,7 @@ public class ApplicantAPIManager {
     private struct APIURLs {
         static let getOrganizations = URL(string: "http://sdocsverification-env.dfcuq7wid3.us-east-2.elasticbeanstalk.com/getOrganizationInfo")!
         static let submitApplication = URL(string: "http://testing.com")!
+        static let getApplications = URL(string: "TODO")!
     }
     
     // A generic fetch that gets JSON and calls the completion handler

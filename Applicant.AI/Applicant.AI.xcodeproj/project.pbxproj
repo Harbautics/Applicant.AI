@@ -17,6 +17,7 @@
 		342AEF2B2198E2D000CCAFA2 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342AEF2A2198E2D000CCAFA2 /* Login_ViewController.swift */; };
 		34F679732198EB8B0074CBF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34F679722198EB8B0074CBF8 /* GoogleService-Info.plist */; };
 		3BE9C055CCE5C50FD6306569 /* Pods_Applicant_AI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0B4F299104E32F79EF23CAD /* Pods_Applicant_AI.framework */; };
+		5D3BC82E219BD623008F80FD /* RecruiterAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BC82D219BD623008F80FD /* RecruiterAPIManager.swift */; };
 		5D65979C219247370022240C /* Posting_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65979B219247370022240C /* Posting_TableViewController.swift */; };
 		5D65979F219248350022240C /* Status_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65979E219248350022240C /* Status_TableViewCell.swift */; };
 		5D6597A1219249030022240C /* Description_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A0219249030022240C /* Description_TableViewCell.swift */; };
@@ -79,6 +80,7 @@
 		342AEF2A2198E2D000CCAFA2 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
 		34F679722198EB8B0074CBF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4434F1E96955C4E692745D3C /* Pods_Applicant_AIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Applicant_AIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D3BC82D219BD623008F80FD /* RecruiterAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruiterAPIManager.swift; sourceTree = "<group>"; };
 		5D65979B219247370022240C /* Posting_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting_TableViewController.swift; sourceTree = "<group>"; };
 		5D65979E219248350022240C /* Status_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status_TableViewCell.swift; sourceTree = "<group>"; };
 		5D6597A0219249030022240C /* Description_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description_TableViewCell.swift; sourceTree = "<group>"; };
@@ -166,9 +168,9 @@
 		341B83D6217132CB0024335A /* Applicant.AI */ = {
 			isa = PBXGroup;
 			children = (
-				5D65979D219248230022240C /* Custom Cells */,
-				5DD97228217BE25600ECA085 /* Applicant_Model */,
-				5DD97227217BE24E00ECA085 /* Applicant_API */,
+				5D65979D219248230022240C /* CELLS */,
+				5DD97228217BE25600ECA085 /* MODEL */,
+				5DD97227217BE24E00ECA085 /* API */,
 				5D7DCE18219A745200F621D1 /* Recruiter_Controllers */,
 				5DD9721F217BDC6B00ECA085 /* Applicant_Controllers */,
 				341B83D7217132CB0024335A /* AppDelegate.swift */,
@@ -209,7 +211,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5D65979D219248230022240C /* Custom Cells */ = {
+		5D65979D219248230022240C /* CELLS */ = {
 			isa = PBXGroup;
 			children = (
 				5D65979E219248350022240C /* Status_TableViewCell.swift */,
@@ -218,7 +220,7 @@
 				5D6597A621937DF90022240C /* Dropdown_Answer_TableViewCell.swift */,
 				5D7DCE16219A273F00F621D1 /* Submit_TableViewCell.swift */,
 			);
-			path = "Custom Cells";
+			path = CELLS;
 			sourceTree = "<group>";
 		};
 		5D7DCE18219A745200F621D1 /* Recruiter_Controllers */ = {
@@ -246,10 +248,11 @@
 			path = Applicant_Controllers;
 			sourceTree = "<group>";
 		};
-		5DD97227217BE24E00ECA085 /* Applicant_API */ = {
+		5DD97227217BE24E00ECA085 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				7F986BC821867CFB006916F6 /* ApplicantAPIManager.swift */,
+				5D3BC82D219BD623008F80FD /* RecruiterAPIManager.swift */,
 				5DD9722B217BE5BE00ECA085 /* Application.swift */,
 				5DFA7EEA21891446007C3FF0 /* Question.swift */,
 				7F986BCA2186800E006916F6 /* SwiftyJSON.swift */,
@@ -257,17 +260,17 @@
 				5DFA7EEC218916ED007C3FF0 /* Posting.swift */,
 				5DFA7EEE21891924007C3FF0 /* Applicant.swift */,
 			);
-			path = Applicant_API;
+			path = API;
 			sourceTree = "<group>";
 		};
-		5DD97228217BE25600ECA085 /* Applicant_Model */ = {
+		5DD97228217BE25600ECA085 /* MODEL */ = {
 			isa = PBXGroup;
 			children = (
 				5DFA7EF021891F4A007C3FF0 /* Organizations_Provider.swift */,
 				5D8C413F219A04FC0029C1EE /* Login_Provider.swift */,
 				5DFA7EF221892042007C3FF0 /* Applications_Provider.swift */,
 			);
-			path = Applicant_Model;
+			path = MODEL;
 			sourceTree = "<group>";
 		};
 		CCECF5478C6BC24F4CD06BCF /* Pods */ = {
@@ -537,6 +540,7 @@
 				7F986BCD218680F0006916F6 /* Organization.swift in Sources */,
 				5D65979C219247370022240C /* Posting_TableViewController.swift in Sources */,
 				5DFA7EEB21891446007C3FF0 /* Question.swift in Sources */,
+				5D3BC82E219BD623008F80FD /* RecruiterAPIManager.swift in Sources */,
 				5D7DCE1E219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift in Sources */,
 				5D6597A721937DF90022240C /* Dropdown_Answer_TableViewCell.swift in Sources */,
 				5DD97224217BDCC700ECA085 /* Applicant_All_Orgs_TableViewController.swift in Sources */,
