@@ -533,6 +533,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="y5K-lS-oUU" kind="show" identifier="recruiterAllApplicantsToSpecific" id="X4s-ak-bpH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -545,7 +548,7 @@
             </objects>
             <point key="canvasLocation" x="-186" y="2504"/>
         </scene>
-        <!--Recruiter Specific Application Table View Controller-->
+        <!--Title-->
         <scene sceneID="FvG-9k-VRM">
             <objects>
                 <tableViewController id="y5K-lS-oUU" customClass="Recruiter_Specific_Application_TableViewController" customModule="Applicant_AI" customModuleProvider="target" sceneMemberID="viewController">
@@ -554,12 +557,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="v0b-aZ-ahN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recruiterApplicantInfo" textLabel="Rqc-mi-oFi" detailTextLabel="U04-tU-Uj5" style="IBUITableViewCellStyleSubtitle" id="v0b-aZ-ahN">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v0b-aZ-ahN" id="UTT-er-Hlx">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rqc-mi-oFi">
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U04-tU-Uj5">
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -568,10 +587,11 @@
                             <outlet property="delegate" destination="y5K-lS-oUU" id="WFp-3v-vxF"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="NvH-Od-vkZ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7mx-lx-iJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-186" y="3212"/>
+            <point key="canvasLocation" x="-186" y="3184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A9l-Eh-qaE">

@@ -12,12 +12,24 @@ class Recruiter_Postings_TableViewController: UITableViewController {
 
     // Properties
     var specificPosting: Posting!
+    var isLoading = true
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = self.specificPosting.name
+        
+        // TODO: API Call to get all the applicants
+        // callback:
+        self.isLoading = false
+        
+        var i = 0
+        while (i < 10) {
+            self.specificPosting.applicants?.append(Applicant(id_in: i, name_in: "Applicant \(i)"))
+            i += 1
+        }
+        self.tableView.reloadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,7 +47,7 @@ class Recruiter_Postings_TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if self.specificPosting.applicants?.count == 0 {
+        if self.specificPosting.applicants?.count == 0 || self.isLoading {
             return 1
         }
         return self.specificPosting.applicants?.count ?? 0
@@ -45,7 +57,12 @@ class Recruiter_Postings_TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recruiterApplicantCell", for: indexPath)
 
-        if self.specificPosting.applicants?.count == 0 {
+        if self.isLoading {
+            cell.textLabel?.text = "Loading..."
+            cell.detailTextLabel = ""
+            cell.isUserInteractionEnabled = false
+        }
+        else if self.specificPosting.applicants?.count == 0 {
             cell.textLabel?.text = "No Applicants Yet"
             cell.detailTextLabel?.text = ""
             cell.isUserInteractionEnabled = false
@@ -54,6 +71,7 @@ class Recruiter_Postings_TableViewController: UITableViewController {
             cell.textLabel?.text = self.specificPosting.applicants?[indexPath.row].name
             cell.detailTextLabel?.text = "\(self.specificPosting.applicants?[indexPath.row].percentageMatch ?? 0.0)%"
             cell.isUserInteractionEnabled = true
+            cell.accessoryType = .disclosureIndicator
         }
 
         return cell
@@ -95,14 +113,22 @@ class Recruiter_Postings_TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "recruiterAllApplicantsToSpecific" {
+            if let applicantTVC = segue.destination as? Recruiter_Specific_Application_TableViewController {
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    applicantTVC.postingID = self.specificPosting.id
+                    applicantTVC.specificApplicant = self.specificPosting.applicants?[indexPath.row]
+                }
+            }
+        }
     }
-    */
+    
 
 }

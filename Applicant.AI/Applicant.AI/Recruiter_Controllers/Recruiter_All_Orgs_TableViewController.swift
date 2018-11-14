@@ -12,11 +12,14 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
 
     // Properties
     var orgs = [Organization]()
+    var isLoading = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // TODO: Make API Call
+        // callback:
+        self.isLoading = false
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -77,7 +80,7 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if self.orgs.count == 0 {
+        if self.orgs.count == 0 || self.isLoading {
             return 1
         }
         else {
@@ -88,8 +91,12 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recruiter_organization_cell", for: indexPath)
-
-        if self.orgs.count == 0 {
+        
+        if self.isLoading  {
+            cell.textLabel?.text = "Loading..."
+            cell.isUserInteractionEnabled = false
+        }
+        else if self.orgs.count == 0 {
             cell.textLabel?.text = "Tap the '+' to create a new organization"
             cell.isUserInteractionEnabled = false
         }
@@ -99,7 +106,6 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
             cell.isUserInteractionEnabled = true
         }
         
-
 
         return cell
     }
