@@ -10,7 +10,10 @@ import UIKit
 
 class Recruiter_Create_Posting_Questions_TableViewController: UITableViewController {
 
+    // 
+    
     var postingTVC: Recruiter_SpecificOrg_TableViewController?
+    var postingTVCIdx: Int!
     var questions = [String]()
     var postingName = String()
     var postingTitle: String!
@@ -19,19 +22,105 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
         super.viewDidLoad()
         
         self.title = "Create a New Posting"
-                
-        self.setPostingName()
+
+        self.showNameAlert()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.determineNextAction))
+    }
+    
+    @objc func determineNextAction() {
+        // if we have to set a name
+        if self.postingName == "" {
+            self.showNameAlert()
+        }
+        // ready to add questions
+        else {
+            self.showQuestionAlert()
+        }
+    }
+    
+    func showQuestionAlert() {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "New Question", message: "Enter a new question", preferredStyle: .alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { [weak alert] (_) in
+            if alert!.textFields![0].text != "" {
+                self.addQuestion(newQuestion: alert!.textFields![0].text ?? "no question")
+            }
+        }))
+        // not allowing cancel right now
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showNameAlert() {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Name Your Posting", message: "Enter a name", preferredStyle: .alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { [weak alert] (_) in
+            if alert!.textFields![0].text == "" {
+                self.showNameAlert()
+            }
+            self.setPostingName(nameIn: alert!.textFields![0].text ?? "no name")
+        }))
+        // not allowing cancel right now
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showEditAlert(forIndex: Int) {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Edit Question", message: "Edit the text", preferredStyle: .alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = self.questions[forIndex]
+        }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { [weak alert] (_) in
+            self.updateQuestion(newText: alert!.textFields![0].text ?? "no name", forIndex: forIndex)
+            self.setPostingName(nameIn: alert!.textFields![0].text ?? "no name")
+        }))
+        // not allowing cancel right now
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func addQuestion(newQuestion: String) {
+        self.questions.append(newQuestion)
+        self.tableView.reloadData()
+    }
+    
+    func updateQuestion(newText: String, forIndex: Int) {
+        self.questions[forIndex] = newText
+        self.tableView.reloadData()
     }
     
     // TODO: create posting name
-    func setPostingName() {
+    func setPostingName(nameIn: String) {
         // alert, capture value, then set name and allow adding questions
+        self.postingName = nameIn
+        self.title = "New Posting: \(nameIn)"
     }
     
     // TODO: creating questions with a + button
@@ -65,18 +154,45 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
         return true
     }
     */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let editAction = UIContextualAction(style: .destructive, title: "Edit") { (action, view, handler) in
+            print("Edit Question")
+            self.showEditAlert(forIndex: indexPath.row)
+        }
+        editAction.backgroundColor = .gray
+        let configuration = UISwipeActionsConfiguration(actions: [editAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
+            print("Delete Question")
+            self.questions.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
+        }
+        deleteAction.backgroundColor = .red
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+         configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
+    
+    // Override to support editing the table view.
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+//            self.questions.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            print(self.questions)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
+    
 
     /*
     // Override to support rearranging the table view.

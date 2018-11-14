@@ -33,11 +33,11 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
     // shows the alert to collect the org name
     @objc func showAlert() {
         //1. Create the alert controller.
-        let alert = UIAlertController(title: "Create a new organization", message: "Enter a name for your organization", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New organization", message: "Enter a name for your organization", preferredStyle: .alert)
         
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
-            textField.text = "Enter name here"
+            textField.text = ""
         }
         
         // 3. Grab the value from the text field, and print it when the user clicks OK.
@@ -77,15 +77,29 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.orgs.count
+        if self.orgs.count == 0 {
+            return 1
+        }
+        else {
+            return self.orgs.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recruiter_organization_cell", for: indexPath)
 
-        cell.textLabel?.text = self.orgs[indexPath.row].name        
-        cell.accessoryType = .disclosureIndicator
+        if self.orgs.count == 0 {
+            cell.textLabel?.text = "Tap the '+' to create a new organization"
+            cell.isUserInteractionEnabled = false
+        }
+        else {
+            cell.textLabel?.text = self.orgs[indexPath.row].name
+            cell.accessoryType = .disclosureIndicator
+            cell.isUserInteractionEnabled = true
+        }
+        
+
 
         return cell
     }

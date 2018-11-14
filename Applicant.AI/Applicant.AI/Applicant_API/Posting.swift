@@ -42,7 +42,7 @@ public class Posting: NSObject {
         super.init()
     }
     override init() {
-        self.name = ""
+        self.name = "Default Name"
         self.id = -1
         self.status = "open"
         self.job_description = ""

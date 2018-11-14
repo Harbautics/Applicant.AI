@@ -11,6 +11,7 @@ import UIKit
 class Recruiter_SpecificOrg_TableViewController: UITableViewController {
 
     var specificOrganization: Organization!
+    var createPostingIDX = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,9 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
     
     @objc func createPosting() {
         self.specificOrganization.postings?.append(Posting())
-        let thisPostingIDX = (self.specificOrganization.postings?.count)! - 1
+        self.createPostingIDX = (self.specificOrganization.postings?.count)! - 1
+        
+        self.tableView.reloadData()
         
         // segue to new controller, where they can add questions
         self.performSegue(withIdentifier: "recruiter_create_questions", sender: self)
@@ -42,23 +45,33 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if self.specificOrganization.postings?.count == 0 {
+            return 1
+        }
+        return self.specificOrganization.postings?.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recruiterPostingCell", for: indexPath)
 
-        // Configure the cell...
+        if self.specificOrganization.postings?.count == 0 {
+            cell.textLabel?.text = "Tap the '+' to create a posting"
+            cell.isUserInteractionEnabled = false
+        }
+        else {
+            cell.textLabel?.text = self.specificOrganization.postings?[indexPath.row].name
+            cell.isUserInteractionEnabled = true
+        }
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -105,6 +118,11 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
         if segue.identifier == "recruiter_create_questions" {
             if let createQuestionsTVC = segue.destination as? Recruiter_Create_Posting_Questions_TableViewController {
                 createQuestionsTVC.postingTVC = self
+                createQuestionsTVC.postingTVCIdx = self.createPostingIDX
+                
+                let backItem = UIBarButtonItem()
+                backItem.title = "Finish"
+                navigationItem.backBarButtonItem = backItem
             }
         }
         
