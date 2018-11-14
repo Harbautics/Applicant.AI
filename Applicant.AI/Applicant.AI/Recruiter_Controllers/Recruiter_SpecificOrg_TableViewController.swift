@@ -37,8 +37,18 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
         self.performSegue(withIdentifier: "recruiter_create_questions", sender: self)
     }
     
+    // function for creation controller to add a question to the posting
     func addQuestionToPosting(postingIDX: Int, questionText: String) {
-        
+        self.specificOrganization.postings?[postingIDX].questions?.append(Question(description_in: "none", question_in: questionText, applicant_answer_in: "", type_in: "text", answer_list_in: [""]))
+    }
+    // function for creation controller to update a question for the posting
+    func updateQuestionForPosting(postingIDX: Int, questionText: String, questionIDX: Int) {
+        self.specificOrganization.postings?[postingIDX].questions?[questionIDX].question = questionText
+    }
+    // function for creation controller to update posting name
+    func updatePostingName(postingIDX: Int, newName: String) {
+        self.specificOrganization.postings?[postingIDX].name = newName
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -66,6 +76,7 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
         }
         else {
             cell.textLabel?.text = self.specificOrganization.postings?[indexPath.row].name
+            cell.accessoryType = .disclosureIndicator
             cell.isUserInteractionEnabled = true
         }
 
@@ -119,10 +130,20 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
             if let createQuestionsTVC = segue.destination as? Recruiter_Create_Posting_Questions_TableViewController {
                 createQuestionsTVC.postingTVC = self
                 createQuestionsTVC.postingTVCIdx = self.createPostingIDX
-                
                 let backItem = UIBarButtonItem()
                 backItem.title = "Finish"
                 navigationItem.backBarButtonItem = backItem
+            }
+        }
+        
+        if segue.identifier == "recruiterPostingsToSpecific" {
+            if let specificPostingTVC = segue.destination as? Recruiter_Postings_TableViewController {
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    specificPostingTVC.specificPosting = self.specificOrganization.postings?[indexPath.row]
+                    let backItem = UIBarButtonItem()
+                    backItem.title = self.title
+                    navigationItem.backBarButtonItem = backItem
+                }
             }
         }
         

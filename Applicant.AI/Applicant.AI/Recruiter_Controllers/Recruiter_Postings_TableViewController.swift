@@ -10,8 +10,14 @@ import UIKit
 
 class Recruiter_Postings_TableViewController: UITableViewController {
 
+    // Properties
+    var specificPosting: Posting!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = self.specificPosting.name
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,23 +30,35 @@ class Recruiter_Postings_TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if self.specificPosting.applicants?.count == 0 {
+            return 1
+        }
+        return self.specificPosting.applicants?.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recruiterApplicantCell", for: indexPath)
 
-        // Configure the cell...
+        if self.specificPosting.applicants?.count == 0 {
+            cell.textLabel?.text = "No Applicants Yet"
+            cell.detailTextLabel?.text = ""
+            cell.isUserInteractionEnabled = false
+        }
+        else {
+            cell.textLabel?.text = self.specificPosting.applicants?[indexPath.row].name
+            cell.detailTextLabel?.text = "\(self.specificPosting.applicants?[indexPath.row].percentageMatch ?? 0.0)%"
+            cell.isUserInteractionEnabled = true
+        }
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

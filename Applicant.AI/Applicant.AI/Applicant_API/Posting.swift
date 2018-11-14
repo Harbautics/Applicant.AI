@@ -13,12 +13,12 @@ import Foundation
 public class Posting: NSObject {
     
     // Properties
-    public let name: String
-    public let id: Int
-    public let status: String
-    public let job_description: String
-    public let questions: [Question]?
-    public let applicants: [Applicant]?
+    public var name: String
+    public var id: Int
+    public var status: String
+    public var job_description: String
+    public var questions: [Question]?
+    public var applicants: [Applicant]?
     
     // Constructors
     init(name_in: String, id_in: Int, status_in: String, job_desc_in: String, questions_in: [Question]?, applicants_in: [Applicant]?) {

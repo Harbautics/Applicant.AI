@@ -10,8 +10,7 @@ import UIKit
 
 class Recruiter_Create_Posting_Questions_TableViewController: UITableViewController {
 
-    // 
-    
+    // Properties
     var postingTVC: Recruiter_SpecificOrg_TableViewController?
     var postingTVCIdx: Int!
     var questions = [String]()
@@ -22,6 +21,8 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
         super.viewDidLoad()
         
         self.title = "Create a New Posting"
+        
+        self.tableView.reloadData()
 
         self.showNameAlert()
 
@@ -30,6 +31,13 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.determineNextAction))
+    }
+    
+    // after the user is finished:
+    // send the API response to create the posting
+    override func viewWillDisappear(_ animated: Bool) {
+        print("finished creating questions")
+        // TODO: send API POST to create the posting
     }
     
     @objc func determineNextAction() {
@@ -109,21 +117,23 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
     func addQuestion(newQuestion: String) {
         self.questions.append(newQuestion)
         self.tableView.reloadData()
+        self.postingTVC?.addQuestionToPosting(postingIDX: self.postingTVCIdx, questionText: newQuestion)
     }
     
     func updateQuestion(newText: String, forIndex: Int) {
         self.questions[forIndex] = newText
         self.tableView.reloadData()
+        self.postingTVC?.updateQuestionForPosting(postingIDX: self.postingTVCIdx, questionText: newText, questionIDX: forIndex)
     }
     
-    // TODO: create posting name
     func setPostingName(nameIn: String) {
         // alert, capture value, then set name and allow adding questions
         self.postingName = nameIn
         self.title = "New Posting: \(nameIn)"
+        self.tableView.reloadData()
+        self.postingTVC?.updatePostingName(postingIDX: self.postingTVCIdx, newName: nameIn)
     }
     
-    // TODO: creating questions with a + button
 
     // MARK: - Table view data source
 
@@ -141,7 +151,13 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newQuestionCell", for: indexPath)
 
-        cell.textLabel?.text = self.questions[indexPath.row]
+        if self.questions.count == 0 {
+            cell.textLabel?.text = "Tap '+' to create questions"
+        }
+        else {
+            cell.textLabel?.text = self.questions[indexPath.row]
+        }
+        
 
         return cell
     }

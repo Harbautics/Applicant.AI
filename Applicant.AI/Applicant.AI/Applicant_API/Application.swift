@@ -14,12 +14,12 @@ import Foundation
 public class Application: NSObject {
     
     // Properties
-    public let appid: String
-    public let orgname: String
-    public let name: String
-    public let pos_description: String
-    public let status: String
-    public let questions: [Question]
+    public var appid: String
+    public var orgname: String
+    public var name: String
+    public var pos_description: String
+    public var status: String
+    public var questions: [Question]
     
     // Constructors
     init(appid:String, orgname:String, name:String, pos_description:String, status:String, questions: [Question]) {
