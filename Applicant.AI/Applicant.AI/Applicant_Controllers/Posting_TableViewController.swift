@@ -162,7 +162,8 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             "org_name": self.orgName,
             "email": Login_Provider.shared.getUsername(),
             "pos_name": self.title!,
-            "answers": applicant_answers
+            "answers": applicant_answers,
+            "answers_ML": [[-2, Double((Float(arc4random()) / Float(UINT32_MAX)) * 100.0)]]
         ]
         ApplicantAPIManager.submitApplication(data: [jsonObject]) {
             print("submitted")
