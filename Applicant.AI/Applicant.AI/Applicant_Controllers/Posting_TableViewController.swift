@@ -146,12 +146,12 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     func setPickerCellAnswer(forQuestion: Int, selection: String) {
         //print(forQuestion, selection)
         self.specificPosting.questions?[forQuestion].applicant_answer = selection
-        print(self.specificPosting.questions)
+        print(self.specificPosting.questions!)
     }
     
     func setTextEntry(forQuestion: Int, answer: String) {
         self.specificPosting.questions?[forQuestion].applicant_answer = answer
-        print(self.specificPosting.questions)
+        print(self.specificPosting.questions!)
     }
     
     @objc func submitApplication() {
@@ -161,7 +161,7 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
         let jsonObject: [String: Any] = [
             "org_name": self.orgName,
             "email": Login_Provider.shared.getUsername(),
-            "pos_name": self.title,
+            "pos_name": self.title!,
             "answers": applicant_answers
         ]
         ApplicantAPIManager.submitApplication(data: [jsonObject]) {
