@@ -26,9 +26,6 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
 
         self.showNameAlert()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.determineNextAction))
     }
@@ -38,6 +35,7 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
     override func viewWillDisappear(_ animated: Bool) {
         print("finished creating questions")
         // TODO: send API POST to create the posting
+        // send: orgname & postitionname & list of questions
     }
     
     @objc func determineNextAction() {

@@ -39,7 +39,7 @@ class Login_Provider {
         
         self.defaults.synchronize()
         let notificationName = NSNotification.Name("loggedInUser")
-        NotificationCenter.default.post(name: notificationName, object: nil)
+        NotificationCenter.default.post(name: notificationName, object: nil)        
     }
     
     func isLoggedIn() -> Bool {

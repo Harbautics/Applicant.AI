@@ -21,6 +21,8 @@ class Recruiter_Postings_TableViewController: UITableViewController {
         self.title = self.specificPosting.name
         
         // TODO: API Call to get all the applicants
+        // getApplicantsFromPosting
+        // org_name & pos_name
         // callback:
         self.isLoading = false
         
@@ -59,7 +61,7 @@ class Recruiter_Postings_TableViewController: UITableViewController {
 
         if self.isLoading {
             cell.textLabel?.text = "Loading..."
-            cell.detailTextLabel = ""
+            cell.detailTextLabel?.text = ""
             cell.isUserInteractionEnabled = false
         }
         else if self.specificPosting.applicants?.count == 0 {

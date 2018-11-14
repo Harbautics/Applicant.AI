@@ -17,20 +17,22 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // TODO: Make API Call
-        // callback:
-        self.isLoading = false
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // add plus button to controller if no orgs
-        if self.orgs.count == 0 {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.showAlert))
+        // Make API Call
+        RecruiterAPIManager.getAllOrganizationsForRecruiter { (newOrg) in
+            self.isLoading = false
+            self.orgs.append(newOrg)
+            
+            if (newOrg.name == "default") {
+                self.orgs.removeAll()
+            }
+            
+            self.updateTable()
+            
+            // add plus button to controller if no orgs
+            if self.orgs.count == 0 {
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.showAlert))
+            }
         }
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // shows the alert to collect the org name
@@ -65,9 +67,27 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = nil
         
         // TODO: make the API Post request
+        let jsonObject: [String: String] = [
+            "org_name": orgName,
+            "email": Login_Provider.shared.getUsername(),
+            "description": ""
+        ]
+        self.isLoading = true
+        self.updateTable()
+        RecruiterAPIManager.createOrganization(data: jsonObject) { (json) in
+            print("creating org post request")
+            // set the orgid
+            if let orgID = json["OrganizationId"].int {
+                self.orgs[0].id = String(orgID)
+            }
+            self.isLoading = false
+            self.updateTable()
+        }
         
         // TODO: Update the local model
-        
+    }
+    
+    func updateTable() {
         self.tableView.reloadData()
     }
 

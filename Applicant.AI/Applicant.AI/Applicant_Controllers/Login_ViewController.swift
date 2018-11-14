@@ -24,6 +24,9 @@ class Login_ViewController: UIViewController {
         Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!) {
             (user, error) in
             if user != nil {
+                
+                // TODO: API POST request to add user to db
+                
                 self.performSegue(withIdentifier: "login_as_applicant", sender: self)
             }
             if error != nil {

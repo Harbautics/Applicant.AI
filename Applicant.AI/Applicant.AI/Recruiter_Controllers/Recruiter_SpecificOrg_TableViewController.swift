@@ -12,16 +12,13 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
 
     var specificOrganization: Organization!
     var createPostingIDX = -1
-    var isLoading = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = self.specificOrganization.name
         
-        // TODO: API call to get all postings for the organization
-        // callback:
-        self.isLoading = false
+        print(self.specificOrganization.id)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.createPosting))
     }
@@ -59,7 +56,7 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if self.specificOrganization.postings?.count == 0 || self.isLoading {
+        if self.specificOrganization.postings?.count == 0 {
             return 1
         }
         return self.specificOrganization.postings?.count ?? 0
@@ -69,11 +66,7 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recruiterPostingCell", for: indexPath)
 
-        if self.isLoading {
-            cell.textLabel?.text = "Loading..."
-            cell.isUserInteractionEnabled = false
-        }
-        else if self.specificOrganization.postings?.count == 0 {
+        if self.specificOrganization.postings?.count == 0 {
             cell.textLabel?.text = "Tap the '+' to create a posting"
             cell.isUserInteractionEnabled = false
         }

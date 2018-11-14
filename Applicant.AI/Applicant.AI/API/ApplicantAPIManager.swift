@@ -115,7 +115,6 @@ public class ApplicantAPIManager {
         var organizations = [Organization]()
         let url = APIURLs.getOrganizations
         fetch(url: url) { (json) in
-            print(json)
             // if we can pull out of the JSON
             if let organizationsJSON = json?.dictionary!["organizations"] {
                 for item in organizationsJSON {
@@ -145,50 +144,4 @@ public class ApplicantAPIManager {
             completionHandler()
         }
     }
-        
-    
-//    public class func getOrganizationsPost(completionHandler: @escaping (([Organization]) -> Void )) {
-//        print("get all organizations")
-//        var organizations = [Organization]()
-//        // get organizations
-//        let url = APIURLs.getOrganizations
-//        postData(url: url, data: "") { (json) in
-//            if let organizationsJSON = json?.dictionary {
-//                //print("JSON:\n", organizationsJSON)
-//                if let orgsArray = organizationsJSON["organizations"] {
-//                    //print("JSON array:\n", orgsArray)
-//                    for item in orgsArray {
-//                        let (first, second) = item
-//                        //let id = Int(first)!
-//                        organizations.append(Organization(name: second["name"].string ?? "error name", id: first))
-//                    }
-//                    print("done")
-//                    return
-//                }
-//            }
-//            else {
-//             print("not array")
-//            }
-//        }
-//    }
-    
-    
-    // Get Organizations from the API
-//    public class func getOrganizations(completionHandler: @escaping (([Organization]) -> Void )) {
-//
-//        var organizations = [Organization]()
-//
-//        // get dining hall data
-//        let url = APIURLs.getOrganizations
-//        fetch(url: url) { (json) in
-//            if let organizationsJSON = json?.array {
-//                organizations = organizationsJSON.map { Organization(json: $0)! }
-//            }
-//
-//            // Make sure we're back on the main thread
-//            DispatchQueue.main.async {
-//                completionHandler(organizations)
-//            }
-//        }
-//    }
 }

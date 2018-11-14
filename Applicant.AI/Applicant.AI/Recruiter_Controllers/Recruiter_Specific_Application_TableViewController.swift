@@ -13,7 +13,7 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
     var specificApplicant: Applicant! // the person who submitted the application
     var applicantAnswers: [Question]? // the list of questions (with answers) for the person's application
     var postingID: Int! // the ID of the posting the applicant submitted to
-    var appStatus = String()
+    var appStatus = String() // PENDING, REJECT, ACCEPT, INTERVIEW
     var isLoading = true
     
     
