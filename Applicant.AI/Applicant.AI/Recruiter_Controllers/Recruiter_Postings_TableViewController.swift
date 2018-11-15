@@ -27,6 +27,7 @@ class Recruiter_Postings_TableViewController: UITableViewController {
         self.isLoading = false
         
         var i = 0
+        // TODO: remove when done
         while (i < 10) {
             self.specificPosting.applicants?.append(Applicant(id_in: i, name_in: "Applicant \(i)"))
             i += 1

@@ -17,7 +17,10 @@ public class RecruiterAPIManager {
         static let getApplicants = URL(string: "TODO")!
         static let getApplication = URL(string: "TODO")!
         static let setAppStatus = URL(string: "TODO")!
-        static let createOrganization = URL(string: "http://sdocsverification-env.dfcuq7wid3.us-east-2.elasticbeanstalk.com/CreateOrg")!
+        static let createOrganization = URL(string: "\(baseURL)/CreateOrg")!
+        static let createPosting = URL(string: "\(baseURL)/CreatePosting")!
+        static let createUser = URL(string: "\(baseURL)/CreateUser")!
+        static let updateApplicantStatus = URL(string: "\(baseURL)/updateApplicant")!
     }
     
     // A generic fetch that gets JSON and calls the completion handler
@@ -45,6 +48,47 @@ public class RecruiterAPIManager {
     }
     
     private class func postData(url: URL, data: [String: String], completionHandler: @escaping ((JSON?) -> Void )) {
+        print("making request")
+        
+        // use a separate thread
+        DispatchQueue.global(qos: .default).async {
+            // build request
+            let config = URLSessionConfiguration.default
+            let request = NSMutableURLRequest(url: url)
+            request.httpMethod = "POST"
+            //request.httpBody = data.rawData() // TODO: configure json data
+            
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            let session = URLSession(configuration: config)
+            
+            let task = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+                
+                guard error == nil else {
+                    return
+                }
+                guard let data = data else {
+                    return
+                }
+                do {
+                    let json = JSON(data: data)
+                    completionHandler(json)
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            })
+            task.resume()
+        }
+    }
+    
+    private class func postData(url: URL, data: JSON, completionHandler: @escaping ((JSON?) -> Void )) {
         print("making request")
         
         // use a separate thread
@@ -119,6 +163,44 @@ public class RecruiterAPIManager {
             else {
                 completionHandler(Organization())
             }
+        }
+    }
+    
+    public class func createPosting(data: [[String: Any]], completionHandler: @escaping ((JSON) -> Void)) {
+        let url = APIURLs.createPosting
+        let dataJSON = JSON(arrayLiteral: data)
+        
+        var response = JSON()
+        
+        postData(url: url, data: dataJSON) { (json) in
+            response = json ?? ["response": "no response"]
+            completionHandler(response)
+        }
+    }
+    
+    public class func createUser(data: [String: String], completionHandler: @escaping ((JSON) -> Void)) {
+        let url = APIURLs.createUser
+        
+        var response = JSON()
+        
+        postData(url: url, data: data) { (json) in
+            response = json ?? ["response": "no response"]
+            completionHandler(response)
+        }
+    }
+    
+    public class func updateApplicantStatus(status: String, applicantEmail: String, completionHandler: @escaping ((JSON) -> Void)) {
+        let url = APIURLs.updateApplicantStatus
+        
+        var response = JSON()
+        
+        let jsonObject: [String: String] = [
+            "status": status,
+            "email": applicantEmail
+        ]
+        postData(url: url, data: jsonObject) { (json) in
+            response = json ?? ["response": "no response"]
+            completionHandler(response)
         }
     }
 }

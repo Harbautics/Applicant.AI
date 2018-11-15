@@ -126,6 +126,7 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
             if let createQuestionsTVC = segue.destination as? Recruiter_Create_Posting_Questions_TableViewController {
                 createQuestionsTVC.postingTVC = self
                 createQuestionsTVC.postingTVCIdx = self.createPostingIDX
+                createQuestionsTVC.orgName = self.specificOrganization.name
                 let backItem = UIBarButtonItem()
                 backItem.title = "Finish"
                 navigationItem.backBarButtonItem = backItem

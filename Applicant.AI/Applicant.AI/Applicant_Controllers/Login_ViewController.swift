@@ -25,7 +25,14 @@ class Login_ViewController: UIViewController {
             (user, error) in
             if user != nil {
                 
-                // TODO: API POST request to add user to db
+                let jsonObject: [String: String] = [
+                    "name": "no name",
+                    "email": self.email.text!,
+                    "password": self.password.text!
+                ]
+                RecruiterAPIManager.createUser(data: jsonObject, completionHandler: { (json) in
+                    print("Create User returns:\n", json)
+                })
                 
                 self.performSegue(withIdentifier: "login_as_applicant", sender: self)
             }
@@ -45,7 +52,6 @@ class Login_ViewController: UIViewController {
                 // log in the user
                 Login_Provider.shared.logInUser(usernameIn: self.email.text!, accountTypeIn: accountType)
                 // segue
-                
                 
                 // segue to applicant
                 if accountType == "Applicant" {

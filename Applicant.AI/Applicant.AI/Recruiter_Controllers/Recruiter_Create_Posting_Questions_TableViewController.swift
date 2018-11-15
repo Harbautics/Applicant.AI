@@ -16,6 +16,7 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
     var questions = [String]()
     var postingName = String()
     var postingTitle: String!
+    var orgName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,16 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
         print("finished creating questions")
         // TODO: send API POST to create the posting
         // send: orgname & postitionname & list of questions
+        let jsonObject: [String: Any] = [
+            "org_name": self.orgName,
+            "pos_name": self.postingName,
+            "description": "",
+            "questions": self.questions
+        ]
+        RecruiterAPIManager.createPosting(data: [jsonObject]) { (json) in
+            print(json)
+            print("successfully created object")
+        }
     }
     
     @objc func determineNextAction() {

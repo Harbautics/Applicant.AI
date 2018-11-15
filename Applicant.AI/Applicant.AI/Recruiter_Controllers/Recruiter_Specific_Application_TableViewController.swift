@@ -68,15 +68,24 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
     // TODO: link functions to API
     func acceptCandidate() {
         print("accepting candidate...")
-        self.appStatus = "accepted"
+        self.appStatus = "ACCEPTED"
+        RecruiterAPIManager.updateApplicantStatus(status: "ACCEPTED", applicantEmail: <#T##String#>) { (json) in
+            print("Update status for accepted returned\n:", json)
+        }
     }
     func rejectCandidate() {
         print("rejecting candidate...")
-        self.appStatus = "rejected"
+        self.appStatus = "REJECTED"
+        RecruiterAPIManager.updateApplicantStatus(status: "REJECTED", applicantEmail: <#T##String#>) { (json) in
+            print("Update status for rejected returned\n:", json)
+        }
     }
     func grantInterview() {
         print("granting interview...")
-        self.appStatus = "interview"
+        self.appStatus = "INTERVIEW"
+        RecruiterAPIManager.updateApplicantStatus(status: "INTERVIEW", applicantEmail: <#T##String#>) { (json) in
+            print("Update status for rejected returned\n:", json)
+        }
     }
 
     // TODO: render data related to candidate
