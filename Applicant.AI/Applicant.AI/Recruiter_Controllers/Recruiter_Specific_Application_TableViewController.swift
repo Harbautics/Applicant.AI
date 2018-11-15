@@ -56,7 +56,6 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
         self.navigationController!.present(alertController, animated: true, completion: nil)
     }
     
-    // TODO: link functions to API
     func acceptCandidate() {
         print("accepting candidate...")
         self.specificApplicant.status = "ACCEPT"
@@ -82,7 +81,6 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
         self.tableView.reloadData()
     }
 
-    // TODO: render data related to candidate
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -99,19 +97,23 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recruiterApplicantInfo", for: indexPath)
 
         // status
         if indexPath.section == 0 {
-            cell.textLabel?.text = self.specificApplicant.status
+            let cell = tableView.dequeueReusableCell(withIdentifier: "recruiter_info_status_identifier", for: indexPath)
+            cell.textLabel?.text = "Status:"
+            cell.detailTextLabel?.text = self.specificApplicant.status
+            return cell
         }
         // questions and answers
-        else if indexPath.section == 1 {
-            cell.textLabel?.text = self.specificApplicant.questions[indexPath.row].question
-            cell.detailTextLabel?.text = self.specificApplicant.questions[indexPath.row].applicant_answer
-        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "recruiter_info_identifier", for: indexPath) as! Question_Answer_TableViewCell
 
-        return cell
+            cell.questionLabel.text = self.specificApplicant.questions[indexPath.row].question
+            cell.answerLabel.text = self.specificApplicant.questions[indexPath.row].applicant_answer
+            
+            return cell
+        }
     }
     
 

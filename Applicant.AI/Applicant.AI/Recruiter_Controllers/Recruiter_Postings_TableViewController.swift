@@ -22,19 +22,12 @@ class Recruiter_Postings_TableViewController: UITableViewController {
         
         self.title = self.specificPosting.name
         
-        // TODO: API Call to get all the applicants
         RecruiterAPIManager.getAllApplicantsForPosting(orgName: self.orgName, posName: self.specificPosting.name) { (applicants) in
             self.isLoading = false
             self.specificPosting.applicants = applicants
             self.updateTable()
         }
         
-//        var i = 0
-//        // TODO: remove when done
-//        while (i < 10) {
-//            self.specificPosting.applicants?.append(Applicant(id_in: i, name_in: "Applicant \(i)"))
-//            i += 1
-//        }
         self.tableView.reloadData()
 
     }
@@ -46,12 +39,10 @@ class Recruiter_Postings_TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if self.specificPosting.applicants?.count == 0 || self.isLoading {
             return 1
         }

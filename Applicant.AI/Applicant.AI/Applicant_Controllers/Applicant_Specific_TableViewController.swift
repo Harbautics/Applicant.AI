@@ -16,6 +16,8 @@ class Applicant_Specific_TableViewController: UITableViewController {
         super.viewDidLoad()
         
         print("loaded")
+        
+        self.title = self.specificApplication.name
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,29 +30,35 @@ class Applicant_Specific_TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        if section == 0 {
+            return 1
+        }
+        else {
+            return self.specificApplication.questions.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "applicant_info_identifier", for: indexPath)
 
-        if (indexPath.row == 0) {
-            cell.textLabel?.text = "test" //self.specificApplication.organization_name
-        }
-        else if (indexPath.row == 1) {
-            cell.textLabel?.text = "Test" //self.specificApplication.position_name
+
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "applicant_info_status_identifier", for: indexPath)
+            cell.textLabel?.text = "Status:"
+            cell.detailTextLabel?.text = self.specificApplication.status
+            return cell
         }
         else {
-            cell.textLabel?.text = "Error"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "applicant_info_identifier", for: indexPath) as! Question_Answer_TableViewCell
+            cell.questionLabel.text = self.specificApplication.questions[indexPath.row].question
+            cell.answerLabel.text = self.specificApplication.questions[indexPath.row].applicant_answer
+            return cell
         }
-
-        return cell
     }
     
 

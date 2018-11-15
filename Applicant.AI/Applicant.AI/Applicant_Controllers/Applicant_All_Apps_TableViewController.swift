@@ -10,17 +10,29 @@ import UIKit
 
 class Applicant_All_Apps_TableViewController: UITableViewController {
     
-    var sampleData = [Application]()
+    var applications = [Application]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ApplicantAPIManager.getAllSubmissions { (json) in
-            print(json)
+        ApplicantAPIManager.getAllSubmissions { (applicationsIn) in
+            self.applications = applicationsIn
+            self.tableView.reloadData()
         }
+        
+        // updates so we can update the view
+        let notificationName = NSNotification.Name("SubmittedApplication")
+        NotificationCenter.default.addObserver(self, selector: #selector(Applicant_All_Apps_TableViewController.updateTable), name: notificationName, object: nil)
         
         self.title = "Applications"
         self.tableView.reloadData()
+    }
+    
+    @objc func updateTable() {
+        ApplicantAPIManager.getAllSubmissions { (applicationsIn) in
+            self.applications = applicationsIn
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -32,15 +44,16 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sampleData.count
+        return self.applications.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "app_cell_identifier", for: indexPath)
 
-        cell.textLabel?.text = "Test"//sampleData[indexPath.row].position_name
-        cell.detailTextLabel?.text = "Test"//sampleData[indexPath.row].organization_name
+        cell.textLabel?.text = self.applications[indexPath.row].name
+        cell.detailTextLabel?.text = self.applications[indexPath.row].status
+        cell.accessoryType = .disclosureIndicator
 
         return cell
     }
@@ -97,7 +110,7 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
         if segue.identifier == "all_apps_to_specific_app" {
             if let specific_app_TVC = segue.destination as? Applicant_Specific_TableViewController {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
-                    specific_app_TVC.specificApplication = sampleData[indexPath.row]
+                    specific_app_TVC.specificApplication = self.applications[indexPath.row]
                     specific_app_TVC.title = "Testing title" //sampleData[indexPath.row].position_name
                 }
             }

@@ -9,9 +9,6 @@
 import UIKit
 
 class Posting_TableViewController: UITableViewController, UITextViewDelegate {
-    
-    // UIPickerViewDelegate, UIPickerViewDataSource
-    
 
     // Properties
     var specificPosting: Posting!
@@ -19,11 +16,6 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     var currentQuestionIndex = 0; // keeps track of question to render
     var currentPickerIndex = 0;
     var applicant_answers = [String]()
-    
-    
-    //let dropdown_tvc = Dropdown_Answer_TableViewCell
-    //let dropdown_tvc = Dropdown_Answer_TableViewCell(nibName: "Dropdown_Answer_TableViewCell", bundle: nil)
-    //dropdown_tvc.Posting_TableViewController = self
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +35,10 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if section == 2 {
             return (self.specificPosting.questions?.count ?? 0)
         }
@@ -56,7 +46,10 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 2 {
+        if section == 0 {
+            return "Information"
+        }
+        else if section == 2 {
             if self.specificPosting.questions?.count != 0 {
                 return "Questions"
             }
@@ -77,7 +70,7 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             
             cell.statusLabel.text = self.specificPosting.status
             
-            if self.specificPosting.status == "open" {
+            if self.specificPosting.status == "OPEN" {
                 cell.statusLabel.textColor = UIColor(red:0.15, green:0.68, blue:0.38, alpha:1.0)
             }
             else {
@@ -90,7 +83,7 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
         else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! Description_TableViewCell
             
-            cell.Description.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec consectetur est, a tincidunt turpis. Maecenas commodo libero ut turpis scelerisque tempor. Curabitur blandit urna mauris, sit amet convallis massa accumsan at. Phasellus molestie fringilla ligula, sed bibendum nisi imperdiet quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc condimentum, magna id varius pretium, risus nulla dictum justo, sed lobortis urna nunc vel ipsum. Aenean interdum rutrum mollis. Nulla facilisi."//self.specificPosting.job_description
+            cell.Description.text = self.specificPosting.job_description
             
             return cell
         }
@@ -104,8 +97,6 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             // text entry
             if currentQuestion?.type == "text" {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "textAnswerCell", for: indexPath) as! TextAnswer_TableViewCell
-                
-                //cell.configure(questionIn: currentQuestion?.question ?? "no question text", questionIndexIn: self.currentQuestionIndex, controller: self, answerIn: "")
                 
                 cell.configure(questionIn: currentQuestion?.question ?? "no question text", questionIndexIn: self.currentQuestionIndex, controller: self, answerIn: "", viewIn: self.view)
                 
@@ -138,26 +129,44 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
         
     }
     
-    func isEven(_ num: Int) -> Bool {
-        return (num % 2 == 0)
+    // Receiving data from child cells
+    func setPickerCellAnswer(forQuestion: Int, selection: String) {
+        self.specificPosting.questions?[forQuestion].applicant_answer = selection
     }
     
     // Receiving data from child cells
-    func setPickerCellAnswer(forQuestion: Int, selection: String) {
-        //print(forQuestion, selection)
-        self.specificPosting.questions?[forQuestion].applicant_answer = selection
-        print(self.specificPosting.questions!)
-    }
-    
     func setTextEntry(forQuestion: Int, answer: String) {
         self.specificPosting.questions?[forQuestion].applicant_answer = answer
-        print(self.specificPosting.questions!)
     }
     
+    // Shows error alert if empty text field
+    func showErrorAlert() {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Incomplete Application", message: "Please answer all questions", preferredStyle: .alert)
+        
+        // 2. Add action to clear alert
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { [weak alert] (_) in
+        }))
+        
+        // 3. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    // Function to submit question to API
     @objc func submitApplication() {
         self.specificPosting.questions?.forEach({
             applicant_answers.append($0.applicant_answer!)
         })
+        
+        // check to see if answered all questions
+        for item in self.applicant_answers {
+            if item == "" {
+                self.applicant_answers.removeAll()
+                self.showErrorAlert()
+                return
+            }
+        }
+        
         let jsonObject: [String: Any] = [
             "org_name": self.orgName,
             "email": Login_Provider.shared.getUsername(),
@@ -166,9 +175,11 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             "answers_ML": [[-2, Double((Float(arc4random()) / Float(UINT32_MAX)) * 100.0)]]
         ]
         ApplicantAPIManager.submitApplication(data: jsonObject) { (json) in
-            print("submit return")
-            print(json)
+            // post a notification
+            let notificationName = NSNotification.Name("SubmittedApplication")
+            NotificationCenter.default.post(name: notificationName, object: nil)
         }
+
     }
     
 

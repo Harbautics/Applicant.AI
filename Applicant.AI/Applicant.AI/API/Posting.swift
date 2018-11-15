@@ -37,7 +37,7 @@ public class Posting: NSObject {
         self.status = status_in
         self.job_description = job_desc_in
         self.questions = questions_in
-        self.applicants = [Applicant]() // TODO: convenience init for applicant
+        self.applicants = [Applicant]()
         
         super.init()
     }

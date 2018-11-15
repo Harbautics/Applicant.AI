@@ -50,6 +50,20 @@ public class Application: NSObject {
 //            }
             self.init(appid: appid_JSON, orgname: orgname_JSON, name: name_JSON, pos_description: pos_desc_JSON, status: status_JSON, questions: questions_array)
         }
+        else if let orgIDJSON = json["org_id"].int,
+            let postNameJSON = json["post_name"].string,
+            let statusJSON = json["status"].string,
+            let questionsJSON = json["responses"].dictionary,
+        let appIDJSON = json["post_id"].int
+        {
+            let questionPromptJSON = questionsJSON["question"]?.string ?? "no question"
+            let questionAnswerJSON = questionsJSON["answer"]?.string ?? "no answer"
+            
+            var questionsIN = [Question]()
+            questionsIN.append(Question(description_in: "no desc", question_in: questionPromptJSON, applicant_answer_in: questionAnswerJSON, type_in: "text", answer_list_in: [""]))
+            
+            self.init(appid: String(appIDJSON), orgname: "no org name", name: postNameJSON, pos_description: "", status: statusJSON, questions: questionsIN)
+        }
         else {
             return nil
         }

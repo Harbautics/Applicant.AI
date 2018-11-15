@@ -90,7 +90,6 @@ public class ApplicantAPIManager {
             let config = URLSessionConfiguration.default
             let request = NSMutableURLRequest(url: url)
             request.httpMethod = "POST"
-            //request.httpBody = data.rawData() // TODO: configure json data
             let session = URLSession(configuration: config)
             
             let task = session.dataTask(with: url as URL, completionHandler: {(data, response, error) in
@@ -127,7 +126,6 @@ public class ApplicantAPIManager {
             let config = URLSessionConfiguration.default
             let request = NSMutableURLRequest(url: url)
             request.httpMethod = "POST"
-            //request.httpBody = data.rawData() // TODO: configure json data
             
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
@@ -182,38 +180,34 @@ public class ApplicantAPIManager {
         }
     }
     
-    // TODO: finish this
     public class func submitApplication(data: [String: Any], completionHandler: @escaping (JSON) -> Void) {
         print("submitting...")
-        let url = APIURLs.submitApplication
-        //let dataJSON = JSON(arrayLiteral: data)
-        
+        let url = APIURLs.submitApplication        
         
         postData(url: url, data: data) { (json) in
-            print(json)
             DispatchQueue.main.async {
                 completionHandler(json ?? ["response": "no response"])
             }
         }
-        
-        // get back on the main queue and continue
-//        DispatchQueue.main.async {
-//            completionHandler()
-//        }
     }
     
-    public class func getAllSubmissions(completionHandler: @escaping (JSON) -> Void) {
+    public class func getAllSubmissions(completionHandler: @escaping ([Application]) -> Void) {
         let url = APIURLs.getApplications
-        
-        var response = JSON()
         
         let jsonObject: [String: String] = [
             "email": Login_Provider.shared.getUsername()
         ]
+        
+        var applications = [Application]()
+        
         postData(url: url, data: jsonObject) { (json) in
+            print(type(of: json))
+            let applicationsJSON = json?["submissions"] ?? ["response":"no response"]
+            
+            applications = applicationsJSON.map { Application(json: $0.1)! }
+            
             DispatchQueue.main.async {
-                response = json ?? ["response": "no response"]
-                completionHandler(response)
+                completionHandler(applications)
             }
         }
         

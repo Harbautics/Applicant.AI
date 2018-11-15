@@ -35,8 +35,6 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
     // send the API response to create the posting
     override func viewWillDisappear(_ animated: Bool) {
         print("finished creating questions")
-        // TODO: send API POST to create the posting
-        // send: orgname & postitionname & list of questions
         let jsonObject: [String: Any] = [
             "org_name": self.orgName,
             "pos_name": self.postingName,

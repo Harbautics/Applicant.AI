@@ -16,6 +16,7 @@ class Login_ViewController: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var fullName: UITextField!
     
     @IBOutlet weak var accountType: UISegmentedControl!
     
@@ -26,12 +27,12 @@ class Login_ViewController: UIViewController {
             if user != nil {
                 
                 let jsonObject: [String: String] = [
-                    "name": "no name",
+                    "name": self.fullName.text!,
                     "email": self.email.text!,
                     "password": self.password.text!
                 ]
                 let accountType = self.accountType.titleForSegment(at: self.accountType.selectedSegmentIndex) ?? "no account type"
-                Login_Provider.shared.logInUser(usernameIn: self.email.text!, accountTypeIn: accountType)
+                Login_Provider.shared.logInUser(usernameIn: self.email.text!, accountTypeIn: accountType, nameIn: self.fullName.text!)
                 
                 RecruiterAPIManager.createUser(data: jsonObject, completionHandler: { (json) in
                     print("Create User returns:\n", json)
@@ -62,7 +63,7 @@ class Login_ViewController: UIViewController {
                 let accountType = self.accountType.titleForSegment(at: self.accountType.selectedSegmentIndex) ?? "no account type"
 
                 // log in the user
-                Login_Provider.shared.logInUser(usernameIn: self.email.text!, accountTypeIn: accountType)
+                Login_Provider.shared.logInUser(usernameIn: self.email.text!, accountTypeIn: accountType, nameIn: self.fullName.text!)
                 // segue
                 
                 // segue to applicant

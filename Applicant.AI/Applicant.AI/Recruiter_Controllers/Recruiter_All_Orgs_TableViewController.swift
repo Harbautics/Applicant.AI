@@ -66,7 +66,6 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
         // hide the plus button
         self.navigationItem.leftBarButtonItem = nil
         
-        // TODO: make the API Post request
         let jsonObject: [String: String] = [
             "org_name": orgName,
             "email": Login_Provider.shared.getUsername(),
@@ -82,9 +81,7 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
             }
             self.isLoading = false
             self.updateTable()
-        }
-        
-        // TODO: Update the local model
+        }        
     }
     
     func updateTable() {

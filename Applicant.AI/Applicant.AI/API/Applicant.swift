@@ -39,21 +39,6 @@ public class Applicant: NSObject {
         super.init()
     }
     
-//    init(id_in: Int, name_in: String) {
-//        self.id = id_in
-//        self.name = name_in
-//        self.percentageMatch = Double((Float(Float(arc4random()) / Float(UINT32_MAX)) * 100.0)) // TODO: no more random percentage
-//
-//        super.init()
-//    }
-    
-//    override init() {
-//        self.id = -1
-//        self.name = "default name"
-//        self.percentageMatch = Double((Float(Float(arc4random()) / Float(UINT32_MAX)) * 100.0)) // TODO: no more random percentage
-//        super.init()
-//    }
-    
     convenience init?(json: JSON) {
         if let questionJSON = json["questions"].array,
             let percJSON = json["perc_match"].double,
