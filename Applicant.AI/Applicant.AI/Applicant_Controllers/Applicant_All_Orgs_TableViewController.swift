@@ -39,6 +39,7 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         searchController.dimsBackgroundDuringPresentation =  false
         definesPresentationContext = true
         self.tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.placeholder = "Enter organization name or ID"
         self.title = "Organizations"
         super.viewDidLoad()
     }
