@@ -56,11 +56,18 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
         self.navigationController!.present(alertController, animated: true, completion: nil)
     }
     
+    func postNotification() {
+        let notificationName = NSNotification.Name("UpdateCandidate")
+        NotificationCenter.default.post(name: notificationName, object: nil)
+    }
+    
     func acceptCandidate() {
         print("accepting candidate...")
         self.specificApplicant.status = "ACCEPT"
         RecruiterAPIManager.updateApplicantStatus(status: "ACCEPT", applicantEmail: self.specificApplicant.email, postId: self.postingID) { (json) in
             print("Update status for accepted returned\n:", json)
+            // post a notification
+            self.postNotification()
         }
         self.tableView.reloadData()
     }
@@ -69,6 +76,8 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
         self.specificApplicant.status = "REJECT"
         RecruiterAPIManager.updateApplicantStatus(status: "REJECT", applicantEmail: self.specificApplicant.email, postId: self.postingID) { (json) in
             print("Update status for rejected returned\n:", json)
+            // post a notification
+            self.postNotification()
         }
         self.tableView.reloadData()
     }
@@ -77,6 +86,8 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
         self.specificApplicant.status = "INTERVIEW"
         RecruiterAPIManager.updateApplicantStatus(status: "INTERVIEW", applicantEmail: self.specificApplicant.email, postId: self.postingID) { (json) in
             print("Update status for interview returned\n:", json)
+            // post a notification
+            self.postNotification()
         }
         self.tableView.reloadData()
     }

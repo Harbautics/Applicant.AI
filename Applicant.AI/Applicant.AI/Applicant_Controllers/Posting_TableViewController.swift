@@ -7,6 +7,29 @@
 //
 
 import UIKit
+// For spinner
+extension UIViewController {
+    class func displaySpinner(onView : UIView) -> UIView {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        return spinnerView
+    }
+    
+    class func removeSpinner(spinner :UIView) {
+        DispatchQueue.main.async {
+            spinner.removeFromSuperview()
+        }
+    }
+}
 
 class Posting_TableViewController: UITableViewController, UITextViewDelegate {
 
@@ -145,7 +168,19 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
         let alert = UIAlertController(title: "Incomplete Application", message: "Please answer all questions", preferredStyle: .alert)
         
         // 2. Add action to clear alert
-        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { [weak alert] (_) in
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (_) in
+        }))
+        
+        // 3. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+    func showSuccessAlert() {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Success", message: "Your application has been submitted!\nPlease do not submit again.", preferredStyle: .alert)
+        
+        // 2. Add action to clear alert
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (_) in
+            self.performUnwind()
         }))
         
         // 3. Present the alert.
@@ -174,12 +209,23 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             "answers": applicant_answers,
             "answers_ML": [[-2, Double((Float(arc4random()) / Float(UINT32_MAX)) * 100.0)]]
         ]
+        
+        // TODO: show spinner saying submitting
+        let sv = UIViewController.displaySpinner(onView: self.view)
+        
         ApplicantAPIManager.submitApplication(data: jsonObject) { (json) in
             // post a notification
             let notificationName = NSNotification.Name("SubmittedApplication")
             NotificationCenter.default.post(name: notificationName, object: nil)
+            // TODO: stop spinner, show success alert, segue back
+            UIViewController.removeSpinner(spinner: sv)
+            self.showSuccessAlert()
         }
-
+    }
+    
+    // Send us back to the previous controller
+    func performUnwind() {
+        self.performSegue(withIdentifier: "unwindToSpecific", sender: self)
     }
     
 

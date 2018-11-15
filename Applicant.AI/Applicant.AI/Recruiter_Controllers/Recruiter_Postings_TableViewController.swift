@@ -15,21 +15,46 @@ class Recruiter_Postings_TableViewController: UITableViewController {
     var isLoading = true
     var orgName = String()
     
-    
+    var pendingCandidates = [Applicant]()
+    var interviewCandidates = [Applicant]()
+    var acceptedCandidates = [Applicant]()
+    var rejectedCandidates = [Applicant]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = self.specificPosting.name
         
-        RecruiterAPIManager.getAllApplicantsForPosting(orgName: self.orgName, posName: self.specificPosting.name) { (applicants) in
-            self.isLoading = false
-            self.specificPosting.applicants = applicants
-            self.updateTable()
-        }
+        self.getAndFilterApplicants()
+        
+        // Notification to listen for when we have Organization data from the API
+        let notificationName = NSNotification.Name("UpdateCandidate")
+        NotificationCenter.default.addObserver(self, selector: #selector(Recruiter_Postings_TableViewController.getAndFilterApplicants), name: notificationName, object: nil)
         
         self.tableView.reloadData()
 
+    }
+    
+    @objc func getAndFilterApplicants() {
+        RecruiterAPIManager.getAllApplicantsForPosting(orgName: self.orgName, posName: self.specificPosting.name) { (applicants) in
+            self.isLoading = false
+            self.specificPosting.applicants = applicants
+            
+            self.pendingCandidates = applicants.filter({ (applicant) -> Bool in
+                return applicant.status == "PENDING"
+            })
+            self.interviewCandidates = applicants.filter({ (applicant) -> Bool in
+                return applicant.status == "INTERVIEW"
+            })
+            self.acceptedCandidates = applicants.filter({ (applicant) -> Bool in
+                return applicant.status == "ACCEPT"
+            })
+            self.rejectedCandidates = applicants.filter({ (applicant) -> Bool in
+                return applicant.status == "REJECT"
+            })
+            
+            self.updateTable()
+        }
     }
     
     func updateTable() {
@@ -39,14 +64,44 @@ class Recruiter_Postings_TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.specificPosting.applicants?.count == 0 || self.isLoading {
             return 1
         }
+        else if section == 0 {
+            return self.pendingCandidates.count
+        }
+        else if section == 1 {
+            return self.interviewCandidates.count
+        }
+        else if section == 2 {
+            return self.acceptedCandidates.count
+        }
+        else if section == 3 {
+            return self.rejectedCandidates.count
+        }
         return self.specificPosting.applicants?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Pending:"
+        }
+        else if section == 1 {
+            return "Interviews:"
+        }
+        else if section == 2 {
+            return "Accepted:"
+        }
+        else if section == 3 {
+            return "Rejected:"
+        }
+        else {
+            return "Error"
+        }
     }
 
     
@@ -64,8 +119,23 @@ class Recruiter_Postings_TableViewController: UITableViewController {
             cell.isUserInteractionEnabled = false
         }
         else {
-            cell.textLabel?.text = self.specificPosting.applicants?[indexPath.row].name
-            cell.detailTextLabel?.text = "\(self.specificPosting.applicants?[indexPath.row].percentageMatch ?? 0.0)%"
+            var candidate: Applicant
+            
+            if indexPath.section == 0 {
+                candidate = self.pendingCandidates[indexPath.row]
+            }
+            else if indexPath.section == 1 {
+                candidate = self.interviewCandidates[indexPath.row]
+            }
+            else if indexPath.section == 2 {
+                candidate = self.acceptedCandidates[indexPath.row]
+            }
+            else {
+                candidate = self.rejectedCandidates[indexPath.row]
+            }
+            
+            cell.textLabel?.text = candidate.name
+            cell.detailTextLabel?.text = "\(candidate.percentageMatch ?? 0.0)%"
             cell.isUserInteractionEnabled = true
             cell.accessoryType = .disclosureIndicator
         }
@@ -119,8 +189,28 @@ class Recruiter_Postings_TableViewController: UITableViewController {
         if segue.identifier == "recruiterAllApplicantsToSpecific" {
             if let applicantTVC = segue.destination as? Recruiter_Specific_Application_TableViewController {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
+                    
+                    var applicant: Applicant
+                    
+                    if indexPath.section == 0 {
+                        applicant = self.pendingCandidates[indexPath.row]
+                    }
+                    else if indexPath.section == 1 {
+                        applicant = self.interviewCandidates[indexPath.row]
+                    }
+                    else if indexPath.section == 2 {
+                        applicant = self.acceptedCandidates[indexPath.row]
+                    }
+                    else if indexPath.section == 3 {
+                        applicant = self.rejectedCandidates[indexPath.row]
+                    }
+                    else {
+                        print("error")
+                        applicant = self.specificPosting.applicants?[indexPath.row] ?? Applicant()
+                    }
+                    
                     applicantTVC.postingID = self.specificPosting.id
-                    applicantTVC.specificApplicant = self.specificPosting.applicants?[indexPath.row]
+                    applicantTVC.specificApplicant = applicant
                 }
             }
         }

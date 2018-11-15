@@ -45,16 +45,13 @@ public class Application: NSObject {
             // Go through the array of questions, create and append question to the questions array
             var questions_array = [Question]()
             questions_array = questions_array_JSON.map { Question(json: $0)! }
-//            for question in questions_array_JSON {
-//                questions_array.append(Question(description_in: question["description"].string!, question_in: question["question"].string!, applicant_answer_in: question["answer"].string!))
-//            }
             self.init(appid: appid_JSON, orgname: orgname_JSON, name: name_JSON, pos_description: pos_desc_JSON, status: status_JSON, questions: questions_array)
         }
-        else if let orgIDJSON = json["org_id"].int,
-            let postNameJSON = json["post_name"].string,
+        else if let postNameJSON = json["post_name"].string,
             let statusJSON = json["status"].string,
             let questionsJSON = json["responses"].dictionary,
         let appIDJSON = json["post_id"].int
+//            let orgIDJSON = json["org_id"].int,
         {
             let questionPromptJSON = questionsJSON["question"]?.string ?? "no question"
             let questionAnswerJSON = questionsJSON["answer"]?.string ?? "no answer"

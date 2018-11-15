@@ -49,7 +49,7 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { [weak alert] (_) in
             self.createOrg(orgName: alert!.textFields![0].text ?? "no name")
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak alert] (_) in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
             print("cancelled")
         }))
         
