@@ -135,7 +135,7 @@ class Recruiter_Postings_TableViewController: UITableViewController {
             }
             
             cell.textLabel?.text = candidate.name
-            cell.detailTextLabel?.text = "\(candidate.percentageMatch ?? 0.0)%"
+            cell.detailTextLabel?.text = "\(candidate.percentageMatch)%"
             cell.isUserInteractionEnabled = true
             cell.accessoryType = .disclosureIndicator
         }

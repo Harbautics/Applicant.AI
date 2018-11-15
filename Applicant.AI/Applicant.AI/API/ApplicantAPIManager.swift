@@ -151,8 +151,6 @@ public class ApplicantAPIManager {
                     DispatchQueue.main.async {
                         completionHandler(json)
                     }
-                } catch let error {
-                    print(error.localizedDescription)
                 }
             })
             task.resume()
@@ -202,6 +200,7 @@ public class ApplicantAPIManager {
         
         postData(url: url, data: jsonObject) { (json) in
             print(type(of: json))
+            print(json)
             let applicationsJSON = json?["submissions"] ?? ["response":"no response"]
             
             applications = applicationsJSON.map { Application(json: $0.1)! }

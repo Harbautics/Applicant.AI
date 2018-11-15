@@ -87,9 +87,6 @@ public class RecruiterAPIManager {
                     DispatchQueue.main.async {
                         completionHandler(json)
                     }
-                    
-                } catch let error {
-                    print(error.localizedDescription)
                 }
             })
             task.resume()
@@ -131,8 +128,6 @@ public class RecruiterAPIManager {
                     DispatchQueue.main.async {
                         completionHandler(json)
                     }
-                } catch let error {
-                    print(error.localizedDescription)
                 }
             })
             task.resume()
@@ -174,8 +169,6 @@ public class RecruiterAPIManager {
                     DispatchQueue.main.async {
                         completionHandler(json)
                     }
-                } catch let error {
-                    print(error.localizedDescription)
                 }
             })
             task.resume()
