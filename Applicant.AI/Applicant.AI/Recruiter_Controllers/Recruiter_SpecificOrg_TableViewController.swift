@@ -137,6 +137,7 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
             if let specificPostingTVC = segue.destination as? Recruiter_Postings_TableViewController {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     specificPostingTVC.specificPosting = self.specificOrganization.postings?[indexPath.row]
+                    specificPostingTVC.orgName = self.specificOrganization.name
                     let backItem = UIBarButtonItem()
                     backItem.title = self.title
                     navigationItem.backBarButtonItem = backItem

@@ -96,7 +96,6 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
     // search functions
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         var results = [Organization]()
-        print(searchText)
         for item in self.all_organizations {
             if item.name.localizedCaseInsensitiveContains(searchText) || item.id.localizedCaseInsensitiveContains(searchText) {
                 results.append(item)

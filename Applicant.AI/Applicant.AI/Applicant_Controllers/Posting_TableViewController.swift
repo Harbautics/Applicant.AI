@@ -165,8 +165,9 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             "answers": applicant_answers,
             "answers_ML": [[-2, Double((Float(arc4random()) / Float(UINT32_MAX)) * 100.0)]]
         ]
-        ApplicantAPIManager.submitApplication(data: [jsonObject]) {
-            print("submitted")
+        ApplicantAPIManager.submitApplication(data: jsonObject) { (json) in
+            print("submit return")
+            print(json)
         }
     }
     

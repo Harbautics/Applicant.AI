@@ -12,9 +12,10 @@ public class ApplicantAPIManager {
     
     //URLs for APIs
     private struct APIURLs {
-        static let getOrganizations = URL(string: "http://sdocsverification-env.dfcuq7wid3.us-east-2.elasticbeanstalk.com/getOrganizationInfo")!
-        static let submitApplication = URL(string: "http://sdocsverification-env.dfcuq7wid3.us-east-2.elasticbeanstalk.com/CreateSubmission")!
-        static let getApplications = URL(string: "TODO")!
+        static let baseURL = "http://sdocsverification-env.dfcuq7wid3.us-east-2.elasticbeanstalk.com"
+        static let getOrganizations = URL(string: "\(baseURL)/getOrganizationInfo")!
+        static let submitApplication = URL(string: "\(baseURL)/CreateSubmission")!
+        static let getApplications = URL(string: "\(baseURL)/getAllSubmissions")!
     }
     
     // A generic fetch that gets JSON and calls the completion handler
@@ -31,9 +32,13 @@ public class ApplicantAPIManager {
                     // got data, call completion handler
                     if data != nil {
                         let json = JSON(data: data!)
-                        completionHandler(json)
+                        DispatchQueue.main.async {
+                            completionHandler(json)
+                        }
                     } else {
-                        completionHandler(nil)
+                        DispatchQueue.main.async {
+                            completionHandler(nil)
+                        }
                     }
                 }
             }
@@ -63,7 +68,9 @@ public class ApplicantAPIManager {
                 else {
                     if data != nil {
                         let json = JSON(data:data!)
-                        completionHandler(json)
+                        DispatchQueue.main.async {
+                            completionHandler(json)
+                        }
                     }
                     else {
                         print("No data!")
@@ -93,7 +100,9 @@ public class ApplicantAPIManager {
                 else {
                     if data != nil {
                         let json = JSON(data:data!)
-                        completionHandler(json)
+                        DispatchQueue.main.async {
+                            completionHandler(json)
+                        }
                     }
                     else {
                         print("No data!")
@@ -106,6 +115,49 @@ public class ApplicantAPIManager {
         // get back on the main queue and call the completionHandler with the data
         DispatchQueue.main.async {
             completionHandler(data)
+        }
+    }
+    
+    private class func postData(url: URL, data: [String: Any], completionHandler: @escaping ((JSON?) -> Void)) {
+        print("making request")
+        
+        // use a separate thread
+        DispatchQueue.global(qos: .default).async {
+            // build request
+            let config = URLSessionConfiguration.default
+            let request = NSMutableURLRequest(url: url)
+            request.httpMethod = "POST"
+            //request.httpBody = data.rawData() // TODO: configure json data
+            
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            let session = URLSession(configuration: config)
+            
+            let task = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+                
+                guard error == nil else {
+                    return
+                }
+                guard let data = data else {
+                    return
+                }
+                do {
+                    let json = JSON(data: data)
+                    DispatchQueue.main.async {
+                        completionHandler(json)
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            })
+            task.resume()
         }
     }
     
@@ -131,17 +183,39 @@ public class ApplicantAPIManager {
     }
     
     // TODO: finish this
-    public class func submitApplication(data: [[String: Any]], completionHandler: @escaping () -> Void) {
+    public class func submitApplication(data: [String: Any], completionHandler: @escaping (JSON) -> Void) {
         print("submitting...")
         let url = APIURLs.submitApplication
-        let dataJSON = JSON(arrayLiteral: data)
+        //let dataJSON = JSON(arrayLiteral: data)
         
-        postData(url: url, data: dataJSON) { (json) in
-            print(json!)
+        
+        postData(url: url, data: data) { (json) in
+            print(json)
+            DispatchQueue.main.async {
+                completionHandler(json ?? ["response": "no response"])
+            }
         }
+        
         // get back on the main queue and continue
-        DispatchQueue.main.async {
-            completionHandler()
+//        DispatchQueue.main.async {
+//            completionHandler()
+//        }
+    }
+    
+    public class func getAllSubmissions(completionHandler: @escaping (JSON) -> Void) {
+        let url = APIURLs.getApplications
+        
+        var response = JSON()
+        
+        let jsonObject: [String: String] = [
+            "email": Login_Provider.shared.getUsername()
+        ]
+        postData(url: url, data: jsonObject) { (json) in
+            DispatchQueue.main.async {
+                response = json ?? ["response": "no response"]
+                completionHandler(response)
+            }
         }
+        
     }
 }

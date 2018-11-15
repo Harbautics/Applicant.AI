@@ -43,9 +43,10 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
             "description": "",
             "questions": self.questions
         ]
-        RecruiterAPIManager.createPosting(data: [jsonObject]) { (json) in
+        print(jsonObject)
+        RecruiterAPIManager.createPosting(data: jsonObject) { (json) in
+            self.postingTVC?.specificOrganization.postings?[self.postingTVCIdx].id = json["PostingId"].int ?? -1
             print(json)
-            print("successfully created object")
         }
     }
     

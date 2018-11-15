@@ -13,6 +13,8 @@ class Recruiter_Postings_TableViewController: UITableViewController {
     // Properties
     var specificPosting: Posting!
     var isLoading = true
+    var orgName = String()
+    
     
     
     override func viewDidLoad() {
@@ -21,24 +23,24 @@ class Recruiter_Postings_TableViewController: UITableViewController {
         self.title = self.specificPosting.name
         
         // TODO: API Call to get all the applicants
-        // getApplicantsFromPosting
-        // org_name & pos_name
-        // callback:
-        self.isLoading = false
-        
-        var i = 0
-        // TODO: remove when done
-        while (i < 10) {
-            self.specificPosting.applicants?.append(Applicant(id_in: i, name_in: "Applicant \(i)"))
-            i += 1
+        RecruiterAPIManager.getAllApplicantsForPosting(orgName: self.orgName, posName: self.specificPosting.name) { (applicants) in
+            self.isLoading = false
+            self.specificPosting.applicants = applicants
+            self.updateTable()
         }
+        
+//        var i = 0
+//        // TODO: remove when done
+//        while (i < 10) {
+//            self.specificPosting.applicants?.append(Applicant(id_in: i, name_in: "Applicant \(i)"))
+//            i += 1
+//        }
         self.tableView.reloadData()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func updateTable() {
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source

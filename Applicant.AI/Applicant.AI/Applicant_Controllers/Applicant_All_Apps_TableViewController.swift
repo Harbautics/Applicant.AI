@@ -15,19 +15,12 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let newApp = Application(organization_name_in: "sample_org", position_name_in: "sample_position_name")
-        //let newApp2 = Application(organization_name_in: "sample_org2", position_name_in: "sample_position_name_2")
-        //sampleData.append(newApp)
-        //sampleData.append(newApp2)
+        ApplicantAPIManager.getAllSubmissions { (json) in
+            print(json)
+        }
         
         self.title = "Applications"
         self.tableView.reloadData()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source

@@ -37,6 +37,10 @@ public class Question: NSObject {
         if let question = json.string {
             self.init(description_in: "no description provided", question_in: question, applicant_answer_in: "no applicant answer provided", type_in: "text", answer_list_in: [""])
         }
+        else if let question = json["question"].string,
+            let answer = json["answer"].string {
+            self.init(description_in: "no description provided", question_in: question, applicant_answer_in: answer, type_in: "text", answer_list_in: [""])
+        }
         else {
             return nil
         }
@@ -44,6 +48,6 @@ public class Question: NSObject {
     
     // Debugging
     override public var description: String  {
-        return "\(self.question), \(self.applicant_answer)"
+        return "\(self.question), \(self.applicant_answer ?? "no answer")"
     }
 }

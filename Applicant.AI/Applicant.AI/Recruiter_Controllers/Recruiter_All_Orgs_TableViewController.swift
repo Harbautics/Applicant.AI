@@ -26,12 +26,12 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
                 self.orgs.removeAll()
             }
             
-            self.updateTable()
-            
             // add plus button to controller if no orgs
             if self.orgs.count == 0 {
                 self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.showAlert))
             }
+            
+            self.updateTable()
         }
     }
     

@@ -11,25 +11,16 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
 
     // Properties
     var specificApplicant: Applicant! // the person who submitted the application
-    var applicantAnswers: [Question]? // the list of questions (with answers) for the person's application
     var postingID: Int! // the ID of the posting the applicant submitted to
     var appStatus = String() // PENDING, REJECT, ACCEPT, INTERVIEW
-    var isLoading = true
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: Make the API request to get the questions and answers for the given application
-        // need the applicants status too
-        // callback:
-        self.isLoading = false
-        
         self.title = specificApplicant.name
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Action", style: .plain, target: self, action: #selector(self.showActions))
-        
-        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.showActions))
     }
     
     @objc func showActions() {
@@ -68,43 +59,41 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
     // TODO: link functions to API
     func acceptCandidate() {
         print("accepting candidate...")
-        self.appStatus = "ACCEPTED"
-        RecruiterAPIManager.updateApplicantStatus(status: "ACCEPTED", applicantEmail: <#T##String#>) { (json) in
+        self.specificApplicant.status = "ACCEPT"
+        RecruiterAPIManager.updateApplicantStatus(status: "ACCEPT", applicantEmail: self.specificApplicant.email, postId: self.postingID) { (json) in
             print("Update status for accepted returned\n:", json)
         }
+        self.tableView.reloadData()
     }
     func rejectCandidate() {
         print("rejecting candidate...")
-        self.appStatus = "REJECTED"
-        RecruiterAPIManager.updateApplicantStatus(status: "REJECTED", applicantEmail: <#T##String#>) { (json) in
+        self.specificApplicant.status = "REJECT"
+        RecruiterAPIManager.updateApplicantStatus(status: "REJECT", applicantEmail: self.specificApplicant.email, postId: self.postingID) { (json) in
             print("Update status for rejected returned\n:", json)
         }
+        self.tableView.reloadData()
     }
     func grantInterview() {
         print("granting interview...")
-        self.appStatus = "INTERVIEW"
-        RecruiterAPIManager.updateApplicantStatus(status: "INTERVIEW", applicantEmail: <#T##String#>) { (json) in
-            print("Update status for rejected returned\n:", json)
+        self.specificApplicant.status = "INTERVIEW"
+        RecruiterAPIManager.updateApplicantStatus(status: "INTERVIEW", applicantEmail: self.specificApplicant.email, postId: self.postingID) { (json) in
+            print("Update status for interview returned\n:", json)
         }
+        self.tableView.reloadData()
     }
 
     // TODO: render data related to candidate
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if self.isLoading {
-            return 1
-        }
-        else {
-            return 2 // status + questions
-        }
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.isLoading {
+        if section == 0 {
             return 1
         }
         else {
-            return self.applicantAnswers?.count ?? 0
+            return  self.specificApplicant.questions.count
         }
     }
 
@@ -112,17 +101,14 @@ class Recruiter_Specific_Application_TableViewController: UITableViewController 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recruiterApplicantInfo", for: indexPath)
 
-        if self.isLoading {
-            cell.textLabel?.text = "Loading..."
-        }
         // status
-        else if indexPath.section == 0 {
-            cell.textLabel?.text = self.appStatus
+        if indexPath.section == 0 {
+            cell.textLabel?.text = self.specificApplicant.status
         }
         // questions and answers
         else if indexPath.section == 1 {
-            cell.textLabel?.text = self.applicantAnswers?[indexPath.row].question
-            cell.detailTextLabel?.text = self.applicantAnswers?[indexPath.row].applicant_answer
+            cell.textLabel?.text = self.specificApplicant.questions[indexPath.row].question
+            cell.detailTextLabel?.text = self.specificApplicant.questions[indexPath.row].applicant_answer
         }
 
         return cell
