@@ -200,7 +200,7 @@ public class ApplicantAPIManager {
         
         postData(url: url, data: jsonObject) { (json) in
             print(type(of: json))
-            print(json)
+            print(json ?? "no json")
             let applicationsJSON = json?["submissions"] ?? ["response":"no response"]
             
             applications = applicationsJSON.map { Application(json: $0.1)! }
