@@ -152,7 +152,7 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         if segue.identifier == "allOrgsToSpecific" {
             if let specific_Org_TVC = segue.destination as? Applicant_Specific_Org_TableViewController {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
-                    if searchController.isActive {
+                    if searchController.isActive && searchController.searchBar.text != "" {
                         specific_Org_TVC.specificOrg = self.filtered_organizations[indexPath.row]
                     }
                     else {
