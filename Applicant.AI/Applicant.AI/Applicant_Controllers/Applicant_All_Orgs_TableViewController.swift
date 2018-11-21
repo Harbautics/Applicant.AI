@@ -42,12 +42,26 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         searchController.searchBar.placeholder = "Enter organization name or ID"
         self.title = "Organizations"
         super.viewDidLoad()
+        
+        // Refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Updating Organizations...")        
+        refreshControl.tintColor = globals.colors.main_blue
+        refreshControl.addTarget(self, action: #selector(refreshAPICall), for: .valueChanged)
+        self.refreshControl = refreshControl
+    }
+    
+    @objc func refreshAPICall() {
+        Organizations_Provider.shared.refreshOrganizations()
     }
 
     // The callback function when we have organizations data
     @objc func reloadTableView() {
+        print("returned")
         // pull data from global shared
         self.all_organizations = Organizations_Provider.shared.organizations
+        // refresh end
+        self.tableView.refreshControl?.endRefreshing()
         // don't forget to reload the table view
         self.tableView.reloadData()
     }
@@ -80,7 +94,7 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "applicant_org_cell", for: indexPath)
         
         if searchController.isActive && searchController.searchBar.text != "" {
             cell.textLabel?.text = filtered_organizations[indexPath.row].name

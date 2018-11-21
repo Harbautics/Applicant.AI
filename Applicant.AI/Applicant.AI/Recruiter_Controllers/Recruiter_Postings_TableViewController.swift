@@ -32,6 +32,13 @@ class Recruiter_Postings_TableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(Recruiter_Postings_TableViewController.getAndFilterApplicants), name: notificationName, object: nil)
         
         self.tableView.reloadData()
+        
+        // Refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Updating Applicants...")
+        refreshControl.tintColor = globals.colors.main_blue
+        refreshControl.addTarget(self, action: #selector(getAndFilterApplicants), for: .valueChanged)
+        self.refreshControl = refreshControl
 
     }
     
@@ -53,6 +60,8 @@ class Recruiter_Postings_TableViewController: UITableViewController {
                 return applicant.status == "REJECT"
             })
             
+            // refresh end
+            self.tableView.refreshControl?.endRefreshing()
             self.updateTable()
         }
     }

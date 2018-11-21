@@ -94,10 +94,10 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             cell.statusLabel.text = self.specificPosting.status
             
             if self.specificPosting.status == "OPEN" {
-                cell.statusLabel.textColor = UIColor(red:0.15, green:0.68, blue:0.38, alpha:1.0)
+                cell.statusLabel.textColor = globals.colors.green
             }
-            else {
-                cell.statusLabel.textColor = UIColor.red
+            else if self.specificPosting.status == "CLOSED" {
+                cell.statusLabel.textColor = globals.colors.red
             }
             
             return cell

@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        
+        // Tab bar selection colors
+        UITabBar.appearance().tintColor = globals.colors.main_blue
+        
         //print(Organizations_Provider.shared)
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)

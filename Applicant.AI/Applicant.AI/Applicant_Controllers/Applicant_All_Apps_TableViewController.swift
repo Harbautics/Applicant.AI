@@ -26,6 +26,22 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
         
         self.title = "Applications"
         self.tableView.reloadData()
+        
+        // Refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Updating Applications...")
+        refreshControl.tintColor = globals.colors.main_blue
+        refreshControl.addTarget(self, action: #selector(refreshAPICall), for: .valueChanged)
+        self.refreshControl = refreshControl
+    }
+    
+    @objc func refreshAPICall() {
+        ApplicantAPIManager.getAllSubmissions { (applicationsIn) in
+            self.applications = applicationsIn
+            // refresh end
+            self.tableView.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        }
     }
     
     @objc func updateTable() {
@@ -53,6 +69,14 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
 
         cell.textLabel?.text = self.applications[indexPath.row].name
         cell.detailTextLabel?.text = self.applications[indexPath.row].status
+        
+        if self.applications[indexPath.row].status == "ACCEPT" {
+            cell.detailTextLabel?.textColor = globals.colors.green
+        }
+        else if self.applications[indexPath.row].status == "REJECT" {
+            cell.detailTextLabel?.textColor = globals.colors.red
+        }
+        
         cell.accessoryType = .disclosureIndicator
 
         return cell

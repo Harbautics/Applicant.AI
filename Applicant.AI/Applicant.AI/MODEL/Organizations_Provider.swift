@@ -31,6 +31,18 @@ class Organizations_Provider {
         }
     }
     
+    func refreshOrganizations() {
+        print("calling refresh")
+        ApplicantAPIManager.getOrganizationsGet { (orgs) in
+            // fill the organizations array
+            self.organizations = orgs
+            
+            // post notification saying it was loaded successfully
+            let notificationName = NSNotification.Name("OrganizationsLoaded")
+            NotificationCenter.default.post(name: notificationName, object: nil)
+        }
+    }
+    
     // Member Functions
     func getAllOrganizations() -> [Organization] {
         return self.organizations

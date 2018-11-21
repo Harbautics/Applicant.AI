@@ -18,12 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="bKV-Dr-ADe">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="applicant_org_cell" textLabel="HRJ-TY-WbQ" detailTextLabel="BzR-37-FFP" rowHeight="66" style="IBUITableViewCellStyleSubtitle" id="bKV-Dr-ADe">
+                                <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bKV-Dr-ADe" id="R7T-JL-FuZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="65.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HRJ-TY-WbQ">
+                                            <rect key="frame" x="16.000000000000004" y="12.999999999999998" width="33.333333333333336" height="20.333333333333332"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BzR-37-FFP">
+                                            <rect key="frame" x="15.999999999999996" y="36.333333333333329" width="43.666666666666664" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="8EQ-Dg-GPm" kind="show" identifier="allOrgsToSpecific" id="DDW-2c-hK4"/>
@@ -39,7 +55,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMF-Cv-Z6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="-656.22188905547227"/>
+            <point key="canvasLocation" x="2548" y="-656.89655172413791"/>
         </scene>
         <!--Applicant Specific Org Table View Controller-->
         <scene sceneID="AX4-n6-7f0">
@@ -428,7 +444,7 @@
         <scene sceneID="XuU-VL-jvn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X49-Yg-xrz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Applications" image="text-document" id="ZhS-PT-Bg7"/>
+                    <tabBarItem key="tabBarItem" title="Applications" image="apps" id="ZhS-PT-Bg7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AuC-Nb-jSW">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -447,7 +463,7 @@
         <scene sceneID="Ur5-AI-29N">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X09-r0-P9N" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Organizations" image="multiple-users-silhouette" id="a5F-Bf-7Gl"/>
+                    <tabBarItem key="tabBarItem" title="Organizations" image="org" id="a5F-Bf-7Gl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kjb-ND-Xb7">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -725,6 +741,7 @@
                                     <constraint firstAttribute="width" constant="196" id="nRM-IF-yno"/>
                                 </constraints>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhT-dN-mDm">
@@ -854,8 +871,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="apps" width="33" height="28"/>
         <image name="background" width="1080" height="1920"/>
-        <image name="multiple-users-silhouette" width="32" height="32"/>
-        <image name="text-document" width="32" height="32"/>
+        <image name="org" width="41" height="28"/>
     </resources>
 </document>

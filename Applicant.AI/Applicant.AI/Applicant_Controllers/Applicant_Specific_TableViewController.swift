@@ -41,6 +41,15 @@ class Applicant_Specific_TableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "applicant_info_status_identifier", for: indexPath)
             cell.textLabel?.text = "Status:"
             cell.detailTextLabel?.text = self.specificApplication.status
+            
+            if self.specificApplication.status == "ACCEPT" {
+                cell.detailTextLabel?.textColor = globals.colors.green
+            }
+            else if self.specificApplication.status == "REJECT" {
+                cell.detailTextLabel?.textColor = globals.colors.red
+            }
+            
+            
             return cell
         }
         else {
