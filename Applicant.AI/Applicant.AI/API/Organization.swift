@@ -45,16 +45,22 @@ public class Organization: NSObject {
     public var postings: [Posting]?
     public var type: String
     public var userApplied: Bool
+    public var location: String
+    public var contact: String
+    public var infoLink: String
     
     // Constructors
     // init with all data
-    init(name:String, id:String, members:[Member]?, postings: [Posting]?, type: String){
+    init(name:String, id:String, members:[Member]?, postings: [Posting]?, type: String, location: String, contact: String, info: String){
         self.id = id
         self.name = name
         self.members = members
         self.postings = postings
         self.type = type
         self.userApplied = false
+        self.location = location
+        self.contact = contact
+        self.infoLink = info
         super.init()
     }
     // init with just name and id
@@ -65,6 +71,9 @@ public class Organization: NSObject {
         self.postings = [Posting]()
         self.type = "Education"
         self.userApplied = false
+        self.location = "Ann Arbor, MI"
+        self.contact = "jwolff15@icloud.com"
+        self.infoLink = "http://apple.com"
         super.init()
     }
     // only to be used when creating a new organization, then will set the correct ID later on
@@ -75,6 +84,9 @@ public class Organization: NSObject {
         self.postings = [Posting]()
         self.type = "Education"
         self.userApplied = false
+        self.location = "Ann Arbor, MI"
+        self.contact = "jwolff15@icloud.com"
+        self.infoLink = "http://apple.com"
         super.init()
     }
     // default constructor - init with no data
@@ -85,6 +97,9 @@ public class Organization: NSObject {
         self.postings = [Posting]()
         self.type = "Education"
         self.userApplied = false
+        self.location = "Ann Arbor, MI"
+        self.contact = "jwolff15@icloud.com"
+        self.infoLink = "http://apple.com"
         super.init()
     }
     
@@ -101,8 +116,15 @@ public class Organization: NSObject {
             let rand = 0 + Int(arc4random_uniform(UInt32(3 - 0 + 1)))
             let types = ["Business", "Professional", "Social", "School"]
             let type = types[rand]
+            let locations = ["Ann Arbor, MI", "New York City, NY", "Chicago, IL", "Los Angeles, CA"]
+            let loc = locations[rand]
             
-            self.init(name: name_JSON, id: id, members: memberList as? [Member], postings: postingList as? [Posting], type: type)
+            let contacts = ["jwolff15@icloud.com", "jordanwolff@comcast.net", "applicant@umich.edu", "recruiter@umich.edu"]
+            let cont = contacts[rand]
+            let infoLinks = ["apple.com", "google.com", "facebook.com", "instagram.com"]
+            let info = infoLinks[rand]
+            
+            self.init(name: name_JSON, id: id, members: memberList as? [Member], postings: postingList as? [Posting], type: type, location: loc, contact: cont, info: info)
         }
         else {
             self.init()

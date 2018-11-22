@@ -73,7 +73,7 @@ public class RecruiterAPIManager {
             
             let task = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
 //                print(data)
-                print(response)
+//                print(response)
 //                print(error)
                 guard error == nil else {
                     return

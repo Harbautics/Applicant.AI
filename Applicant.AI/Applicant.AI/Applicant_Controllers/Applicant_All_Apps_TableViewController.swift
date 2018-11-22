@@ -46,6 +46,8 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
     
     @objc func updateTable() {
         self.applications = Organizations_Provider.shared.apps
+        print("back here")
+        self.tableView.refreshControl?.endRefreshing()
         self.tableView.reloadData()
     }
     

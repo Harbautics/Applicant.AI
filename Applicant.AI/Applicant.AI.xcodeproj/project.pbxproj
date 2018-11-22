@@ -18,6 +18,7 @@
 		34F679732198EB8B0074CBF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34F679722198EB8B0074CBF8 /* GoogleService-Info.plist */; };
 		3BE9C055CCE5C50FD6306569 /* Pods_Applicant_AI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0B4F299104E32F79EF23CAD /* Pods_Applicant_AI.framework */; };
 		5D3BC82E219BD623008F80FD /* RecruiterAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BC82D219BD623008F80FD /* RecruiterAPIManager.swift */; };
+		5D44921221A74D410052D42F /* Org_Info_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D44921121A74D410052D42F /* Org_Info_TableViewCell.swift */; };
 		5D65979C219247370022240C /* Posting_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65979B219247370022240C /* Posting_TableViewController.swift */; };
 		5D65979F219248350022240C /* Status_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65979E219248350022240C /* Status_TableViewCell.swift */; };
 		5D6597A1219249030022240C /* Description_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6597A0219249030022240C /* Description_TableViewCell.swift */; };
@@ -84,6 +85,7 @@
 		34F679722198EB8B0074CBF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4434F1E96955C4E692745D3C /* Pods_Applicant_AIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Applicant_AIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3BC82D219BD623008F80FD /* RecruiterAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruiterAPIManager.swift; sourceTree = "<group>"; };
+		5D44921121A74D410052D42F /* Org_Info_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Org_Info_TableViewCell.swift; sourceTree = "<group>"; };
 		5D65979B219247370022240C /* Posting_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting_TableViewController.swift; sourceTree = "<group>"; };
 		5D65979E219248350022240C /* Status_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status_TableViewCell.swift; sourceTree = "<group>"; };
 		5D6597A0219249030022240C /* Description_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description_TableViewCell.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				5DE335C521A66B840051436B /* Organization_TableViewCell.swift */,
+				5D44921121A74D410052D42F /* Org_Info_TableViewCell.swift */,
 				5D65979E219248350022240C /* Status_TableViewCell.swift */,
 				5D6597A0219249030022240C /* Description_TableViewCell.swift */,
 				5D6597A4219375F10022240C /* TextAnswer_TableViewCell.swift */,
@@ -539,6 +542,7 @@
 				5D6597A1219249030022240C /* Description_TableViewCell.swift in Sources */,
 				5D7DCE28219A89FD00F621D1 /* Recruiter_Specific_Application_TableViewController.swift in Sources */,
 				7F986BCB2186800E006916F6 /* SwiftyJSON.swift in Sources */,
+				5D44921221A74D410052D42F /* Org_Info_TableViewCell.swift in Sources */,
 				5D7DCE1C219A798300F621D1 /* Recruiter_SpecificOrg_TableViewController.swift in Sources */,
 				5DFA7EEF21891924007C3FF0 /* Applicant.swift in Sources */,
 				5DD164A92190997000932731 /* Applicant_Specific_Org_TableViewController.swift in Sources */,

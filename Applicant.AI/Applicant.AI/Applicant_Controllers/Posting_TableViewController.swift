@@ -214,7 +214,6 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             "answers_ML": [[-2, Double((Float(arc4random()) / Float(UINT32_MAX)) * 100.0)]]
         ]
         
-        // TODO: show spinner saying submitting
         let sv = UIViewController.displaySpinner(onView: self.view)
         
         ApplicantAPIManager.submitApplication(data: jsonObject) { (json) in
@@ -225,6 +224,9 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             UIViewController.removeSpinner(spinner: sv)
             self.showSuccessAlert()
         }
+        
+        // add the posting
+        Organizations_Provider.shared.appID.append(self.specificPosting.id)
     }
     
     // Send us back to the previous controller

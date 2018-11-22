@@ -61,7 +61,6 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
 
     // The callback function when we have organizations data
     @objc func reloadTableView() {
-        print("returned")
         // pull data from global shared
         self.all_organizations = Organizations_Provider.shared.organizations
         self.applied_organizations = self.all_organizations.filter({ (org) -> Bool in
@@ -134,22 +133,8 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         
         // Name, Location
         cell.organizationName.text = org.name
-        cell.organizationLocation.text = "Lake Forest, IL"
+        cell.organizationLocation.text = org.location
         cell.organizationLocation.textColor = UIColor.lightGray
-        
-        // Posts
-//        let numPosts = org.postings?.count ?? 0
-//        if numPosts == 0 {
-//            cell.isUserInteractionEnabled = false
-//            cell.viewLabel.text = "No Positions"
-//            cell.viewLabel.textColor = globals.colors.darkGrey
-//        }
-//        else if numPosts == 1 {
-//            cell.viewLabel.text =  "View \(numPosts) Position"
-//        }
-//        else {
-//            cell.viewLabel.text =  "View \(numPosts) Positions"
-//        }
         
         // Type
         let type = org.type

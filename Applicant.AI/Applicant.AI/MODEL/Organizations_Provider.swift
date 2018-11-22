@@ -52,6 +52,8 @@ class Organizations_Provider {
             // fill the organizations array
             self.organizations = orgs
             
+            self.matchOrganizations()
+            
             // post notification saying it was loaded successfully
             let notificationName = NSNotification.Name("OrganizationsLoaded")
             NotificationCenter.default.post(name: notificationName, object: nil)
@@ -89,6 +91,10 @@ class Organizations_Provider {
             }
         }
         return ("Error", "Error")
+    }
+    
+    func didUserApply(ID: Int) -> Bool {
+        return self.appID.contains(ID) 
     }
     
     // Member Functions

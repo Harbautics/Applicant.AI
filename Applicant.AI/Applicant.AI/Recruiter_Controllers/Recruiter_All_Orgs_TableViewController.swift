@@ -16,6 +16,8 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(logoutPrompt))
 
         // Make API Call
         RecruiterAPIManager.getAllOrganizationsForRecruiter { (newOrg) in
@@ -86,6 +88,26 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
     
     func updateTable() {
         self.tableView.reloadData()
+    }
+    
+    @objc func logoutPrompt() {
+        let alert = UIAlertController(title: "Log Out", message: "You will be logged out of Applicant.AI", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+            self.logout()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            print("cancelled")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func logout() {
+        print("logging out...")
+        Login_Provider.shared.clearDefaults()
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let loginScreen = storyBoard.instantiateViewController(withIdentifier: "Login_ViewController")
+        loginScreen.modalTransitionStyle = .flipHorizontal
+        self.present(loginScreen, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
