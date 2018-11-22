@@ -43,16 +43,18 @@ public class Organization: NSObject {
     public var id: String
     public var members: [Member]?
     public var postings: [Posting]?
-    
+    public var type: String
+    public var userApplied: Bool
     
     // Constructors
     // init with all data
-    init(name:String, id:String, members:[Member]?, postings: [Posting]? ){
+    init(name:String, id:String, members:[Member]?, postings: [Posting]?, type: String){
         self.id = id
         self.name = name
         self.members = members
         self.postings = postings
-        
+        self.type = type
+        self.userApplied = false
         super.init()
     }
     // init with just name and id
@@ -61,6 +63,8 @@ public class Organization: NSObject {
         self.name = name
         self.members = [Member]()
         self.postings = [Posting]()
+        self.type = "Education"
+        self.userApplied = false
         super.init()
     }
     // only to be used when creating a new organization, then will set the correct ID later on
@@ -69,6 +73,8 @@ public class Organization: NSObject {
         self.id = "-1"
         self.members = [Member]()
         self.postings = [Posting]()
+        self.type = "Education"
+        self.userApplied = false
         super.init()
     }
     // default constructor - init with no data
@@ -77,6 +83,8 @@ public class Organization: NSObject {
         self.name = "default"
         self.members = [Member]()
         self.postings = [Posting]()
+        self.type = "Education"
+        self.userApplied = false
         super.init()
     }
     
@@ -90,7 +98,11 @@ public class Organization: NSObject {
             let memberList = membersJSON.map { Member(json: $0) }
             let postingList = postingsJSON.map {Posting(json: $0) }
             
-            self.init(name: name_JSON, id: id, members: memberList as? [Member], postings: postingList as? [Posting])
+            let rand = 0 + Int(arc4random_uniform(UInt32(3 - 0 + 1)))
+            let types = ["Business", "Professional", "Social", "School"]
+            let type = types[rand]
+            
+            self.init(name: name_JSON, id: id, members: memberList as? [Member], postings: postingList as? [Posting], type: type)
         }
         else {
             self.init()

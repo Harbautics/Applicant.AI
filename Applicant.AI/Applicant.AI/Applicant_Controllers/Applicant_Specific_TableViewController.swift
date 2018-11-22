@@ -15,7 +15,7 @@ class Applicant_Specific_TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = self.specificApplication.name
+        navigationItem.title = self.specificApplication.name
     }
 
     // MARK: - Table view data source

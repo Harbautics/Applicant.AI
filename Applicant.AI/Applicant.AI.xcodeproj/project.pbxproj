@@ -36,6 +36,7 @@
 		5DD9722A217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD97229217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift */; };
 		5DD9722C217BE5BE00ECA085 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD9722B217BE5BE00ECA085 /* Application.swift */; };
 		5DE335C421A61E4D0051436B /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE335C321A61E4D0051436B /* Globals.swift */; };
+		5DE335C621A66B840051436B /* Organization_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE335C521A66B840051436B /* Organization_TableViewCell.swift */; };
 		5DEF0B8C219DC7600038D1FB /* Question_Answer_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEF0B8B219DC7600038D1FB /* Question_Answer_TableViewCell.swift */; };
 		5DFA7EEB21891446007C3FF0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA7EEA21891446007C3FF0 /* Question.swift */; };
 		5DFA7EED218916ED007C3FF0 /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA7EEC218916ED007C3FF0 /* Posting.swift */; };
@@ -101,6 +102,7 @@
 		5DD97229217BE4D400ECA085 /* Applicant_Specific_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant_Specific_TableViewController.swift; sourceTree = "<group>"; };
 		5DD9722B217BE5BE00ECA085 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		5DE335C321A61E4D0051436B /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		5DE335C521A66B840051436B /* Organization_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization_TableViewCell.swift; sourceTree = "<group>"; };
 		5DEF0B8B219DC7600038D1FB /* Question_Answer_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question_Answer_TableViewCell.swift; sourceTree = "<group>"; };
 		5DFA7EEA21891446007C3FF0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		5DFA7EEC218916ED007C3FF0 /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		5D65979D219248230022240C /* CELLS */ = {
 			isa = PBXGroup;
 			children = (
+				5DE335C521A66B840051436B /* Organization_TableViewCell.swift */,
 				5D65979E219248350022240C /* Status_TableViewCell.swift */,
 				5D6597A0219249030022240C /* Description_TableViewCell.swift */,
 				5D6597A4219375F10022240C /* TextAnswer_TableViewCell.swift */,
@@ -548,6 +551,7 @@
 				5D65979C219247370022240C /* Posting_TableViewController.swift in Sources */,
 				5DFA7EEB21891446007C3FF0 /* Question.swift in Sources */,
 				5D3BC82E219BD623008F80FD /* RecruiterAPIManager.swift in Sources */,
+				5DE335C621A66B840051436B /* Organization_TableViewCell.swift in Sources */,
 				5D7DCE1E219A7A1600F621D1 /* Recruiter_Postings_TableViewController.swift in Sources */,
 				5DEF0B8C219DC7600038D1FB /* Question_Answer_TableViewCell.swift in Sources */,
 				5D6597A721937DF90022240C /* Dropdown_Answer_TableViewCell.swift in Sources */,

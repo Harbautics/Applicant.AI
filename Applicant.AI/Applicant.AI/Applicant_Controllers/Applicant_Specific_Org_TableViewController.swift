@@ -14,7 +14,7 @@ class Applicant_Specific_Org_TableViewController: UITableViewController {
     
     
     override func viewDidLoad() {
-        self.title = specificOrg.name
+        navigationItem.title = specificOrg.name
                         
         super.viewDidLoad()
     }

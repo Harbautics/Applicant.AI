@@ -14,17 +14,22 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
-        ApplicantAPIManager.getAllSubmissions { (applicationsIn) in
-            self.applications = applicationsIn
-            self.tableView.reloadData()
-        }
+        self.applications = Organizations_Provider.shared.apps
         
         // updates so we can update the view
-        let notificationName = NSNotification.Name("SubmittedApplication")
-        NotificationCenter.default.addObserver(self, selector: #selector(Applicant_All_Apps_TableViewController.updateTable), name: notificationName, object: nil)
+        let notificationName = NSNotification.Name("SubmissionsLoaded")
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTable), name: notificationName, object: nil)
         
-        self.title = "Applications"
+        // updates so we can update the view
+        let notificationName2 = NSNotification.Name("SubmittedApplication")
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTable), name: notificationName2, object: nil)
+        
+        // Logout button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(logoutPrompt))
+        navigationItem.title = "Applications"
+        
         self.tableView.reloadData()
         
         // Refresh
@@ -36,19 +41,32 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
     }
     
     @objc func refreshAPICall() {
-        ApplicantAPIManager.getAllSubmissions { (applicationsIn) in
-            self.applications = applicationsIn
-            // refresh end
-            self.tableView.refreshControl?.endRefreshing()
-            self.tableView.reloadData()
-        }
+        Organizations_Provider.shared.refreshSubmissions()
     }
     
     @objc func updateTable() {
-        ApplicantAPIManager.getAllSubmissions { (applicationsIn) in
-            self.applications = applicationsIn
-            self.tableView.reloadData()
-        }
+        self.applications = Organizations_Provider.shared.apps
+        self.tableView.reloadData()
+    }
+    
+    @objc func logoutPrompt() {
+        let alert = UIAlertController(title: "Log Out", message: "You will be logged out of Applicant.AI", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+            self.logout()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            print("cancelled")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func logout() {
+        print("logging out...")
+        Login_Provider.shared.clearDefaults()
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let loginScreen = storyBoard.instantiateViewController(withIdentifier: "Login_ViewController")
+        loginScreen.modalTransitionStyle = .flipHorizontal
+        self.present(loginScreen, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source

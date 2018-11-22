@@ -13,35 +13,55 @@
         <scene sceneID="5DX-lC-FOF">
             <objects>
                 <tableViewController id="vND-DM-QDf" userLabel="ApplicantOrgTableViewController" customClass="Applicant_All_Orgs_TableViewController" customModule="Applicant_AI" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tlC-jH-GCL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="tlC-jH-GCL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="applicant_org_cell" textLabel="HRJ-TY-WbQ" detailTextLabel="BzR-37-FFP" rowHeight="66" style="IBUITableViewCellStyleSubtitle" id="bKV-Dr-ADe">
-                                <rect key="frame" x="0.0" y="28" width="375" height="66"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="applicant_org_cell" rowHeight="73" id="bKV-Dr-ADe" customClass="Organization_TableViewCell" customModule="Applicant_AI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bKV-Dr-ADe" id="R7T-JL-FuZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="65.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="72.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HRJ-TY-WbQ">
-                                            <rect key="frame" x="16.000000000000004" y="12.999999999999998" width="33.333333333333336" height="20.333333333333332"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Organization Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTd-Ag-5EZ">
+                                            <rect key="frame" x="66" y="18" width="267" height="21.666666666666657"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BzR-37-FFP">
-                                            <rect key="frame" x="15.999999999999996" y="36.333333333333329" width="43.666666666666664" height="14.333333333333334"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Organization Location" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwN-cv-Hbe">
+                                            <rect key="frame" x="66" y="45" width="267" height="19.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iEn-FD-31l">
+                                            <rect key="frame" x="18" y="25.000000000000142" width="32" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="8RF-qZ-uAY"/>
+                                                <constraint firstAttribute="width" constant="32" id="mj7-FU-sPT"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FTd-Ag-5EZ" firstAttribute="top" secondItem="R7T-JL-FuZ" secondAttribute="topMargin" constant="8" id="3Av-3q-yLJ"/>
+                                        <constraint firstItem="FTd-Ag-5EZ" firstAttribute="leading" secondItem="iEn-FD-31l" secondAttribute="trailing" constant="16" id="JpL-zD-Xv5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="iwN-cv-Hbe" secondAttribute="bottom" constant="8" id="Kw0-3R-ukG"/>
+                                        <constraint firstItem="iEn-FD-31l" firstAttribute="leading" secondItem="R7T-JL-FuZ" secondAttribute="leadingMargin" constant="2" id="RfD-l8-Q4K"/>
+                                        <constraint firstItem="iEn-FD-31l" firstAttribute="centerY" secondItem="R7T-JL-FuZ" secondAttribute="centerY" id="YNK-5w-OdN"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="iwN-cv-Hbe" secondAttribute="trailing" id="cBN-PI-2Bt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FTd-Ag-5EZ" secondAttribute="trailing" id="eh0-2h-DBH"/>
+                                        <constraint firstItem="iwN-cv-Hbe" firstAttribute="leading" secondItem="iEn-FD-31l" secondAttribute="trailing" constant="16" id="hIF-06-BxW"/>
+                                        <constraint firstItem="iwN-cv-Hbe" firstAttribute="top" secondItem="FTd-Ag-5EZ" secondAttribute="bottom" constant="2" id="oYX-lb-x9z"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="66" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="iconImage" destination="iEn-FD-31l" id="TVJ-2G-AyJ"/>
+                                    <outlet property="organizationLocation" destination="iwN-cv-Hbe" id="vKl-ea-CJ3"/>
+                                    <outlet property="organizationName" destination="FTd-Ag-5EZ" id="crB-Ds-lFI"/>
                                     <segue destination="8EQ-Dg-GPm" kind="show" identifier="allOrgsToSpecific" id="DDW-2c-hK4"/>
                                 </connections>
                             </tableViewCell>
@@ -355,7 +375,7 @@
                             <outlet property="delegate" destination="oPf-Qz-0l5" id="eNR-zg-WLG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="EZM-8u-fhk"/>
+                    <navigationItem key="navigationItem" title="Applications" id="EZM-8u-fhk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leu-jb-shk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -440,11 +460,13 @@
             </objects>
             <point key="canvasLocation" x="3396" y="26.53673163418291"/>
         </scene>
-        <!--Applications-->
+        <!--Navigation Controller-->
         <scene sceneID="XuU-VL-jvn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X49-Yg-xrz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Applications" image="apps" id="ZhS-PT-Bg7"/>
+                    <tabBarItem key="tabBarItem" title="" image="apps" id="ZhS-PT-Bg7">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AuC-Nb-jSW">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -459,11 +481,14 @@
             </objects>
             <point key="canvasLocation" x="1791.2" y="26.53673163418291"/>
         </scene>
-        <!--Organizations-->
+        <!--Navigation Controller-->
         <scene sceneID="Ur5-AI-29N">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X09-r0-P9N" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Organizations" image="org" id="a5F-Bf-7Gl"/>
+                    <tabBarItem key="tabBarItem" title="" image="org" id="a5F-Bf-7Gl">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kjb-ND-Xb7">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -842,8 +867,8 @@
                         <outlet property="email" destination="ZnM-GT-7Bq" id="Ibm-Ef-XGp"/>
                         <outlet property="fullName" destination="lFr-8V-KI1" id="s3D-aX-BXu"/>
                         <outlet property="password" destination="MP4-9n-RB2" id="nJq-RL-uJR"/>
-                        <segue destination="oS7-AW-cMV" kind="show" identifier="login_as_applicant" id="zfw-RP-yn0"/>
-                        <segue destination="fq7-uS-mJR" kind="show" identifier="login_as_recruiter" id="3R5-ij-Imj"/>
+                        <segue destination="oS7-AW-cMV" kind="modal" identifier="login_as_applicant" modalTransitionStyle="flipHorizontal" id="zfw-RP-yn0"/>
+                        <segue destination="fq7-uS-mJR" kind="modal" identifier="login_as_recruiter" modalTransitionStyle="flipHorizontal" id="3R5-ij-Imj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkd-8R-Vdi" userLabel="First Responder" sceneMemberID="firstResponder"/>

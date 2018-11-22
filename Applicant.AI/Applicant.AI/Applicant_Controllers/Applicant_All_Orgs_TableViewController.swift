@@ -22,6 +22,7 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
     // Properties
     let searchController = UISearchController(searchResultsController: nil)
     var all_organizations = [Organization]()
+    var applied_organizations = [Organization]()
     var filtered_organizations = [Organization]()
     
     override func viewDidLoad() {
@@ -32,15 +33,18 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         
         // Notification to listen for when we have Organization data from the API
         let notificationName = NSNotification.Name("OrganizationsLoaded")
-        NotificationCenter.default.addObserver(self, selector: #selector(Applicant_All_Orgs_TableViewController.reloadTableView), name: notificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: notificationName, object: nil)
+        // Matching applications
+        let notificationName2 = NSNotification.Name("MatchedOrgsDone")
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: notificationName2, object: nil)
         
         // Search
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation =  false
         definesPresentationContext = true
         self.tableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.placeholder = "Enter organization name or ID"
-        self.title = "Organizations"
+        searchController.searchBar.placeholder = "Org name, ID, Location"
+        navigationItem.title = "Organizations"
         super.viewDidLoad()
         
         // Refresh
@@ -60,6 +64,9 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         print("returned")
         // pull data from global shared
         self.all_organizations = Organizations_Provider.shared.organizations
+        self.applied_organizations = self.all_organizations.filter({ (org) -> Bool in
+            return org.userApplied
+        })
         // refresh end
         self.tableView.refreshControl?.endRefreshing()
         // don't forget to reload the table view
@@ -67,12 +74,20 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return 1
+        }
+        else {
+            return 2
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != "" {
             return self.filtered_organizations.count
+        }
+        else if section == 0 {
+            return applied_organizations.count
         }
         else {
             return all_organizations.count
@@ -80,12 +95,19 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40.0
+    }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (section == 0) {
-            return "Discover Organizations"
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return "Search Results"
+        }
+        else if (section == 0) {
+            return "Your Organizations"
         }
         else if (section == 1) {
-            return "Your Organizations"
+            return "Discover Organizations"
         }
         else {
             return "Error"
@@ -94,17 +116,60 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "applicant_org_cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "applicant_org_cell", for: indexPath) as! Organization_TableViewCell
         
+        //cell.configure()
+        
+        // Search filter or normal
+        var org: Organization!
         if searchController.isActive && searchController.searchBar.text != "" {
-            cell.textLabel?.text = filtered_organizations[indexPath.row].name
+            org = filtered_organizations[indexPath.row]
+        }
+        else if indexPath.section == 0 {
+            org = applied_organizations[indexPath.row]
         }
         else {
-            cell.textLabel?.text = all_organizations[indexPath.row].name
+            org = all_organizations[indexPath.row]
         }
         
-        cell.accessoryType = .disclosureIndicator
-
+        // Name, Location
+        cell.organizationName.text = org.name
+        cell.organizationLocation.text = "Lake Forest, IL"
+        cell.organizationLocation.textColor = UIColor.lightGray
+        
+        // Posts
+//        let numPosts = org.postings?.count ?? 0
+//        if numPosts == 0 {
+//            cell.isUserInteractionEnabled = false
+//            cell.viewLabel.text = "No Positions"
+//            cell.viewLabel.textColor = globals.colors.darkGrey
+//        }
+//        else if numPosts == 1 {
+//            cell.viewLabel.text =  "View \(numPosts) Position"
+//        }
+//        else {
+//            cell.viewLabel.text =  "View \(numPosts) Positions"
+//        }
+        
+        // Type
+        let type = org.type
+        if type == "School" {
+            cell.iconImage.image = UIImage(named: "education")
+        }
+        else if type == "Professional" {
+            cell.iconImage.image = UIImage(named: "professional")
+        }
+        else if type == "Social" {
+            cell.iconImage.image = UIImage(named: "social")
+        }
+        else if type == "Business" {
+            cell.iconImage.image = UIImage(named: "business-2")
+        }
+        else {
+            print(type)
+        }
+        cell.iconImage.contentMode = .scaleAspectFit
+        
         return cell
     }
     
@@ -112,7 +177,7 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         var results = [Organization]()
         for item in self.all_organizations {
-            if item.name.localizedCaseInsensitiveContains(searchText) || item.id.localizedCaseInsensitiveContains(searchText) {
+            if item.name.localizedCaseInsensitiveContains(searchText) || item.id.localizedCaseInsensitiveContains(searchText) { // TODO: add location name
                 results.append(item)
             }
         }
@@ -168,6 +233,9 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     if searchController.isActive && searchController.searchBar.text != "" {
                         specific_Org_TVC.specificOrg = self.filtered_organizations[indexPath.row]
+                    }
+                    else if indexPath.section == 0 {
+                        specific_Org_TVC.specificOrg = self.applied_organizations[indexPath.row]
                     }
                     else {
                         specific_Org_TVC.specificOrg = self.all_organizations[indexPath.row]

@@ -43,7 +43,7 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = self.specificPosting.name
+        navigationItem.title = self.specificPosting.name
         
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44
@@ -100,6 +100,8 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
                 cell.statusLabel.textColor = globals.colors.red
             }
             
+            cell.isUserInteractionEnabled = false
+            
             return cell
         }
         // description
@@ -107,6 +109,8 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! Description_TableViewCell
             
             cell.Description.text = self.specificPosting.job_description
+            
+            cell.isUserInteractionEnabled = false
             
             return cell
         }
@@ -205,7 +209,7 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
         let jsonObject: [String: Any] = [
             "org_name": self.orgName,
             "email": Login_Provider.shared.getUsername(),
-            "pos_name": self.title!,
+            "pos_name": self.specificPosting.name,
             "answers": applicant_answers,
             "answers_ML": [[-2, Double((Float(arc4random()) / Float(UINT32_MAX)) * 100.0)]]
         ]

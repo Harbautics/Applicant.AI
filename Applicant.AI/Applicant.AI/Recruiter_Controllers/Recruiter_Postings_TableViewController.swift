@@ -29,7 +29,7 @@ class Recruiter_Postings_TableViewController: UITableViewController {
         
         // Notification to listen for when we have Organization data from the API
         let notificationName = NSNotification.Name("UpdateCandidate")
-        NotificationCenter.default.addObserver(self, selector: #selector(Recruiter_Postings_TableViewController.getAndFilterApplicants), name: notificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getAndFilterApplicants), name: notificationName, object: nil)
         
         self.tableView.reloadData()
         
@@ -147,6 +147,18 @@ class Recruiter_Postings_TableViewController: UITableViewController {
             cell.detailTextLabel?.text = "\(candidate.percentageMatch)%"
             cell.isUserInteractionEnabled = true
             cell.accessoryType = .disclosureIndicator
+            
+            
+            if candidate.percentageMatch > 60.0 {
+                cell.detailTextLabel?.textColor = globals.colors.green
+            }
+            else if candidate.percentageMatch > 40.0 {
+                cell.detailTextLabel?.textColor = globals.colors.orange
+            }
+            else {
+                cell.detailTextLabel?.textColor = globals.colors.red
+            }
+            
         }
 
         return cell
