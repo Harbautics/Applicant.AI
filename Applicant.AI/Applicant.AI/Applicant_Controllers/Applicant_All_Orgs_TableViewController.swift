@@ -163,7 +163,7 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         var results = [Organization]()
         for item in self.all_organizations {
             if item.name.localizedCaseInsensitiveContains(searchText) || item.id.localizedCaseInsensitiveContains(searchText)
-            || item.location.localizedCaseInsensitiveContains(searchText){ // TODO: add location name
+            || item.location.localizedCaseInsensitiveContains(searchText){
                 results.append(item)
             }
         }

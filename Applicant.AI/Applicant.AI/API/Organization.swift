@@ -107,7 +107,8 @@ public class Organization: NSObject {
     convenience init?(id: String, json: JSON) {
         if let name_JSON = json["name"].string,
             let membersJSON = json["members"].array,
-            let postingsJSON = json["postings"].array {
+            let postingsJSON = json["postings"].array,
+            let locationJSON = json["location"].string{
             
             // $0 just means for each JSON entry - for each JSON entry, create a new Member/Posting
             let memberList = membersJSON.map { Member(json: $0) }
@@ -116,15 +117,15 @@ public class Organization: NSObject {
             let rand = 0 + Int(arc4random_uniform(UInt32(3 - 0 + 1)))
             let types = ["Business", "Professional", "Social", "School"]
             let type = types[rand]
-            let locations = ["Ann Arbor, MI", "New York City, NY", "Chicago, IL", "Los Angeles, CA"]
-            let loc = locations[rand]
+//            let locations = ["Ann Arbor, MI", "New York City, NY", "Chicago, IL", "Los Angeles, CA"]
+//            let loc = locations[rand]
             
             let contacts = ["jwolff15@icloud.com", "jordanwolff@comcast.net", "applicant@umich.edu", "recruiter@umich.edu"]
             let cont = contacts[rand]
             let infoLinks = ["apple.com", "google.com", "facebook.com", "instagram.com"]
             let info = infoLinks[rand]
             
-            self.init(name: name_JSON, id: id, members: memberList as? [Member], postings: postingList as? [Posting], type: type, location: loc, contact: cont, info: info)
+            self.init(name: name_JSON, id: id, members: memberList as? [Member], postings: postingList as? [Posting], type: type, location: locationJSON, contact: cont, info: info)
         }
         else {
             self.init()
