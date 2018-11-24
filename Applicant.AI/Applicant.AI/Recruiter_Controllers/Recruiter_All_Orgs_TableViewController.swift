@@ -44,12 +44,19 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
         
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
-            textField.text = ""
+            textField.placeholder = "org name"
+        }
+        alert.addTextField{ (textField) in
+            textField.placeholder = "location"
+        }
+        alert.addTextField{ (textField) in
+            textField.placeholder = "link"
         }
         
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { [weak alert] (_) in
-            self.createOrg(orgName: alert!.textFields![0].text ?? "no name")
+            self.createOrg(orgName: alert!.textFields![0].text ?? "no name", location: alert!.textFields![1].text ?? "no location",
+                           link: alert!.textFields![2].text ?? "no name")
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
             print("cancelled")
@@ -59,8 +66,10 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @objc func createOrg(orgName: String) {
+    @objc func createOrg(orgName: String, location: String, link: String) {
         print(orgName)
+        print(location)
+        print(link)
         
         let newOrg = Organization(name_in: orgName)
         self.orgs.append(newOrg)
@@ -71,6 +80,9 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
         let jsonObject: [String: String] = [
             "org_name": orgName,
             "email": Login_Provider.shared.getUsername(),
+            "location": location,
+            "link": link,
+            "org_type": "Professional",
             "description": ""
         ]
         self.isLoading = true
