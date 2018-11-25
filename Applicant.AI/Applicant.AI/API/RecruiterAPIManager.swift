@@ -208,7 +208,7 @@ public class RecruiterAPIManager {
                     }
                 }
                 else {
-                    let newID = String(orgs[0]["id"].int ?? -1)
+                    let newID = orgs[0]["id"].int ?? -1
                     // get back on the main queue and call the completionHandler with the data
                     DispatchQueue.main.async {
                         completionHandler(Organization(id: newID, json: orgs[0]) ?? Organization())

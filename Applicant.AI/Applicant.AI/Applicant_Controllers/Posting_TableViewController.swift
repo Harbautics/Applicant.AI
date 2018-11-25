@@ -36,7 +36,7 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     // Properties
     var specificPosting: Posting!
     var orgName: String!
-    var orgID: String!
+    var orgID: Int!
     var currentQuestionIndex = 0; // keeps track of question to render
     var currentPickerIndex = 0;
     var applicant_answers = [String]()
@@ -220,14 +220,13 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             // post a notification
             let notificationName = NSNotification.Name("SubmittedApplication")
             NotificationCenter.default.post(name: notificationName, object: nil)
-            // TODO: stop spinner, show success alert, segue back
             UIViewController.removeSpinner(spinner: sv)
             self.showSuccessAlert()
         }
         
         // add the posting and org
         Organizations_Provider.shared.addApp(ID: self.specificPosting.id);
-        let newID = Int(self.orgID) ?? -9
+        let newID = self.orgID ?? -9
         Organizations_Provider.shared.addOrg(ID: newID)
     }
     

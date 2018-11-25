@@ -50,13 +50,16 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
             textField.placeholder = "location"
         }
         alert.addTextField{ (textField) in
-            textField.placeholder = "link"
+            textField.placeholder = "Info Link: leave out http://"
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Business, School, Professional, or Social"
         }
         
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { [weak alert] (_) in
             self.createOrg(orgName: alert!.textFields![0].text ?? "no name", location: alert!.textFields![1].text ?? "no location",
-                           link: alert!.textFields![2].text ?? "no name")
+                           link: alert!.textFields![2].text ?? "no link", type: alert!.textFields![3].text ?? "no type")
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
             print("cancelled")
@@ -66,7 +69,7 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @objc func createOrg(orgName: String, location: String, link: String) {
+    @objc func createOrg(orgName: String, location: String, link: String, type: String) {
         print(orgName)
         print(location)
         print(link)
@@ -77,21 +80,30 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
         // hide the plus button
         self.navigationItem.leftBarButtonItem = nil
         
+        // make sure we're doing "School" and not "school" or "SCHOOL"
+        var newType = type.lowercased().capitalized
+        //newType = capitalizeString(str: newType)
+        // default for DB sanity
+        if (newType != "School Club" && newType != "Professional" && newType != "Business" && newType != "Social") {
+            newType = "Professional"
+        }
+        
         let jsonObject: [String: String] = [
             "org_name": orgName,
             "email": Login_Provider.shared.getUsername(),
             "location": location,
             "link": link,
-            "org_type": "Professional",
+            "org_type": newType,
             "description": ""
         ]
         self.isLoading = true
         self.updateTable()
         RecruiterAPIManager.createOrganization(data: jsonObject) { (json) in
             print("creating org post request")
+            print(json)
             // set the orgid
             if let orgID = json["OrganizationId"].int {
-                self.orgs[0].id = String(orgID)
+                self.orgs[0].id = orgID
             }
             self.isLoading = false
             self.updateTable()
@@ -101,6 +113,10 @@ class Recruiter_All_Orgs_TableViewController: UITableViewController {
     func updateTable() {
         self.tableView.reloadData()
     }
+    
+//    func capitalizeString(str: String) -> String {
+//        return (str.prefix(1).capitalized + str.dropFirst()).capitalized
+//    }
     
     @objc func logoutPrompt() {
         let alert = UIAlertController(title: "Log Out", message: "You will be logged out of Applicant.AI", preferredStyle: .alert)

@@ -165,10 +165,12 @@ public class ApplicantAPIManager {
         fetch(url: url) { (json) in
             // if we can pull out of the JSON
             if let organizationsJSON = json?.dictionary!["organizations"] {
+                print("Orgs\n", organizationsJSON)
                 for item in organizationsJSON {
                     let (ID, json_resp) = item
+                    let intID = Int(ID) ?? -1
                     // use the convenience init
-                    organizations.append(Organization(id: ID, json: json_resp)!)
+                    organizations.append(Organization(id: intID, json: json_resp)!)
                 }
             }
             // get back on the main queue and call the completionHandler with the data
@@ -199,7 +201,7 @@ public class ApplicantAPIManager {
         var applications = [Application]()
         
         postData(url: url, data: jsonObject) { (json) in
-            print(type(of: json))
+            //print(type(of: json))
             print(json ?? "no json")
             let applicationsJSON = json?["submissions"] ?? ["response":"no response"]
             

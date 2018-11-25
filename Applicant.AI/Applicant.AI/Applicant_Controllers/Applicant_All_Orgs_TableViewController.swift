@@ -152,8 +152,8 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         
         // Type
         let type = org.type
-        if type == "School" {
-            cell.iconImage.image = UIImage(named: "education")
+        if type == "School Club" {
+            cell.iconImage.image = UIImage(named: "school")
         }
         else if type == "Professional" {
             cell.iconImage.image = UIImage(named: "professional")
@@ -176,7 +176,8 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         var results = [Organization]()
         for item in self.all_organizations {
-            if item.name.localizedCaseInsensitiveContains(searchText) || item.id.localizedCaseInsensitiveContains(searchText)
+            let searchID = String(item.id)
+            if item.name.localizedCaseInsensitiveContains(searchText) || searchID.localizedCaseInsensitiveContains(searchText)
             || item.location.localizedCaseInsensitiveContains(searchText){
                 results.append(item)
             }

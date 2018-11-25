@@ -116,7 +116,7 @@ class Organizations_Provider {
                 for nextPost in nextPostIDs {
                     // if a match, add the org to the applied orgs array
                     if self.postIDS.contains(nextPost) {
-                        let orgID = Int(org.id) ?? -9
+                        let orgID = org.id
                         self.orgIDS.append(orgID)
                         org.userApplied = true
                         break
@@ -127,13 +127,13 @@ class Organizations_Provider {
             let notificationName = NSNotification.Name("MatchedOrgsDone")
             NotificationCenter.default.post(name: notificationName, object: nil)
         }
-        print(self.postIDS)
-        print(self.apps)
+        //print(self.postIDS)
+        //print(self.apps)
     }
     
     func getOrgNameAndType(ID: Int) -> (String, String) {
         for i in 0..<self.organizations.count {
-            let nextID = Int(self.organizations[i].id)
+            let nextID = self.organizations[i].id
             if ID == nextID {
                 return (self.organizations[i].name, self.organizations[i].type)
             }
