@@ -115,7 +115,7 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             return cell
         }
         // questions
-        else if indexPath.section == 2 {
+        else if indexPath.section == 2 && self.currentQuestionIndex < (self.specificPosting.questions?.count)! {
 //            if indexPath.row ==
             
             // get the question to render
