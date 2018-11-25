@@ -63,6 +63,10 @@ class Login_Provider {
         self.defaults.set(encodedData2, forKey: "accountType")
         self.defaults.set(encodedData3, forKey: "name")
         self.defaults.synchronize()
+        
+        
+        Organizations_Provider.shared.clearAll()
+        
         let notificationName = NSNotification.Name("clearDefaults")
         NotificationCenter.default.post(name: notificationName, object: nil)
     }

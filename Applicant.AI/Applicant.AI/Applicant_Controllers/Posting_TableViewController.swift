@@ -36,6 +36,7 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     // Properties
     var specificPosting: Posting!
     var orgName: String!
+    var orgID: String!
     var currentQuestionIndex = 0; // keeps track of question to render
     var currentPickerIndex = 0;
     var applicant_answers = [String]()
@@ -116,7 +117,6 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
         }
         // questions
         else if indexPath.section == 2 && self.currentQuestionIndex < (self.specificPosting.questions?.count)! {
-//            if indexPath.row ==
             
             // get the question to render
             let currentQuestion = self.specificPosting.questions?[self.currentQuestionIndex]
@@ -225,8 +225,10 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             self.showSuccessAlert()
         }
         
-        // add the posting
-        Organizations_Provider.shared.appID.append(self.specificPosting.id)
+        // add the posting and org
+        Organizations_Provider.shared.addApp(ID: self.specificPosting.id);
+        let newID = Int(self.orgID) ?? -9
+        Organizations_Provider.shared.addOrg(ID: newID)
     }
     
     // Send us back to the previous controller

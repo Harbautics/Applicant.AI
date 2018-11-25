@@ -38,6 +38,9 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         let notificationName2 = NSNotification.Name("MatchedOrgsDone")
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: notificationName2, object: nil)
         
+        // Force a match, which will reload -- this really only matters on log-outs / log ins
+        Organizations_Provider.shared.matchOrganizations()
+        
         // Search
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation =  false
@@ -55,12 +58,23 @@ class Applicant_All_Orgs_TableViewController: UITableViewController, UISearchBar
         self.refreshControl = refreshControl
     }
     
-    @objc func refreshAPICall() {
+    override func viewWillAppear(_ animated: Bool) {
+        // Force Match -- coming back from other controller
+        // Also when logging in as different user!
+        print("appearing")
         Organizations_Provider.shared.refreshOrganizations()
+        Organizations_Provider.shared.refreshSubmissions()
+    }
+    
+    @objc func refreshAPICall() {
+        print("refreshing orgs")
+        Organizations_Provider.shared.refreshOrganizations()
+        Organizations_Provider.shared.refreshSubmissions()
     }
 
     // The callback function when we have organizations data
     @objc func reloadTableView() {
+        print("reloading...")
         // pull data from global shared
         self.all_organizations = Organizations_Provider.shared.organizations
         self.applied_organizations = self.all_organizations.filter({ (org) -> Bool in
