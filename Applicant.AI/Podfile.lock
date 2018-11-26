@@ -58,10 +58,12 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - OneSignal (2.9.3)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
+  - OneSignal (< 3.0, >= 2.6.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -75,6 +77,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - nanopb
+    - OneSignal
 
 SPEC CHECKSUMS:
   Firebase: 9190018e296139d938b99521cde0c15a6e8d2946
@@ -87,7 +90,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  OneSignal: a506e3bc61d2030f0757faf9bd783a9b211c6e3c
 
-PODFILE CHECKSUM: a548ee2086ba2eb3fc73b766aa50a1275e7992ac
+PODFILE CHECKSUM: 11f40b6b2786ebc83364e3dc340fe6738a10ecf0
 
 COCOAPODS: 1.5.3

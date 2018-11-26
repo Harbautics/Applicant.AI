@@ -16,6 +16,7 @@ public class ApplicantAPIManager {
         static let getOrganizations = URL(string: "\(baseURL)/getOrganizationInfo")!
         static let submitApplication = URL(string: "\(baseURL)/CreateSubmission")!
         static let getApplications = URL(string: "\(baseURL)/getAllSubmissions")!
+        static let setPlayerID = URL(string: "\(baseURL)/setPlayerID")!
     }
     
     // A generic fetch that gets JSON and calls the completion handler
@@ -163,6 +164,7 @@ public class ApplicantAPIManager {
         var organizations = [Organization]()
         let url = APIURLs.getOrganizations
         fetch(url: url) { (json) in
+            //print("Org json:\n," json)
             // if we can pull out of the JSON
             if let organizationsJSON = json?.dictionary!["organizations"] {
                 print("Orgs\n", organizationsJSON)
@@ -211,6 +213,26 @@ public class ApplicantAPIManager {
                 completionHandler(applications)
             }
         }
+    }
+    
+    public class func setPlayerID(completionHandler: @escaping (JSON) -> Void) {
+        print("setting playerID in database")
+        let url = APIURLs.setPlayerID
         
+        let jsonObject: [String: String] = [
+            "email": Login_Provider.shared.getUsername(),
+            "playerID": Notification_Provider.shared.getPlayerID()
+        ]
+        
+        print(Login_Provider.shared.getUsername())
+        print(Notification_Provider.shared.getPlayerID())
+
+        postData(url: url, data: jsonObject) { (json) in
+            print("api function return")
+            print(json ?? "no json")
+            DispatchQueue.main.async {
+                completionHandler(json ?? ["response": "no response"])
+            }
+        }
     }
 }
