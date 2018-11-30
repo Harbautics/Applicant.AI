@@ -114,7 +114,7 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { [weak alert] (_) in
             self.updateQuestion(newText: alert!.textFields![0].text ?? "no name", forIndex: forIndex)
-            self.setPostingName(nameIn: alert!.textFields![0].text ?? "no name")
+            //self.setPostingName(nameIn: alert!.textFields![0].text ?? "no name")
         }))
         // not allowing cancel right now
         
