@@ -38,7 +38,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iEn-FD-31l">
-                                            <rect key="frame" x="18" y="20.000000000000142" width="32" height="32"/>
+                                            <rect key="frame" x="18" y="20.333333333333329" width="32" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="8RF-qZ-uAY"/>
                                                 <constraint firstAttribute="width" constant="32" id="mj7-FU-sPT"/>
@@ -525,13 +525,11 @@
             </objects>
             <point key="canvasLocation" x="3396" y="26.53673163418291"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Applications-->
         <scene sceneID="XuU-VL-jvn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X49-Yg-xrz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="apps" id="ZhS-PT-Bg7">
-                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Applications" image="apps" id="ZhS-PT-Bg7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AuC-Nb-jSW">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -546,12 +544,11 @@
             </objects>
             <point key="canvasLocation" x="1791.2" y="26.53673163418291"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Organizations-->
         <scene sceneID="Ur5-AI-29N">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X09-r0-P9N" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="org" id="a5F-Bf-7Gl">
-                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
+                    <tabBarItem key="tabBarItem" title="Organizations" image="org" id="a5F-Bf-7Gl">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -961,8 +958,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="apps" width="33" height="28"/>
+        <image name="apps" width="6.5999999046325684" height="5.5999999046325684"/>
         <image name="background" width="1080" height="1920"/>
-        <image name="org" width="41" height="28"/>
+        <image name="org" width="8.1999998092651367" height="5.5999999046325684"/>
     </resources>
 </document>
