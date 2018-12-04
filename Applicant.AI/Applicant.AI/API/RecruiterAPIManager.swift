@@ -18,6 +18,7 @@ public class RecruiterAPIManager {
         static let createUser = URL(string: "\(baseURL)/CreateUser")!
         static let updateApplicantStatus = URL(string: "\(baseURL)/updateApplicant")!
         static let getAllApplicantsFromPosting = URL(string: "\(baseURL)/getApplicantsFromPosting")!
+        static let deletePosting = URL(string: "\(baseURL)/deletePosting")!
     }
     
     // A generic fetch that gets JSON and calls the completion handler
@@ -237,11 +238,7 @@ public class RecruiterAPIManager {
             }
         
         }
-        
-//        postData(url: url, data: dataJSON) { (json) in
-//            response = json ?? ["response": "no response"]
-//            completionHandler(response)
-//        }
+    
     }
     
     public class func createUser(data: [String: String], completionHandler: @escaping ((JSON) -> Void)) {
@@ -308,6 +305,24 @@ public class RecruiterAPIManager {
                 DispatchQueue.main.async {
                     completionHandler([Applicant()])
                 }
+            }
+        }
+    }
+    
+    public class func deletePosting(orgName: String, posName: String, completionHandler: @escaping ((JSON) -> Void)) {
+        let url = APIURLs.deletePosting
+        
+        let jsonObject: [String: String] = [
+            "org_name": orgName,
+            "pos_name": posName
+        ]
+        
+        var response = JSON()
+        
+        postData(url: url, data: jsonObject) { (json) in
+            response = json ?? ["response": "no response"]
+            DispatchQueue.main.async {
+                completionHandler(response)
             }
         }
     }

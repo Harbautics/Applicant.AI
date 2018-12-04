@@ -79,7 +79,41 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
+            print("Delete Posting")
+            let alert = UIAlertController(title: "Delete Posting", message: "Are you sure you want to permanently Delete Posting?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+                
+            }))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                let orgName = self.specificOrganization.name
+                let posName = tableView.cellForRow(at: indexPath)?.textLabel?.text
 
+                print(orgName)
+                print(posName!)
+                
+                self.specificOrganization.postings?.remove(at: indexPath.row)
+
+                print(self.specificOrganization.postings!)
+                RecruiterAPIManager.deletePosting(orgName: orgName, posName: posName!) { (json) in
+                    print("Deleting posting")
+                    print(json)
+                }
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                self.tableView.reloadData()
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+            self.tableView.reloadData()
+        }
+        deleteAction.backgroundColor = .red
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
