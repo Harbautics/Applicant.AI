@@ -56,9 +56,9 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if self.specificOrganization.postings?.count == 0 {
-            return 1
-        }
+//        if self.specificOrganization.postings?.count == 0 {
+//            return 1
+//        }
         return self.specificOrganization.postings?.count ?? 0
     }
 
@@ -92,18 +92,13 @@ class Recruiter_SpecificOrg_TableViewController: UITableViewController {
                 let orgName = self.specificOrganization.name
                 let posName = tableView.cellForRow(at: indexPath)?.textLabel?.text
 
-                print(orgName)
-                print(posName!)
-                
-                self.specificOrganization.postings?.remove(at: indexPath.row)
-
-                print(self.specificOrganization.postings!)
                 RecruiterAPIManager.deletePosting(orgName: orgName, posName: posName!) { (json) in
-                    print("Deleting posting")
+                    print("Deleting posting \(posName!) from \(orgName)")
                     print(json)
                 }
+            
+                self.specificOrganization.postings?.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
-                self.tableView.reloadData()
             }))
             
             self.present(alert, animated: true, completion: nil)
