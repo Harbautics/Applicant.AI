@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 // For spinner
 extension UIViewController {
     class func displaySpinner(onView : UIView) -> UIView {
@@ -120,29 +121,51 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             
             // get the question to render
             let currentQuestion = self.specificPosting.questions?[self.currentQuestionIndex]
-            
+            /******** added ********/
+            print("Hi")
+            let question = currentQuestion?.question ?? "`"
+            let question_list = question.components(separatedBy: "`")
+            let question_type = question_list[1]
+            let question_text = question_list[0]
+            /***********************/
             // text entry
-            if currentQuestion?.type == "text" {
+            //if currentQuestion?.type == "text" {
+            /******** added ********/
+            print(question_type)
+            if question_type == "text" {
+            /***********************/
                 let cell = tableView.dequeueReusableCell(withIdentifier: "textAnswerCell", for: indexPath) as! TextAnswer_TableViewCell
                 
-                cell.configure(questionIn: currentQuestion?.question ?? "no question text", questionIndexIn: self.currentQuestionIndex, controller: self, answerIn: "", viewIn: self.view)
+                cell.configure(questionIn: question_text, questionIndexIn: self.currentQuestionIndex, controller: self, answerIn: "", viewIn: self.view, typeIn: "text")
                 
                 // move to next question
+                self.currentQuestionIndex += 1
+                
+                return cell
+            }
+            else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "textAnswerCell", for: indexPath) as! TextAnswer_TableViewCell
+                
+                cell.configure(questionIn: question_text, questionIndexIn: self.currentQuestionIndex, controller: self, answerIn: "", viewIn: self.view, typeIn: "numeric")
+                
                 self.currentQuestionIndex += 1
                 
                 return cell
             }
             // dropdown
-            else {
+            /*else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "dropdownAnswerCell", for: indexPath) as! Dropdown_Answer_TableViewCell
                 
-                cell.configure(answersIn: currentQuestion?.answers_list ?? [""], questionIn: currentQuestion?.question ?? "no question text", questionIndexIn: self.currentQuestionIndex, controller: self)
-                
+                let answer_choices = question_list[2]
+                let answer_choices_list = answer_choices.components(separatedBy: ",")
+                print(answer_choices_list)
+                /*cell.configure(answersIn: currentQuestion?.answers_list ?? [""], questionIn: currentQuestion?.question ?? "no question text", questionIndexIn: self.currentQuestionIndex, controller: self)*/
+                cell.configure(answersIn: answer_choices_list, questionIn: question_list[0], questionIndexIn: self.currentQuestionIndex, controller: self)
                 // move to next question
                 self.currentQuestionIndex += 1
                 
                 return cell
-            }
+            }*/
         }
         // submit button cell
         else {
@@ -193,7 +216,17 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
     
     // Function to submit question to API
     @objc func submitApplication() {
+        var answers_ML = [[String]]()
         self.specificPosting.questions?.forEach({
+            let question = $0.question
+            let question_list = question.components(separatedBy: "`")
+            let question_type = question_list[1]
+            if (question_type == "text") {
+                answers_ML.append(["-1","-1"])
+            }
+            else {
+                answers_ML.append(["-2", $0.applicant_answer!])
+            }
             applicant_answers.append($0.applicant_answer!)
         })
         
@@ -211,7 +244,7 @@ class Posting_TableViewController: UITableViewController, UITextViewDelegate {
             "email": Login_Provider.shared.getUsername(),
             "pos_name": self.specificPosting.name,
             "answers": applicant_answers,
-            "answers_ML": [[-2, Double((Float(arc4random()) / Float(UINT32_MAX)) * 100.0)]]
+            "answers_ML": answers_ML
         ]
         
         let sv = UIViewController.displaySpinner(onView: self.view)

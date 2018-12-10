@@ -19,15 +19,17 @@ class TextAnswer_TableViewCell: UITableViewCell, UITextViewDelegate {
     var answer = String()
     var displayedQuestion = String()
     var view: UIView!
+    var type: String!
     
     
     // Sets the question label and the text entry field
-    func configure(questionIn: String, questionIndexIn: Int, controller: Posting_TableViewController, answerIn: String, viewIn: UIView) {
+    func configure(questionIn: String, questionIndexIn: Int, controller: Posting_TableViewController, answerIn: String, viewIn: UIView, typeIn: String) {
         self.postingTVC = controller
         self.questionIndex = questionIndexIn
         self.answer = answerIn
         self.displayedQuestion = questionIn
         self.view = viewIn
+        self.type = typeIn
         
         // set the prompt and placeholder
         self.question.text = questionIn
@@ -73,5 +75,8 @@ class TextAnswer_TableViewCell: UITableViewCell, UITextViewDelegate {
         //setting toolbar as inputAccessoryView
         self.textEntryArea.inputAccessoryView = toolbar
         self.textEntryArea.inputAccessoryView = toolbar
+        if (self.type == "numeric") {
+            self.textEntryArea.keyboardType = UIKeyboardType.decimalPad
+        }
     }
 }

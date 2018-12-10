@@ -61,7 +61,88 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
     
     func showQuestionAlert() {
         //1. Create the alert controller.
-        let alert = UIAlertController(title: "New Question", message: "Enter a new question", preferredStyle: .alert)
+        let sheet = UIAlertController(title: "Question Type", message: "Enter the response type of your question", preferredStyle: .actionSheet)
+        let text_opt = UIAlertAction(title: "Text", style: .default) { (action) in
+            // text action
+            //let type = "text"
+            //self.question_types.append("text")
+            let alert = UIAlertController(title: "New Question", message: "Enter a new question", preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.text = ""
+            }
+            alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { [weak alert] (_) in
+                if alert!.textFields![0].text != "" {
+                    //let q = Question_obj(question_in: alert!.textFields![0].text ?? "no question", type_in: "text")
+                    let question = alert!.textFields![0].text ?? "no question"
+                    let type = "text"
+                    self.addQuestion(newQuestion: "\(question)`\(type)")
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        sheet.addAction(text_opt)
+        let numerical_opt = UIAlertAction(title: "Numeric", style: .default) { (action) in
+            // numerical action
+            //self.question_types.append("numeric")
+            let alert = UIAlertController(title: "New Question", message: "Enter a new question (numeric answer)", preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.text = ""
+                textField.keyboardType = .numberPad
+            }
+            alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { [weak alert] (_) in
+                if alert!.textFields![0].text != "" {
+                    let question = alert!.textFields![0].text ?? "no question"
+                    let type = "numeric"
+                    self.addQuestion(newQuestion: "\(question)`\(type)")
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        sheet.addAction(numerical_opt)
+        /*let select_opt = UIAlertAction(title: "Select Option", style: .default) { (action) in
+            // select action
+            //self.question_types.append("select")
+            let alert = UIAlertController(title: "New Question", message: "Enter a new question", preferredStyle: .alert)
+            alert.addTextField{ (textField) in
+                textField.text = ""
+            }
+            var q: String?
+            alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { [weak alert] (_) in
+                if alert!.textFields![0].text != "" {
+                    q = alert!.textFields![0].text ?? "no question"
+                    //self.addQuestion(newQuestion: alert!.textFields![0].text ?? "no question")
+                }
+                let alert2 = UIAlertController(title: "Answer Choices", message: "Enter the answer options, separated by commas", preferredStyle: .alert)
+                alert2.addTextField { (textField) in
+                    textField.text = ""
+                }
+                alert2.addAction(UIAlertAction(title: "Create", style: .default, handler: { [weak alert2] (_) in
+                    if alert2!.textFields![0].text != "" {
+                        //let question = alert!.textFields![0].text ?? "no question"
+                        let type = "select"
+                        let choices = alert2!.textFields![0].text ?? ""
+                        self.addQuestion(newQuestion: "\(q ?? "no question")`\(type)`\(choices)")
+                        //self.addQuestion(newQuestion: q ?? "no question", newType: "select", newChoices: alert!.textFields![0].text ?? "")
+                    }
+                }))
+                self.present(alert2, animated: true, completion: nil)
+            }))
+            
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            
+        }
+        sheet.addAction(select_opt)*/
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            // cancel actions
+        }
+        sheet.addAction(cancel)
+        
+        self.present(sheet, animated: true, completion: nil)
+        
+        
+        /*let alert = UIAlertController(title: "New Question", message: "Enter a new question", preferredStyle: .alert)
         
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
@@ -77,7 +158,7 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
         // not allowing cancel right now
         
         // 4. Present the alert.
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)*/
     }
     
     func showNameAlert() {
@@ -163,7 +244,8 @@ class Recruiter_Create_Posting_Questions_TableViewController: UITableViewControl
             cell.textLabel?.text = "Tap '+' to create questions"
         }
         else {
-            cell.textLabel?.text = self.questions[indexPath.row]
+            let questions_list = self.questions[indexPath.row].components(separatedBy: "`")
+            cell.textLabel?.text = questions_list[0]
         }
         
 
