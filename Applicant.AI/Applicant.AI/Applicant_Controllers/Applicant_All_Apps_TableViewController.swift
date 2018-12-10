@@ -155,7 +155,9 @@ class Applicant_All_Apps_TableViewController: UITableViewController {
             if let specific_app_TVC = segue.destination as? Applicant_Specific_TableViewController {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     specific_app_TVC.specificApplication = self.applications[indexPath.row]
-                    specific_app_TVC.title = "Testing title" //sampleData[indexPath.row].position_name
+                    let backItem = UIBarButtonItem()
+                    backItem.title = "Back"
+                    navigationItem.backBarButtonItem = backItem
                 }
             }
         }

@@ -16,8 +16,13 @@ class Applicant_Specific_Org_TableViewController: UITableViewController, MFMailC
     
     override func viewDidLoad() {
         navigationItem.title = specificOrg.name
-                        
+        
         super.viewDidLoad()
+    }
+    
+    // reloads table any time it reappears, hopefully shows APPLIED now
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -83,8 +88,6 @@ class Applicant_Specific_Org_TableViewController: UITableViewController, MFMailC
         else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postingCell", for: indexPath)
             
-            let ID = Int(self.specificOrg.id) ?? -2
-            
             if self.specificOrg.postings?.count == 0 {
                 cell.textLabel?.text = "No Postings Yet"
                 cell.detailTextLabel?.text = ""
@@ -93,7 +96,8 @@ class Applicant_Specific_Org_TableViewController: UITableViewController, MFMailC
             else {
                 cell.textLabel?.text = specificOrg.postings?[indexPath.row].name ?? "no name"
                 
-                if Organizations_Provider.shared.didUserApply(ID: ID) {
+                let postID = specificOrg.postings?[indexPath.row].id ?? -11
+                if Organizations_Provider.shared.didUserApplyToPosting(postID: postID) {
                     cell.detailTextLabel?.text = "APPLIED ✅"
                     cell.accessoryType = .none
                     cell.isUserInteractionEnabled = false
@@ -219,6 +223,7 @@ class Applicant_Specific_Org_TableViewController: UITableViewController, MFMailC
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     postingTVC.specificPosting = self.specificOrg.postings?[indexPath.row]
                     postingTVC.orgName = self.specificOrg.name
+                    postingTVC.orgID = self.specificOrg.id
                 }
             }
         }

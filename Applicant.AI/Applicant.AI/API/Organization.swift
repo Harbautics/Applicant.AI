@@ -40,7 +40,7 @@ public class Organization: NSObject {
     
     //Properties
     public var name: String
-    public var id: String
+    public var id: Int
     public var members: [Member]?
     public var postings: [Posting]?
     public var type: String
@@ -51,7 +51,7 @@ public class Organization: NSObject {
     
     // Constructors
     // init with all data
-    init(name:String, id:String, members:[Member]?, postings: [Posting]?, type: String, location: String, contact: String, info: String){
+    init(name: String, id: Int, members:[Member]?, postings: [Posting]?, type: String, location: String, contact: String, info: String){
         self.id = id
         self.name = name
         self.members = members
@@ -64,7 +64,7 @@ public class Organization: NSObject {
         super.init()
     }
     // init with just name and id
-    init(name: String, id: String) {
+    init(name: String, id: Int) {
         self.id = id
         self.name = name
         self.members = [Member]()
@@ -79,7 +79,7 @@ public class Organization: NSObject {
     // only to be used when creating a new organization, then will set the correct ID later on
     init(name_in: String) {
         self.name = name_in
-        self.id = "-1"
+        self.id = -1
         self.members = [Member]()
         self.postings = [Posting]()
         self.type = "Education"
@@ -91,7 +91,7 @@ public class Organization: NSObject {
     }
     // default constructor - init with no data
     override init() {
-        self.id = "default"
+        self.id = -1
         self.name = "default"
         self.members = [Member]()
         self.postings = [Posting]()
@@ -104,24 +104,26 @@ public class Organization: NSObject {
     }
     
     // init from JSON
-    convenience init?(id: String, json: JSON) {
-        print(json)
+    convenience init?(id: Int, json: JSON) {
+        //print(json)
         if let name_JSON = json["name"].string,
             let membersJSON = json["members"].array,
             let postingsJSON = json["postings"].array,
             let locationJSON = json["location"].string,
             let contactJSON = json["contactEmail"].string,
-            let infoJSON = json["infoLink"].string{
+            let infoJSON = json["infoLink"].string,
+            let orgType = json["orgType"].string {
             
             // $0 just means for each JSON entry - for each JSON entry, create a new Member/Posting
             let memberList = membersJSON.map { Member(json: $0) }
             let postingList = postingsJSON.map {Posting(json: $0) }
             
-            let rand = 0 + Int(arc4random_uniform(UInt32(3 - 0 + 1)))
-            let types = ["Business", "Professional", "Social", "School"]
-            let type = types[rand]
+            // TODO: pull type out of response
+//            let rand = 0 + Int(arc4random_uniform(UInt32(3 - 0 + 1)))
+//            let types = ["Business", "Professional", "Social", "School"]
+//            let orgType = types[rand]
            
-            self.init(name: name_JSON, id: id, members: memberList as? [Member], postings: postingList as? [Posting], type: type, location: locationJSON, contact: contactJSON, info: infoJSON)
+            self.init(name: name_JSON, id: id, members: memberList as? [Member], postings: postingList as? [Posting], type: orgType, location: locationJSON, contact: contactJSON, info: infoJSON)
         }
         else {
             self.init()

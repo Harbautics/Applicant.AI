@@ -8,6 +8,8 @@ target 'Applicant.AI' do
   # Pods for Applicant.AI
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'OneSignal', '>= 2.6.2', '< 3.0'
+
   target 'Applicant.AITests' do
     inherit! :search_paths
     # Pods for testing
@@ -18,4 +20,9 @@ target 'Applicant.AI' do
     # Pods for testing
   end
 
+  target 'OneSignalNotificationServiceExtension' do
+    inherit! :search_paths
+    pod 'OneSignal', '>= 2.6.2', '< 3.0'
+  end
+  
 end

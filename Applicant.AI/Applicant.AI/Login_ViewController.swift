@@ -33,22 +33,21 @@ class Login_ViewController: UIViewController {
                         "password": self.password.text!
                     ]
                     let accountType = self.accountType.titleForSegment(at: self.accountType.selectedSegmentIndex) ?? "no account type"
-                    Login_Provider.shared.logInUser(usernameIn: self.email.text!, accountTypeIn: accountType, nameIn: self.fullName.text!)
                     
                     RecruiterAPIManager.createUser(data: jsonObject, completionHandler: { (json) in
                         print("Create User returns:\n", json)
+                        
+                        Login_Provider.shared.logInUser(usernameIn: self.email.text!, accountTypeIn: accountType, nameIn: self.fullName.text!)
+
+                        // segue to applicant
+                        if accountType == "Applicant" {
+                            self.performSegue(withIdentifier: "login_as_applicant", sender: self)
+                        }
+                            // segue to recruiter
+                        else {
+                            self.performSegue(withIdentifier: "login_as_recruiter", sender: self)
+                        }
                     })
-                    
-                    // segue to applicant
-                    if accountType == "Applicant" {
-                        self.performSegue(withIdentifier: "login_as_applicant", sender: self)
-                    }
-                        // segue to recruiter
-                    else {
-                        self.performSegue(withIdentifier: "login_as_recruiter", sender: self)
-                    }
-                    
-                    
                 }
                 if error != nil {
                     print(":(")

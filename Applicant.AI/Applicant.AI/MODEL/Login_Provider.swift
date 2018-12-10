@@ -20,7 +20,7 @@ class Login_Provider {
     static let shared = Login_Provider()
     
     private init() {
-        self.username = self.defaults.object(forKey: "username") as? String ?? "no user"
+        self.username = self.defaults.object(forKey: "username") as? String ?? ""
         self.name = self.defaults.object(forKey: "name") as? String ?? "no name from defaults"
         
         self.accountType = self.defaults.object(forKey: "accountType") as? String ?? "no account type"
@@ -45,7 +45,13 @@ class Login_Provider {
         
         self.defaults.synchronize()
         let notificationName = NSNotification.Name("loggedInUser")
-        NotificationCenter.default.post(name: notificationName, object: nil)        
+        NotificationCenter.default.post(name: notificationName, object: nil)
+        
+        if self.accountType == "Applicant" {
+            ApplicantAPIManager.setPlayerID { (json) in
+                print("return from set playerID:\n", json)
+            }
+        }
     }
     
     func isLoggedIn() -> Bool {
@@ -63,6 +69,10 @@ class Login_Provider {
         self.defaults.set(encodedData2, forKey: "accountType")
         self.defaults.set(encodedData3, forKey: "name")
         self.defaults.synchronize()
+        
+        
+        Organizations_Provider.shared.clearAll()
+        
         let notificationName = NSNotification.Name("clearDefaults")
         NotificationCenter.default.post(name: notificationName, object: nil)
     }

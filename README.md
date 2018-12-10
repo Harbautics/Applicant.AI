@@ -14,31 +14,65 @@
 │   │   ├── RecruiterAPIManager.swift
 │   │   └── SwiftyJSON.swift
 │   ├── AppDelegate.swift
+│   ├── Applicant.AI.entitlements
 │   ├── Applicant_Controllers
 │   │   ├── Applicant_All_Apps_TableViewController.swift
 │   │   ├── Applicant_All_Orgs_TableViewController.swift
 │   │   ├── Applicant_Specific_Org_TableViewController.swift
 │   │   ├── Applicant_Specific_TableViewController.swift
-│   │   ├── Login_ViewController.swift
 │   │   └── Posting_TableViewController.swift
 │   ├── Assets.xcassets
 │   │   ├── AppIcon.appiconset
 │   │   │   ├── Contents.json
+│   │   │   ├── appicon10801080.png
 │   │   │   ├── appicon602x.png
 │   │   │   └── appicon603x.png
 │   │   ├── Contents.json
 │   │   ├── appicon.imageset
 │   │   │   ├── Contents.json
 │   │   │   └── appicon.png
+│   │   ├── apps.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── apps.png
+│   │   ├── background.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── background.png
+│   │   ├── brain.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── brain.png
+│   │   ├── business-2.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── business-2.png
+│   │   ├── business.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── business.png
 │   │   ├── first.imageset
 │   │   │   ├── Contents.json
 │   │   │   └── first.pdf
+│   │   ├── gear.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── noun_Settings_2051977.png
+│   │   ├── launch.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── launch.png
 │   │   ├── multiple-users-silhouette.imageset
 │   │   │   ├── Contents.json
 │   │   │   └── multiple-users-silhouette.png
+│   │   ├── org.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── org.png
+│   │   ├── professional.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── professional.png
+│   │   ├── school.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── education.png
 │   │   ├── second.imageset
 │   │   │   ├── Contents.json
 │   │   │   └── second.pdf
+│   │   ├── social.imageset
+│   │   │   ├── Contents.json
+│   │   │   └── social.png
 │   │   └── text-document.imageset
 │   │       ├── Contents.json
 │   │       └── text-document.png
@@ -48,15 +82,20 @@
 │   ├── CELLS
 │   │   ├── Description_TableViewCell.swift
 │   │   ├── Dropdown_Answer_TableViewCell.swift
+│   │   ├── Org_Info_TableViewCell.swift
+│   │   ├── Organization_TableViewCell.swift
 │   │   ├── Question_Answer_TableViewCell.swift
 │   │   ├── Status_TableViewCell.swift
 │   │   ├── Submit_TableViewCell.swift
 │   │   └── TextAnswer_TableViewCell.swift
+│   ├── Globals.swift
 │   ├── GoogleService-Info.plist
 │   ├── Info.plist
+│   ├── Login_ViewController.swift
 │   ├── MODEL
 │   │   ├── Applications_Provider.swift
 │   │   ├── Login_Provider.swift
+│   │   ├── Notification_Provider.swift
 │   │   └── Organizations_Provider.swift
 │   └── Recruiter_Controllers
 │       ├── Recruiter_All_Orgs_TableViewController.swift
@@ -76,9 +115,6 @@
 │   │       └── troystacer.xcuserdatad
 │   │           └── UserInterfaceState.xcuserstate
 │   └── xcuserdata
-│       ├── alexisopsasnick.xcuserdatad
-│       │   └── xcschemes
-│       │       └── xcschememanagement.plist
 │       ├── jordanwolff.xcuserdatad
 │       │   └── xcschemes
 │       │       └── xcschememanagement.plist
@@ -90,14 +126,45 @@
 │   ├── xcshareddata
 │   │   └── IDEWorkspaceChecks.plist
 │   └── xcuserdata
-│       └── alexisopsasnick.xcuserdatad
-│           └── UserInterfaceState.xcuserstate
+│       └── troystacer.xcuserdatad
+│           ├── UserInterfaceState.xcuserstate
+│           └── xcdebugger
+│               └── Breakpoints_v2.xcbkptlist
 ├── Applicant.AITests
 │   ├── Applicant_AITests.swift
 │   └── Info.plist
 ├── Applicant.AIUITests
 │   ├── Applicant_AIUITests.swift
 │   └── Info.plist
+├── Icons
+│   ├── Logo
+│   │   ├── lanch.psd
+│   │   ├── launch-clear.png
+│   │   ├── noun_Artificial\ Intelligence_1903141-2.png
+│   │   ├── noun_Artificial\ Intelligence_1903141-3.png
+│   │   ├── noun_Artificial\ Intelligence_1903141-4.png
+│   │   ├── noun_Artificial\ Intelligence_1903141.png
+│   │   └── noun_Artificial\ Intelligence_1903141_000000.png
+│   ├── apps.png
+│   ├── business-2.png
+│   ├── business.png
+│   ├── education.png
+│   ├── noun_application_204586-2.png
+│   ├── noun_application_204586-3.png
+│   ├── noun_application_204586-4.png
+│   ├── noun_application_204586.png
+│   ├── noun_application_204586_000000.png
+│   ├── noun_people_1393854-2.png
+│   ├── noun_people_1393854-3.png
+│   ├── noun_people_1393854-4.png
+│   ├── noun_people_1393854.png
+│   ├── noun_people_1393854_000000.png
+│   ├── org.png
+│   ├── professional.png
+│   └── social.png
+├── OneSignalNotificationServiceExtension
+│   ├── Info.plist
+│   └── NotificationService.swift
 ├── Podfile
 ├── Podfile.lock
 ├── Pods

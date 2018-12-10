@@ -8,21 +8,40 @@
 
 import UIKit
 import Firebase
+import OneSignal
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, OSSubscriptionObserver {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // ONE SIGNAL
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        
+        // Replace 'YOUR_APP_ID' with your OneSignal App ID.
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: "ee43c9de-4f3b-4710-bd29-56ddae58a30a",
+                                        handleNotificationAction: nil,
+                                        settings: onesignalInitSettings)
+        
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+        
+        // Recommend moving the below line to prompt for push after informing the user about
+        //   how your app will use them.
+        OneSignal.promptForPushNotifications(userResponse: { accepted in
+            print("User accepted notifications: \(accepted)")
+        })
+        
+        OneSignal.add(self as OSSubscriptionObserver)
+        
+        
+        // FIREBASE LOGIN
+        
         FirebaseApp.configure()
-        
-        // Tab bar selection colors
-        UITabBar.appearance().tintColor = globals.colors.main_blue
-        
-        //print(Organizations_Provider.shared)
-        
+    
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 
         //Login_Provider.shared.clearDefaults() // uncomment when you want to clear the user and then direct to login screen
@@ -45,8 +64,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
+        // Tab bar selection colors
+        UITabBar.appearance().tintColor = globals.colors.main_blue
         
         return true
+    }
+    
+    // After you add the observer on didFinishLaunching, this method will be called when the notification subscription property changes.
+    func onOSSubscriptionChanged(_ stateChanges: OSSubscriptionStateChanges!) {
+        if !stateChanges.from.subscribed && stateChanges.to.subscribed {
+            print("Subscribed for OneSignal push notifications!")
+        }
+        print("SubscriptionStateChange: \n\(stateChanges)")
+        
+        //The player id is inside stateChanges. But be careful, this value can be nil if the user has not granted you permission to send notifications.
+        if let playerId = stateChanges.to.userId {
+            // update DB with player id
+            print("playerID changed: ", playerId)
+            Notification_Provider.shared.setPlayerID(newID: playerId)
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
